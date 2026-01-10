@@ -46,7 +46,7 @@ export default function AboutSection() {
               <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                 <img
                   src="https://image.yes24.com/momo/TopCate5502/MidCate007/550165343.jpg?rb-4.1.0&q=80&w=1080"
-                  alt="Maya Moon"
+                  alt="Hyejeong Moon"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -63,7 +63,7 @@ export default function AboutSection() {
               className="text-[36px] mb-8 font-serif text-[#3D3D3D]"
               style={{ fontFamily: 'Fraunces, serif' }}
             >
-              About Maya
+              About Hyejeong
             </h2>
             
             <div 
@@ -71,11 +71,11 @@ export default function AboutSection() {
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               <p>
-                With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Maya Flor—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
+                With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejeong's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
               </p>
               
               <p>
-                Flowers taught me that we all have our own seasons, and beauty isn't about perfection—it's about authenticity. I've shared these reflections in Every Moment That Needs Flowers, Eco Flower Recipe, and A Seasonal Flower Work Journal. Recently, I began writing The Tarot Café, revisiting my lifelong dream of storytelling and exploring how we learn to listen to ourselves.
+                Flowers taught me that we all have our own seasons, and beauty isn't about perfection—it's about authenticity. I've shared these reflections in Every Moment Needs Flowers, Eco Flower Recipe, and Season Flower Work Journal. Recently, I began writing Tarot Card Reading Café, revisiting my lifelong dream of storytelling and exploring how we learn to listen to ourselves.
               </p>
               
               <p>

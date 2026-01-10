@@ -26,8 +26,6 @@ export default function HeroSection() {
           alt="Flower Arrangement"
           className="w-full h-full object-cover"
         />
-        {/* Semi-transparent cream gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F3]/60 via-[#FAF8F3]/50 to-[#FAF8F3]/70" />
       </div>
 
       {/* Center Content */}
@@ -42,7 +40,7 @@ export default function HeroSection() {
             className="text-[56px] md:text-[72px] mb-4 font-serif text-[#3D3D3D]"
             style={{ fontFamily: 'Fraunces, serif' }}
           >
-            Maya Moon
+            Hyejeong Moon
           </h1>
           <p 
             className="text-[18px] tracking-[0.3em] text-[#2C3E2F] uppercase font-sans"

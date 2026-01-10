@@ -6,7 +6,7 @@ const featuredWorks = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1708863827471-4a46e65d2348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJvdCUyMGNhcmRzJTIwYm9va3xlbnwxfHx8fDE3NjgwMjk3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "타로카드 읽는 카페",
+    title: "Tarot Card Reading Café",
     description: "A journey through tarot wisdom and coffee culture, exploring the mystical connections between cards and daily life.",
     link: "#books"
   },

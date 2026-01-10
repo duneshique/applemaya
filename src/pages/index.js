@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Maya Moon | Author & Florist</title>
-        <meta name="description" content="Portfolio of Maya Moon - Author, Florist, and Tarot Reader based in Seoul." />
-        <meta property="og:title" content="Maya Moon | Author & Florist" />
-        <meta property="og:description" content="Portfolio of Maya Moon - Author, Florist, and Tarot Reader based in Seoul." />
+        <title>Hyejeong Moon | Author & Florist</title>
+        <meta name="description" content="Portfolio of Hyejeong Moon - Author, Florist, and Tarot Reader based in Seoul." />
+        <meta property="og:title" content="Hyejeong Moon | Author & Florist" />
+        <meta property="og:description" content="Portfolio of Hyejeong Moon - Author, Florist, and Tarot Reader based in Seoul." />
         <meta property="og:type" content="website" />
       </Head>
 

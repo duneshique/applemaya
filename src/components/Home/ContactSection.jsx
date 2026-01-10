@@ -64,7 +64,7 @@ export default function ContactSection() {
               letterSpacing: '0.05em'
             }}
           >
-            Get In Touch
+            Contact
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 font-sans"
@@ -111,13 +111,13 @@ export default function ContactSection() {
                     Email
                   </p>
                   <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=hyejeong@applemaya.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#3D3D3D] hover:text-[#9CAF88] transition-colors font-sans"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
-                    maya@applemaya.com
+                    hyejeong@applemaya.com
                   </a>
                 </div>
               </div>
@@ -146,6 +146,16 @@ export default function ContactSection() {
               </div>
             </div>
 
+            
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="mt-12 p-6 bg-[#E8DCC8]/30 rounded-2xl">
               <p
                 className="text-[#3D3D3D]/70 italic font-sans"
@@ -165,122 +175,9 @@ export default function ContactSection() {
                   fontSize: '16px'
                 }}
               >
-                — Maya
+                — Hyejeong
               </p>
             </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <form onSubmit={handleSubmit} className="space-y-6 font-sans">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-[#3D3D3D]"
-                  style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '14px'
-                  }}
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-[#E8DCC8]/30 border border-[#3D3D3D]/10 rounded-xl focus:outline-none focus:border-[#9CAF88] transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-[#3D3D3D]"
-                  style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '14px'
-                  }}
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-[#E8DCC8]/30 border border-[#3D3D3D]/10 rounded-xl focus:outline-none focus:border-[#9CAF88] transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block mb-2 text-[#3D3D3D]"
-                  style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '14px'
-                  }}
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-[#E8DCC8]/30 border border-[#3D3D3D]/10 rounded-xl focus:outline-none focus:border-[#9CAF88] transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block mb-2 text-[#3D3D3D]"
-                  style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '14px'
-                  }}
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-[#E8DCC8]/30 border border-[#3D3D3D]/10 rounded-xl focus:outline-none focus:border-[#9CAF88] transition-colors resize-none"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 bg-[#9CAF88] text-white rounded-full tracking-[0.2em] transition-all hover:bg-[#B85C50] hover:shadow-lg flex items-center justify-center gap-2"
-                style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
-              >
-                <Send size={18} />
-                SEND MESSAGE
-              </motion.button>
-            </form>
           </motion.div>
         </div>
       </div>

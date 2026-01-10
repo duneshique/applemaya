@@ -9,7 +9,7 @@ const mediaItems = [
     title: "The Art of Floral Storytelling",
     publication: "Seoul Design Magazine",
     date: "January 2026",
-    excerpt: "Maya Moon shares her unique approach to blending literary and botanical arts..."
+    excerpt: "Hyejeong Moon shares her unique approach to blending literary and botanical arts..."
   },
   {
     icon: Radio,
@@ -25,7 +25,7 @@ const mediaItems = [
     title: "Gardens & Pages: A Visual Essay",
     publication: "Kinfolk Magazine",
     date: "October 2025",
-    excerpt: "A photographic journey through Maya's studio and garden sanctuary..."
+    excerpt: "A photographic journey through Hyejeong's studio and garden sanctuary..."
   },
   {
     icon: Newspaper,

@@ -39,10 +39,17 @@ export default function Header() {
           <Link 
             href="/"
             className="text-2xl tracking-wide font-serif text-[#3D3D3D]"
-            style={{ fontFamily: 'Fraunces, serif' }}
+            style={{ 
+              fontFamily: 'Fraunces, serif',
+              WebkitFontSmoothing: 'antialiased'
+            }}
           >
-            <motion.span whileHover={{ scale: 1.05 }} className="inline-block">
-              Maya Moon
+            <motion.span 
+              whileHover={{ scale: 1.02 }} 
+              className="inline-block origin-left"
+              style={{ backfaceVisibility: 'hidden' }}
+            >
+              Hyejeong Moon
             </motion.span>
           </Link>
 
@@ -52,8 +59,12 @@ export default function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="tracking-[0.2em] text-[13px] transition-colors hover:text-[#9CAF88] text-[#3D3D3D]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                className="tracking-[0.2em] text-[13px] transition-all duration-300 hover:text-[#9CAF88] text-[#3D3D3D] inline-block"
+                style={{ 
+                  fontFamily: 'Inter, sans-serif',
+                  WebkitFontSmoothing: 'antialiased',
+                  transform: 'translateZ(0)'
+                }}
               >
                 {item.label}
               </a>

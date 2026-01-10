@@ -11,7 +11,7 @@ export default function Footer() {
             className="text-[28px] mb-2 font-serif text-[#3D3D3D]"
             style={{ fontFamily: 'Fraunces, serif' }}
           >
-            Maya Moon
+            Hyejeong Moon
           </h2>
           <p 
             className="text-[14px] text-[#6B7A6E] tracking-[0.2em] uppercase font-sans"
@@ -41,7 +41,7 @@ export default function Footer() {
             <BookOpen size={24} />
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=hyejeong@applemaya.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#6B7A6E] hover:text-[#9CAF88] transition-colors"
@@ -56,11 +56,10 @@ export default function Footer() {
             className="text-[12px] text-[#6B7A6E]/60 font-sans"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            © {currentYear} Maya Moon. All rights reserved.
+            © {currentYear} Hyejeong Moon. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
   );
 }
-

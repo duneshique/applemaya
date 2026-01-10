@@ -1,28 +1,28 @@
 export const imageData = {
   profile: {
     src: '/images/profile/maya-profile.webp',
-    alt: '문혜정 Maya',
+    alt: 'Hyejeong Moon',
     width: 800,
     height: 800
   },
   hero: {
     bg: '/images/flowers/hero-bg.webp',
-    alt: 'Maya Flor Hero Background'
+    alt: 'Hyejeong Studio Hero Background'
   },
   books: [
     {
       id: 'tarot-cafe',
-      title: '타로카드 읽는 카페',
+      title: 'Tarot Card Reading Café',
       cover: '/images/books/tarot-cafe.webp',
       thumbnail: '/images/books/tarot-cafe.webp', // Can be optimized later
-      alt: '타로카드 읽는 카페 표지'
+      alt: 'Tarot Card Reading Café Book Cover'
     },
     {
       id: 'eco-flower-recipe',
-      title: '에코 플라워 레시피',
+      title: 'Eco Flower Recipe',
       cover: '/images/books/eco-flower-book.webp',
       thumbnail: '/images/books/eco-flower-book.webp',
-      alt: '에코 플라워 레시피 표지'
+      alt: 'Eco Flower Recipe Book Cover'
     }
   ],
   flowers: {
