@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;600&family=Inter:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background-linen: #FAF8F3;
+  --color-background-beige: #E8DCC8;
+  --color-accent-sage: #9CAF88;
+  --color-accent-terracotta: #C4A57B;
+  --color-accent-rose: #B85C50;
+  --color-text-warm: #3D3D3D;
+
+  --font-serif: "Noto Serif KR", serif;
+  --font-display: "Fraunces", serif;
+  --font-sans: "Noto Sans KR", "Inter", sans-serif;
+
+  --line-height-organic: 1.9;
+  --line-height-relaxed: 2.0;
+
+  --letter-spacing-loose: 0.02em;
+
+  --spacing-mobile: 24px;
+  --spacing-tablet: 40px;
+  --spacing-desktop: 60px;
+
+  --radius-organic: 16px;
+
+  --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+
+  --animate-organic-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background-linen);
+    color: var(--color-text-warm);
+    font-family: var(--font-sans);
+    line-height: var(--line-height-organic);
+    letter-spacing: var(--letter-spacing-loose);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  h1 { font-size: 32px; font-weight: 600; line-height: 1.2; }
+  @media (min-width: 768px) { h1 { font-size: 48px; } }
+
+  h2 { font-size: 28px; font-weight: 500; line-height: 1.3; }
+  @media (min-width: 768px) { h2 { font-size: 36px; } }
+
+  h3 { font-size: 20px; font-weight: 500; }
+  @media (min-width: 768px) { h3 { font-size: 24px; } }
+  
+  .font-display {
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-mobile);
+  padding-right: var(--spacing-mobile);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: var(--spacing-tablet);
+    padding-right: var(--spacing-tablet);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: var(--spacing-desktop);
+    padding-right: var(--spacing-desktop);
+  }
+}
+
+/* Transitions from animations.css */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.page-fade-in {
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.hover-organic {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: var(--animate-organic-ease);
+}
+
+.hover-organic:hover {
+  transform: translateY(-0.25rem);
+  opacity: 0.9;
+}

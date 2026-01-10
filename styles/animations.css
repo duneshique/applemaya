@@ -1,0 +1,49 @@
+/* Page Transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease-in-out, transform 600ms ease-in-out;
+}
+
+/* Intersection Observer Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Organic Hover Effect */
+.hover-organic {
+  @apply transition-all duration-300 organic-ease;
+}
+
+.hover-organic:hover {
+  @apply transform -translate-y-1 shadow-soft;
+}
+
+/* Custom Scrollbar (Subtle) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background-linen;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent-sage/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-sage/60;
+}

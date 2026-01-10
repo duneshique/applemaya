@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;600&family=Inter:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-linen-white: #faf8f3;
+  --color-beige: #e8dcc8;
+  --color-sage-green: #9caf88;
+  --color-terracotta: #c4a57b;
+  --color-warm-black: #3d3d3d;
+  --color-dried-rose: #b85c50;
+  --color-accent-rose: #b85c50;
+  --color-text-muted: #6b7a6e;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FAF8F3] text-[#3D3D3D] leading-relaxed;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Fraunces', serif;
+  }
+
+  h1 {
+    @apply text-[56px] md:text-[72px] leading-tight;
+  }
+  
+  h2 {
+    @apply text-[36px] md:text-[42px] leading-snug;
+  }
+
+  h3 {
+    @apply text-[24px] md:text-[28px];
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-width-content mx-auto px-mobile md:px-tablet lg:px-desktop w-full;
+  }
+}

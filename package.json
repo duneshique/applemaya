@@ -1,0 +1,34 @@
+{
+  "name": "applemaya",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rm -rf .next"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "framer-motion": "latest",
+    "i18next": "latest",
+    "lucide-react": "^0.562.0",
+    "next": "latest",
+    "next-i18next": "^15.0.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-i18next": "latest",
+    "react-image-lightbox": "^5.1.4",
+    "react-intersection-observer": "latest",
+    "react-masonry-css": "^1.0.16",
+    "react-scroll-parallax": "^3.5.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "^4.0.0"
+  }
+}
