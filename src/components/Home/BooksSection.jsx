@@ -173,7 +173,7 @@ export default function BooksSection() {
                     <BookOpen size={16} />
                     PREVIEW
                   </button>
-                  {book.purchaseLinks.map((link, linkIndex) => (
+                  {book.purchaseLinks?.map((link, linkIndex) => (
                     <a
                       key={linkIndex}
                       href={link.url}
