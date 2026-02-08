@@ -43,8 +43,8 @@ export default function MediaSection() {
           </p>
         </motion.div>
 
-        {/* Media Grid - 4 most recent items */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {/* Media Grid - Horizontal Cards */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {recentItems.map((item, index) => {
             const Icon = getIcon(item.category);
             return (
@@ -57,35 +57,36 @@ export default function MediaSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer group"
+                className="flex bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group border border-[#E8DCC8]/30"
               >
-                <div className="flex items-start gap-4 mb-3">
-                  <div className="p-2.5 bg-[#9CAF88]/10 rounded-full text-[#9CAF88] group-hover:bg-[#9CAF88] group-hover:text-white transition-colors flex-shrink-0">
-                    <Icon size={20} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="font-label-en text-[#9CAF88] block mb-1" style={{ fontSize: '11px' }}>
-                      {item.type}
-                    </span>
-                    <h3 className="font-title-ko text-lg mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors line-clamp-1">
-                      {item.title}
-                    </h3>
+                {/* Thumbnail */}
+                <div className="w-1/3 h-full relative overflow-hidden flex-shrink-0">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3 p-1.5 bg-white/90 backdrop-blur-sm rounded-full text-[#9CAF88] shadow-sm">
+                    <Icon size={14} />
                   </div>
                 </div>
-                
-                <p className="text-[#3D3D3D]/50 mb-3 italic text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  {item.publication} · {item.date}
-                </p>
 
-                {item.excerpt && (
-                  <p className="text-[#3D3D3D]/70 text-sm line-clamp-2" style={{ fontFamily: 'Noto Sans KR, sans-serif', lineHeight: '1.7' }}>
-                    {item.excerpt}
+                <div className="flex-1 p-6 flex flex-col justify-center">
+                  <span className="font-label-en text-[#9CAF88] text-[9px] block mb-2 tracking-[0.2em]">
+                    {item.type}
+                  </span>
+                  <h3 className="font-title-ko text-base mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors line-clamp-2 leading-[1.5]">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="font-sans text-[#3D3D3D]/40 mb-3 italic text-[11px] tracking-wide">
+                    {item.publication}
                   </p>
-                )}
 
-                <span className="inline-block mt-4 font-label-en text-[#9CAF88] text-xs group-hover:text-[#B85C50] transition-colors">
-                  READ MORE →
-                </span>
+                  <span className="font-label-en text-[#9CAF88] text-[9px] tracking-[0.15em] group-hover:text-[#B85C50] transition-colors inline-flex items-center gap-1">
+                    READ MORE →
+                  </span>
+                </div>
               </motion.a>
             );
           })}
@@ -101,10 +102,10 @@ export default function MediaSection() {
         >
           <Link
             href="/media"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[#9CAF88] text-white rounded-full font-label-en text-sm hover:bg-[#8A9E78] transition-colors shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 px-10 py-3.5 bg-[#9CAF88] text-white rounded-full font-label-en text-[11px] tracking-[0.2em] hover:bg-[#8A9E78] transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
           >
             VIEW ALL MEDIA
-            <ArrowRight size={16} />
+            <ArrowRight size={14} />
           </Link>
         </motion.div>
       </div>

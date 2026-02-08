@@ -129,11 +129,30 @@ const bookImages = [
   { name: 'eco_flower', url: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791197419836.jpg' }
 ];
 
+const mediaImages = [
+  { name: 'media_yes24_interview', url: 'https://image.yes24.com/images/chyes24/article/froala/image/2025/08/20250804-10db7514.jpg' },
+  { name: 'media_nocut_news', url: 'https://file2.nocutnews.co.kr/newsroom/image/2025/08/21/202508211034558501_0.jpg' },
+  { name: 'media_zdnet_news', url: 'https://image.zdnet.co.kr/2025/08/04/08f74b683bdb64ef7c7194c09f2c3bd6.png' },
+  { name: 'media_newsis_news', url: 'https://img1.newsis.com/2025/08/04/NISI20250804_0001909658_web.jpg?rnd=20250804090123' },
+  { name: 'media_youtube_love', url: 'https://img.youtube.com/vi/UbVsLtNcTQ4/maxresdefault.jpg' },
+  { name: 'media_youtube_brunch', url: 'https://img.youtube.com/vi/z4Chs7yXjIU/maxresdefault.jpg' }
+];
+
 async function main() {
   const hasWebp = checkWebpSupport();
   const ext = hasWebp ? 'webp' : 'jpg';
-  
-  console.log('\n📥 Downloading Flora magazine covers...');
+
+  // Ensure directories exist
+  const dirs = [
+    'public/images/flora',
+    'public/images/gallery',
+    'public/images/profile',
+    'public/images/books',
+    'public/images/media'
+  ];
+  dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  });
   for (const img of floraImages) {
     const filename = `flora_${img.year}_${img.month}`;
     const tempPath = `public/images/flora/${filename}.jpg`;
@@ -198,6 +217,27 @@ async function main() {
   for (const img of bookImages) {
     const tempPath = `public/images/books/${img.name}.jpg`;
     const finalPath = `public/images/books/${img.name}.${ext}`;
+    
+    if (fs.existsSync(finalPath)) {
+      console.log(`   ✓ ${img.name} already exists`);
+      continue;
+    }
+    
+    try {
+      await downloadImage(img.url, tempPath);
+      if (hasWebp) {
+        convertToWebp(tempPath, finalPath);
+      }
+      console.log(`   ✓ ${img.name}`);
+    } catch (e) {
+      console.log(`   ✗ ${img.name}: ${e.message}`);
+    }
+  }
+  
+  console.log('\n📥 Downloading media thumbnails...');
+  for (const img of mediaImages) {
+    const tempPath = `public/images/media/${img.name}.jpg`;
+    const finalPath = `public/images/media/${img.name}.${ext}`;
     
     if (fs.existsSync(finalPath)) {
       console.log(`   ✓ ${img.name} already exists`);

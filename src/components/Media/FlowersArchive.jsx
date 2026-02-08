@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Flower2, Video, FolderOpen, ExternalLink, Calendar } from 'lucide-react';
+import { BookOpen, Flower2, Video, FolderOpen, ExternalLink, Calendar, CheckCircle2 } from 'lucide-react';
 
 const tabs = [
-  { id: 'flora', label: '월간 플로라', icon: BookOpen },
-  { id: 'works', label: '플라워 작품', icon: Flower2 },
-  { id: 'class', label: '온라인 클래스', icon: Video },
-  { id: 'project', label: '프로젝트', icon: FolderOpen },
+  { id: 'flora', label: 'Flora', icon: BookOpen },
+  { id: 'portfolio', label: 'Portfolio', icon: Flower2 },
+  { id: 'class', label: 'Online Class', icon: Video },
 ];
 
-// cms_raw_data.json 에서 추출한 월간플로라 데이터 (print 버전만, 2022.12 ~ 2026.02)
 const floraItems = [
   // 2026
   { year: '2026', month: '2월', title: '월간 플로라 2026년 2월호', thumbnail: '/images/flora/flora_2026_02.webp', link: 'https://product.kyobobook.co.kr/detail/S000219157501' },
@@ -68,6 +67,25 @@ const floraItems = [
 
 const projectItems = [
   {
+    title: 'Sustainability & Eco Projects',
+    subtitle: '지속가능한 디자인을 향한 크라우드펀딩 및 출간 프로젝트',
+    isSpecial: true,
+    items: [
+      { 
+        name: "선물 <에코 플라워 디자인>", 
+        desc: "일회용 플로럴폼을 대신하는 친환경 기법 소개. 텀블벅 325% 달성 및 'Eco Flower Recipe' 도서 출간의 모태.",
+        url: 'https://tumblbug.com/ecoflower',
+        thumbnail: '/images/flowers/project_ecoflower.webp'
+      },
+      { 
+        name: "에세이 <일년, 열두달 흔들리는 꽃>", 
+        desc: "제철 꽃들이 선사하는 위로의 기록. 텀블벅 251% 달성 후 '꽃이 필요한 모든 순간'으로 정식 출간.",
+        url: 'https://tumblbug.com/yearflower',
+        thumbnail: '/images/flowers/project_yearflower.webp'
+      }
+    ]
+  },
+  {
     title: '농림축산식품부 X aT 계절 꽃 프로젝트',
     subtitle: '꽃문화 플랫폼 겨울꽃 시즌 참여',
     items: [
@@ -79,13 +97,45 @@ const projectItems = [
 ];
 
 const classItems = [
-  { title: '꽃도시락 만들기 - 재료준비', type: '온라인 클래스' },
-  { title: '꽃도시락 만들기 - 제작편', type: '온라인 클래스' },
+  { 
+    title: 'Part 1. 부케 Bouquet', 
+    subtitle: '마야플로르의 첫 번째 온라인 플라워 워크샵',
+    desc: '단순한 기술을 넘어 꽃을 고르고 컬러를 결정하는 안목을 다룹니다.',
+    curriculum: ['도구 및 소재 다루기', 'Light Bouquet', 'Bold Bouquet', 'Vivid Bouquet'],
+    link: 'https://mayaflor.liveklass.com/classes/6942',
+    thumbnail: '/images/flowers/class_bouquet.webp'
+  },
+  { 
+    title: 'Part 2. 노플로랄폼 어레인지먼트', 
+    subtitle: '지속가능한 디자인을 위한 테크닉',
+    desc: '침봉, 치킨와이어 등 자연 친화적 재료를 활용한 고정 기법을 배웁니다.',
+    curriculum: ['노플로랄폼의 이해', '치킨와이어 페데스탈', '에코 꽃바구니 세팅'],
+    link: 'https://mayaflor.liveklass.com/classes/6943',
+    thumbnail: '/images/flowers/class_no_floral_foam.webp'
+  },
 ];
 
 export default function FlowersArchive() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('flora');
   const [selectedYear, setSelectedYear] = useState('all');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && tabs.some(tab => tab.id === hash)) {
+        setActiveTab(hash);
+      }
+    };
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    router.push({ pathname: router.pathname, hash: tabId }, undefined, { shallow: true });
+  };
 
   const groupedFlora = floraItems.reduce((acc, item) => {
     if (!acc[item.year]) acc[item.year] = [];
@@ -94,70 +144,38 @@ export default function FlowersArchive() {
   }, {});
 
   const sortedYears = Object.keys(groupedFlora).sort((a, b) => b - a);
-  
-  const filteredYears = selectedYear === 'all' 
-    ? sortedYears 
-    : sortedYears.filter(y => y === selectedYear);
+  const filteredYears = selectedYear === 'all' ? sortedYears : sortedYears.filter(y => y === selectedYear);
 
   return (
-    <section className="py-16 lg:py-24 bg-[#FAF8F3]">
+    <section className="bg-[#FAF8F3]">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <span 
-            className="text-[#9CAF88] tracking-[0.2em] block mb-4"
-            style={{ fontSize: '12px', fontFamily: 'Inter, sans-serif' }}
-          >
-            MAGAZINE
-          </span>
-          <h2
-            className="text-4xl lg:text-5xl mb-4 text-[#3D3D3D]"
-            style={{ fontFamily: 'Fraunces, serif', letterSpacing: '0.02em' }}
-          >
-            월간 플로라
-          </h2>
-          <p
-            className="text-base max-w-2xl mx-auto text-[#3D3D3D]/60"
-            style={{ fontFamily: 'Noto Sans KR, sans-serif', lineHeight: '1.8' }}
-          >
-            2022년 12월부터 매월 연재 중인 플라워 디자인 포트폴리오
-          </p>
-        </motion.div>
-
         {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-2 mb-8"
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all font-ui-ko ${
+                onClick={() => handleTabChange(tab.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs transition-all font-label-en tracking-widest ${
                   activeTab === tab.id
-                    ? 'bg-[#3D3D3D] text-white shadow-md'
-                    : 'bg-white text-[#3D3D3D]/70 hover:bg-white/80 shadow-sm'
+                    ? 'bg-[#3D3D3D] text-white shadow-md border-transparent'
+                    : 'bg-white text-[#3D3D3D]/70 hover:bg-white/80 shadow-sm border border-[#E8DCC8]'
                 }`}
               >
-                <Icon size={16} />
-                {tab.label}
+                <Icon size={14} />
+                {tab.label.toUpperCase()}
               </button>
             );
           })}
         </motion.div>
 
-        {/* Tab Content */}
         <AnimatePresence mode="wait">
           {activeTab === 'flora' && (
             <motion.div
@@ -167,16 +185,12 @@ export default function FlowersArchive() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Year Filter */}
               <div className="flex flex-wrap justify-center gap-2 mb-10">
                 <button
                   onClick={() => setSelectedYear('all')}
-                  className={`px-4 py-2 rounded-full text-sm transition-all ${
-                    selectedYear === 'all'
-                      ? 'bg-[#9CAF88] text-white'
-                      : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
+                  className={`px-4 py-2 rounded-full text-sm transition-all font-sans ${
+                    selectedYear === 'all' ? 'bg-[#9CAF88] text-white' : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
                   }`}
-                  style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   전체
                 </button>
@@ -184,12 +198,9 @@ export default function FlowersArchive() {
                   <button
                     key={year}
                     onClick={() => setSelectedYear(year)}
-                    className={`px-4 py-2 rounded-full text-sm transition-all ${
-                      selectedYear === year
-                        ? 'bg-[#9CAF88] text-white'
-                        : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
+                    className={`px-4 py-2 rounded-full text-sm transition-all font-sans ${
+                      selectedYear === year ? 'bg-[#9CAF88] text-white' : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
                     }`}
-                    style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     {year}
                   </button>
@@ -198,24 +209,12 @@ export default function FlowersArchive() {
 
               {filteredYears.map((year) => (
                 <div key={year} className="mb-16">
-                  {/* Year Header */}
                   <div className="flex items-center gap-3 mb-8">
-                    <h3
-                      className="text-3xl text-[#3D3D3D]"
-                      style={{ fontFamily: 'Fraunces, serif' }}
-                    >
-                      {year}
-                    </h3>
+                    <h3 className="text-3xl text-[#3D3D3D] font-serif" style={{ fontFamily: 'Fraunces, serif' }}>{year}</h3>
                     <div className="flex-1 h-px bg-[#E8DCC8]" />
-                    <span 
-                      className="text-[#9CAF88] text-sm"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                      {groupedFlora[year].length}권
-                    </span>
+                    <span className="text-[#9CAF88] text-sm font-sans">{groupedFlora[year].length}권</span>
                   </div>
 
-                  {/* 3-Column Grid (Desktop), 3x4 per year layout */}
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
                     {groupedFlora[year].map((item, idx) => (
                       <motion.a
@@ -229,87 +228,98 @@ export default function FlowersArchive() {
                         transition={{ duration: 0.4, delay: idx * 0.05 }}
                         className="group block"
                       >
-                        {/* Cover Image */}
                         <div className="relative overflow-hidden rounded-xl bg-white shadow-sm group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
-                          {item.thumbnail ? (
-                            <img
-                              src={item.thumbnail}
-                              alt={item.title}
-                              className="w-full aspect-[3/4] object-cover"
-                              loading="lazy"
-                            />
-                          ) : (
-                            <div className="w-full aspect-[3/4] bg-gradient-to-b from-[#9CAF88]/20 to-[#E8DCC8]/30 flex items-center justify-center">
-                              <div className="text-center">
-                                <BookOpen className="mx-auto text-[#9CAF88]/40 mb-2" size={40} />
-                                <span className="text-[#3D3D3D]/40 text-sm" style={{ fontFamily: 'Noto Sans KR, sans-serif' }}>
-                                  표지 준비중
-                                </span>
-                              </div>
-                            </div>
-                          )}
-                          {/* Hover Overlay */}
+                          <img
+                            src={item.thumbnail || '/images/placeholders/flora.webp'}
+                            alt={item.title}
+                            className="w-full aspect-[3/4] object-cover"
+                            loading="lazy"
+                          />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                            <span className="text-white text-sm tracking-[0.1em] flex items-center gap-2" style={{ fontFamily: 'Inter, sans-serif' }}>
-                              <ExternalLink size={14} />
-                              교보문고에서 보기
+                            <span className="text-white text-sm tracking-[0.1em] flex items-center gap-2 font-sans px-4 text-center">
+                              <ExternalLink size={14} /> 교보문고에서 보기
                             </span>
                           </div>
                         </div>
-
-                        {/* Title & Subtitle */}
                         <div className="mt-4">
-                          <h4
-                            className="text-[#3D3D3D] text-base mb-1"
-                            style={{ fontFamily: 'Noto Sans KR, sans-serif', fontWeight: 500 }}
-                          >
+                          <h4 className="text-[#3D3D3D] text-base mb-1 font-sans font-medium">
                             월간 플로라 {item.year}년 {item.month}호
                           </h4>
-                          {item.subtitle && (
-                            <p
-                              className="text-[#3D3D3D]/60 text-sm leading-relaxed"
-                              style={{ fontFamily: 'Noto Sans KR, sans-serif' }}
-                            >
-                              {item.subtitle}
-                            </p>
-                          )}
+                          {item.subtitle && <p className="text-[#3D3D3D]/60 text-sm leading-relaxed font-sans">{item.subtitle}</p>}
                         </div>
                       </motion.a>
                     ))}
                   </div>
                 </div>
               ))}
-
-              {/* Total Stats */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="mt-12 text-center"
-              >
-                <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm">
-                  <Calendar size={18} className="text-[#9CAF88]" />
-                  <span className="text-[#3D3D3D]/60 text-sm" style={{ fontFamily: 'Noto Sans KR, sans-serif' }}>
-                    총 <strong className="text-[#3D3D3D]">{floraItems.length}</strong>권 연재 중
-                  </span>
-                </div>
-              </motion.div>
             </motion.div>
           )}
 
-          {activeTab === 'works' && (
+          {activeTab === 'portfolio' && (
             <motion.div
-              key="works"
+              key="portfolio"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="text-center py-16"
             >
-              <Flower2 className="mx-auto text-[#E8DCC8] mb-4" size={48} />
-              <p className="text-[#3D3D3D]/50" style={{ fontFamily: 'Noto Sans KR, sans-serif' }}>
-                플라워 작품 갤러리 준비 중입니다.
-              </p>
+              {/* Instagram Style Grid */}
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-4 mb-20 max-w-4xl mx-auto">
+                {[1, 2, 3, 2, 3, 1, 3, 1, 2].map((imgIdx, idx) => (
+                  <div key={idx} className="relative aspect-square overflow-hidden rounded-2xl bg-white shadow-sm group">
+                    <img
+                      src={`/images/gallery/gallery_${imgIdx}.webp`}
+                      alt={`Gallery ${idx}`}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Flower2 className="text-white/80" size={24} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-12">
+                <div className="flex items-center gap-4">
+                  <FolderOpen className="text-[#9CAF88]" size={28} />
+                  <h3 className="text-3xl font-title-ko text-[#3D3D3D]">Projects</h3>
+                </div>
+                
+                {projectItems.map((project, idx) => (
+                  <div key={idx} className={`bg-white rounded-[2.5rem] p-10 lg:p-12 shadow-sm border border-[#E8DCC8]/30 ${project.isSpecial ? 'ring-2 ring-[#9CAF88]/20' : ''}`}>
+                    <div className="mb-8">
+                      {project.isSpecial && (
+                        <span className="inline-block px-3 py-1 rounded-full bg-[#9CAF88]/10 text-[#9CAF88] text-[10px] font-label-en tracking-widest mb-4">SPECIAL PROJECT</span>
+                      )}
+                      <h4 className="text-2xl mb-2 text-[#3D3D3D] font-title-ko">{project.title}</h4>
+                      <p className="text-[#3D3D3D]/60 font-sans">{project.subtitle}</p>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-8">
+                      {project.items.map((item, i) => (
+                        <a
+                          key={i}
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-col gap-4 p-6 bg-[#FAF8F3] rounded-[1.5rem] hover:bg-[#9CAF88]/10 transition-all group"
+                        >
+                          {item.thumbnail && (
+                            <img src={item.thumbnail} alt={item.name} className="w-full h-32 object-cover rounded-xl mb-2" />
+                          )}
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <Flower2 size={16} className="text-[#9CAF88] transition-transform group-hover:rotate-12" />
+                              <span className="font-title-ko text-lg text-[#3D3D3D]">{item.name}</span>
+                            </div>
+                            {item.desc && <p className="text-sm text-[#3D3D3D]/60 leading-relaxed font-sans">{item.desc}</p>}
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           )}
 
@@ -321,72 +331,42 @@ export default function FlowersArchive() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-8">
                 {classItems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl p-8 shadow-sm"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <Video className="text-[#9CAF88]" size={24} />
-                      <span
-                        className="text-[#9CAF88] tracking-[0.15em]"
-                        style={{ fontSize: '11px', fontFamily: 'Inter, sans-serif' }}
-                      >
-                        {item.type}
-                      </span>
+                  <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-[#E8DCC8]/30 flex flex-col">
+                    <div className="aspect-video relative overflow-hidden group">
+                      <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute top-6 left-6">
+                        <span className="px-3 py-1 bg-[#3D3D3D] text-white text-[10px] font-label-en tracking-widest rounded-full shadow-lg">ONLINE WORKSHOP</span>
+                      </div>
                     </div>
-                    <h4
-                      className="text-xl text-[#3D3D3D]"
-                      style={{ fontFamily: 'Noto Serif KR, serif' }}
-                    >
-                      🌼 꽃문화플랫폼 {item.title}
-                    </h4>
+                    <div className="p-10 flex flex-col flex-1">
+                      <h4 className="text-2xl text-[#3D3D3D] font-title-ko mb-2">{item.title}</h4>
+                      <p className="text-[#9CAF88] text-sm font-sans mb-4">{item.subtitle}</p>
+                      <p className="text-[#3D3D3D]/60 text-[15px] leading-relaxed mb-8 font-sans">{item.desc}</p>
+                      
+                      <div className="mt-auto">
+                        <div className="space-y-3 mb-10">
+                          {item.curriculum.map((c, i) => (
+                            <div key={i} className="flex items-center gap-3 text-sm text-[#3D3D3D]/70 font-sans">
+                              <CheckCircle2 size={14} className="text-[#9CAF88]" />
+                              {c}
+                            </div>
+                          ))}
+                        </div>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-4 bg-[#FAF8F3] rounded-2xl flex items-center justify-center gap-3 text-[#3D3D3D] hover:bg-[#3D3D3D] hover:text-white transition-all font-label-en tracking-widest text-xs"
+                        >
+                          <Video size={16} /> VIEW CURRICULUM
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'project' && (
-            <motion.div
-              key="project"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              {projectItems.map((project, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-8 shadow-sm">
-                  <h3
-                    className="text-2xl mb-2 text-[#3D3D3D]"
-                    style={{ fontFamily: 'Noto Serif KR, serif' }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p
-                    className="text-[#3D3D3D]/70 mb-6"
-                    style={{ fontFamily: 'Noto Sans KR, sans-serif' }}
-                  >
-                    {project.subtitle}
-                  </p>
-                  <div className="space-y-3">
-                    {project.items.map((item, i) => (
-                      <a
-                        key={i}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-[#3D3D3D] hover:text-[#9CAF88] transition-colors"
-                        style={{ fontFamily: 'Noto Sans KR, sans-serif', fontSize: '15px' }}
-                      >
-                        <Flower2 size={16} className="text-[#9CAF88]" />
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ))}
             </motion.div>
           )}
         </AnimatePresence>
