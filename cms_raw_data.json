@@ -606,6 +606,63 @@
     "meta_description": "Maya Flor Media Page 마야 플로르 미디어 페이지 입니다.",
     "sections": [
       {
+        "text": "Press & YouTube"
+      },
+      {
+        "text": "Book | 제12회 브런치북 출판 프로젝트 대상 수상작 '타로카드 읽는 카페' (출판사 창비)\n\n[인터뷰] 문혜정 작가 \"운명은 정해져 있지만 내 선택으로 매 순간 바뀔 수 있다는 것이 타로카드의 매력 같아요\" (채널예스)\n[뉴스] 카카오 브런치스토리, 1000:1 경쟁 뚫은 10편의 이야기 책으로 펴내 (지디넷코리아)\n[뉴스] 카카오, 브런치북 대상 수상작 출간…경쟁률 1000대 1 (뉴시스)\n[뉴스] 삶을 버텨내야 한다면… 다와다 요코 '언어'·이서수 '춤'·문혜정 '카드' (노컷뉴스)",
+        "links": [
+          {
+            "label": "채널예스 인터뷰",
+            "url": "https://ch.yes24.com/article/details/81401"
+          },
+          {
+            "label": "지디넷코리아 보도",
+            "url": "https://zdnet.co.kr/view/?no=20250804141609"
+          },
+          {
+            "label": "뉴시스 보도",
+            "url": "https://www.newsis.com/view/NISX20250804_0003277165"
+          },
+          {
+            "label": "노컷뉴스 보도",
+            "url": "https://www.nocutnews.co.kr/news/6388188"
+          }
+        ],
+        "images": [
+          {
+            "alt": "타로카드 읽는 카페",
+            "src": "image/media/img_001.png"
+          }
+        ]
+      },
+      {
+        "text": "YouTube | '타로카드 읽는 카페' 북트레일러 & 작가 인터뷰\n\n[Full] 타로카드 읽는 카페 | 소설 낭독 & 북트레일러 (창비)\n[Interview] 문혜정 작가 인터뷰: 타로로 읽는 마음 (창비)\n[Shorts] 작가 픽 오늘의 한 구절: 사랑의 정답\n[Shorts] 작가 픽 오늘의 한 구절: 눈물",
+        "links": [
+          {
+            "label": "북트레일러 보기",
+            "url": "https://www.youtube.com/watch?v=UbVsLtNcTQ4&t=583s"
+          },
+          {
+            "label": "작가 인터뷰 보기",
+            "url": "https://www.youtube.com/watch?v=AvU3VA_Xv3U"
+          },
+          {
+            "label": "Shorts 보기 1",
+            "url": "https://www.youtube.com/shorts/yUifn31TI3Q"
+          },
+          {
+            "label": "Shorts 보기 2",
+            "url": "https://www.youtube.com/shorts/z4Chs7yXjIU"
+          }
+        ],
+        "images": [
+          {
+            "alt": "타로카드 읽는 카페 YouTube",
+            "src": "image/media/img_001.png"
+          }
+        ]
+      },
+      {
         "links": [
           {
             "label": "",
@@ -1921,6 +1978,753 @@
             "url": "https://teht.hometax.go.kr/websquare/websquare.html"
           }
         ]
+      }
+    ]
+  },
+  "books": [
+    {
+      "id": 1,
+      "title_ko": "타로카드 읽는 카페",
+      "title_en": "Tarot Card Reading Café",
+      "subtitle_ko": "타로로 읽는 마음, 선택으로 바꾸는 운명",
+      "subtitle_en": "Reading Hearts Through Tarot, Changing Fate Through Choice",
+      "author": "문혜정",
+      "publisher": "창비",
+      "publish_date": "2025-08-14",
+      "isbn": "9788936439859",
+      "cover_image": "/images/books/tarot_cafe.webp",
+      "cover_image_url": "https://contents.kyobobook.co.kr/sih/fit-in/1024x0/pdt/9788936439859.jpg",
+      "awards": [
+        "제12회 브런치북 프로젝트 대상"
+      ],
+      "purchase_links": {
+        "kyobo": "https://product.kyobobook.co.kr/detail/S000217222317",
+        "yes24": "https://www.yes24.com/product/goods/150529430",
+        "aladin": "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=369307743"
+      }
+    },
+    {
+      "id": 2,
+      "title_ko": "에코 플라워 레시피",
+      "title_en": "Eco Flower Recipe",
+      "subtitle_ko": "한 송이 꽃부터 시작하는 플라워 스타일링",
+      "subtitle_en": "Flower Styling Starting with a Single Bloom",
+      "author": "문혜정",
+      "publisher": "도서출판 플로라",
+      "publish_date": "2022-03-15",
+      "isbn": "9791190717649",
+      "cover_image": "/images/books/flower_moment.webp",
+      "cover_image_url": "https://contents.kyobobook.co.kr/sih/fit-in/1024x0/pdt/9791190717649.jpg",
+      "purchase_links": {
+        "kyobo": "https://product.kyobobook.co.kr/detail/S000001943120",
+        "yes24": "http://www.yes24.com/Product/Goods/106540288",
+        "aladin": "http://aladin.kr/p/Zfcpz"
+      }
+    },
+    {
+      "id": 3,
+      "title_ko": "꽃이 필요한 모든 순간",
+      "title_en": "Every Moment Needs Flowers",
+      "subtitle_ko": "꽃으로 마음을 위로하는 법",
+      "subtitle_en": "How to Comfort Your Heart with Flowers",
+      "author": "문혜정",
+      "publisher": "도서출판 플로라",
+      "publish_date": "2021-03-15",
+      "isbn": "9791191228502",
+      "cover_image": "/images/books/eco_flower.webp",
+      "cover_image_url": "https://contents.kyobobook.co.kr/sih/fit-in/1024x0/pdt/9791191228502.jpg",
+      "awards": [
+        "2021년 문학나눔 선정 도서"
+      ],
+      "purchase_links": {
+        "kyobo": "http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=&barcode=9791191228502",
+        "yes24": "http://www.yes24.com/Product/Goods/99480676",
+        "aladin": "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=K832730515"
+      }
+    }
+  ],
+  "monthly_flora": {
+    "description": "월간 플로라 매거진 아카이브 (2022-2026)",
+    "total_count": 97,
+    "items": [
+      {
+        "title": "월간 플로라(Flora)(2026년 2월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000586441.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000219157501",
+        "type": "print",
+        "year_month": "2026-02"
+      },
+      {
+        "title": "월간 플로라(Flora)(2026년 1월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000580166.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000218936265",
+        "type": "print",
+        "year_month": "2026-01"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 12월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000573038.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000218704290",
+        "type": "print",
+        "year_month": "2025-12"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 11월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012136094",
+        "type": "ebook",
+        "year_month": "2025-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 11월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000566535.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000218315399",
+        "type": "print",
+        "year_month": "2025-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 10월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012048692",
+        "type": "ebook",
+        "year_month": "2025-10"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 10월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000559537.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000218053700",
+        "type": "print",
+        "year_month": "2025-10"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 9월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000553856.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000217444463",
+        "type": "print",
+        "year_month": "2025-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 9월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011889347",
+        "type": "ebook",
+        "year_month": "2025-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 8월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011731881",
+        "type": "ebook",
+        "year_month": "2025-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 8월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000547244.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000217192569",
+        "type": "print",
+        "year_month": "2025-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 7월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011629809",
+        "type": "ebook",
+        "year_month": "2025-07"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 7월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000541273.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000216951107",
+        "type": "print",
+        "year_month": "2025-07"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 6월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011521566",
+        "type": "ebook",
+        "year_month": "2025-06"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 6월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000534961.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000216702974",
+        "type": "print",
+        "year_month": "2025-06"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 5월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011521434",
+        "type": "ebook",
+        "year_month": "2025-05"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 5월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000528328.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000216406228",
+        "type": "print",
+        "year_month": "2025-05"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 4월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011290036",
+        "type": "ebook",
+        "year_month": "2025-04"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 4월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000521800.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000216180058",
+        "type": "print",
+        "year_month": "2025-04"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 3월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011132305",
+        "type": "ebook",
+        "year_month": "2025-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 3월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000515281.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000215934167",
+        "type": "print",
+        "year_month": "2025-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 2월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011019381",
+        "type": "ebook",
+        "year_month": "2025-02"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 2월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000508009.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000215648247",
+        "type": "print",
+        "year_month": "2025-02"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 1월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000503103.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000215097734",
+        "type": "print",
+        "year_month": "2025-01"
+      },
+      {
+        "title": "월간 플로라(Flora)(2025년 1월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000010819908",
+        "type": "ebook",
+        "year_month": "2025-01"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 12월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000010401170",
+        "type": "ebook",
+        "year_month": "2024-12"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 12월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000496122.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000214883307",
+        "type": "print",
+        "year_month": "2024-12"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 11월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000009495335",
+        "type": "ebook",
+        "year_month": "2024-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 11월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000490045.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000214650698",
+        "type": "print",
+        "year_month": "2024-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 10월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000483511.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000214451651",
+        "type": "print",
+        "year_month": "2024-10"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 10월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000009495442",
+        "type": "ebook",
+        "year_month": "2024-10"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 9월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000008779572",
+        "type": "ebook",
+        "year_month": "2024-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 9월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000476575.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000214158441",
+        "type": "print",
+        "year_month": "2024-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 8월호)",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000008536541",
+        "type": "ebook",
+        "year_month": "2024-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 8월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000470559.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000213921689",
+        "type": "print",
+        "year_month": "2024-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 7월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000465005.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000213676021",
+        "type": "print",
+        "year_month": "2024-07"
+      },
+      {
+        "title": "월간 FLORA 2024년 7월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000008021699",
+        "type": "ebook",
+        "year_month": "2024-07"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 6월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000457765.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000213425216",
+        "type": "print",
+        "year_month": "2024-06"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 5월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000452463.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000213134285",
+        "type": "print",
+        "year_month": "2024-05"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 4월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000445892.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000212807433",
+        "type": "print",
+        "year_month": "2024-04"
+      },
+      {
+        "title": "월간 FLORA 2024년 3월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000006851538",
+        "type": "ebook",
+        "year_month": "2024-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 3월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000439785.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000212604598",
+        "type": "print",
+        "year_month": "2024-03"
+      },
+      {
+        "title": "월간 FLORA 2024년 2월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000006851623",
+        "type": "ebook",
+        "year_month": "2024-02"
+      },
+      {
+        "title": "월간 FLORA 2024년 2월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000006851434",
+        "type": "ebook",
+        "year_month": "2024-02"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 2월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000433837.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000212176719",
+        "type": "print",
+        "year_month": "2024-02"
+      },
+      {
+        "title": "월간 플로라(Flora)(2024년 1월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000428369.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000211796521",
+        "type": "print",
+        "year_month": "2024-01"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 12월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000421858.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000211545967",
+        "type": "print",
+        "year_month": "2023-12"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 11월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000415727.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000210833232",
+        "type": "print",
+        "year_month": "2023-11"
+      },
+      {
+        "title": "월간 FLORA 2023년 11월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005451133",
+        "type": "ebook",
+        "year_month": "2023-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 10월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000410616.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000209650973",
+        "type": "print",
+        "year_month": "2023-10"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 9월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000402864.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000208721315",
+        "type": "print",
+        "year_month": "2023-09"
+      },
+      {
+        "title": "월간 FLORA 2023년 9월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005382713",
+        "type": "ebook",
+        "year_month": "2023-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 8월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000397146.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000208257475",
+        "type": "print",
+        "year_month": "2023-08"
+      },
+      {
+        "title": "월간 FLORA 2023년 8월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005329493",
+        "type": "ebook",
+        "year_month": "2023-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 7월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000390840.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000202827421",
+        "type": "print",
+        "year_month": "2023-07"
+      },
+      {
+        "title": "월간 FLORA 2023년 7월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005278187",
+        "type": "ebook",
+        "year_month": "2023-07"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 6월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000384313.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000202478958",
+        "type": "print",
+        "year_month": "2023-06"
+      },
+      {
+        "title": "월간 FLORA 2023년 6월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005231192",
+        "type": "ebook",
+        "year_month": "2023-06"
+      },
+      {
+        "title": "월간 FLORA 2023년 5월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005205244",
+        "type": "ebook",
+        "year_month": "2023-05"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 5월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000378466.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000201794311",
+        "type": "print",
+        "year_month": "2023-05"
+      },
+      {
+        "title": "월간 FLORA 2023년 4월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005170701",
+        "type": "ebook",
+        "year_month": "2023-04"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 4월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000371399.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000201360836",
+        "type": "print",
+        "year_month": "2023-04"
+      },
+      {
+        "title": "월간 FLORA 2023년 3월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005134474",
+        "type": "ebook",
+        "year_month": "2023-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 3월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000365701.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000201160902",
+        "type": "print",
+        "year_month": "2023-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 2월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000358734.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000200787686",
+        "type": "print",
+        "year_month": "2023-02"
+      },
+      {
+        "title": "월간 FLORA 2023년 2월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005105675",
+        "type": "ebook",
+        "year_month": "2023-02"
+      },
+      {
+        "title": "월간 FLORA 2023년 1월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005079429",
+        "type": "ebook",
+        "year_month": "2023-01"
+      },
+      {
+        "title": "월간 플로라(Flora)(2023년 1월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000352640.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000200554180",
+        "type": "print",
+        "year_month": "2023-01"
+      },
+      {
+        "title": "월간 FLORA 2022년 12월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005050518",
+        "type": "ebook",
+        "year_month": "2022-12"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 12월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000345390.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000200330305",
+        "type": "print",
+        "year_month": "2022-12"
+      },
+      {
+        "title": "월간 FLORA 2022년 11월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018110",
+        "type": "ebook",
+        "year_month": "2022-11"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 11월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000339726.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000200128281",
+        "type": "print",
+        "year_month": "2022-11"
+      },
+      {
+        "title": "월간 FLORA 2022년 10월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018101",
+        "type": "ebook",
+        "year_month": "2022-10"
+      },
+      {
+        "title": "월간 FLORA 2022년 9월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018095",
+        "type": "ebook",
+        "year_month": "2022-09"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 8월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000285214.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000327681",
+        "type": "print",
+        "year_month": "2022-08"
+      },
+      {
+        "title": "월간 FLORA 2022년 8월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003630239",
+        "type": "ebook",
+        "year_month": "2022-08"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 7월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000284088.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000327568",
+        "type": "print",
+        "year_month": "2022-07"
+      },
+      {
+        "title": "월간 FLORA 2022년 7월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003625237",
+        "type": "ebook",
+        "year_month": "2022-07"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 6월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000283081.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000327468",
+        "type": "print",
+        "year_month": "2022-06"
+      },
+      {
+        "title": "월간 FLORA 2022년 6월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003621220",
+        "type": "ebook",
+        "year_month": "2022-06"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 5월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000282046.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000327364",
+        "type": "print",
+        "year_month": "2022-05"
+      },
+      {
+        "title": "월간 FLORA 2022년 5월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003617351",
+        "type": "ebook",
+        "year_month": "2022-05"
+      },
+      {
+        "title": "월간 FLORA 2022년 4월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003612851",
+        "type": "ebook",
+        "year_month": "2022-04"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 4월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000281827.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000327342",
+        "type": "print",
+        "year_month": "2022-04"
+      },
+      {
+        "title": "월간 플라워뉴스 2022년 3월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003609146",
+        "type": "ebook",
+        "year_month": "2022-03"
+      },
+      {
+        "title": "월간 플로라(Flora)(2022년 3월호)",
+        "thumbnail": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000292236.jpg",
+        "link": "https://product.kyobobook.co.kr/detail/S000000328383",
+        "type": "print",
+        "year_month": "2022-03"
+      },
+      {
+        "title": "월간 FLORA 2022년 3월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003607540",
+        "type": "ebook",
+        "year_month": "2022-03"
+      },
+      {
+        "title": "월간 FLORA 2022년 2월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003604048",
+        "type": "ebook",
+        "year_month": "2022-02"
+      },
+      {
+        "title": "월간 플라워뉴스 2022년 2월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003604049",
+        "type": "ebook",
+        "year_month": "2022-02"
+      },
+      {
+        "title": "월간 FLORA 2022년 1월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003599626",
+        "type": "ebook",
+        "year_month": "2022-01"
+      },
+      {
+        "title": "월간 플라워뉴스 2022년 1월호",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003599627",
+        "type": "ebook",
+        "year_month": "2022-01"
+      },
+      {
+        "title": "임신과 출산에 어울리는 꽃 디자인",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005341656",
+        "type": "ebook",
+        "year_month": null
+      },
+      {
+        "title": "한 권으로 보는 프리저브드 플라워",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005288222",
+        "type": "ebook",
+        "year_month": null
+      },
+      {
+        "title": "한 권으로 보는 전례꽃꽂이",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005288220",
+        "type": "ebook",
+        "year_month": null
+      },
+      {
+        "title": "워터가든 모아보기",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005262782",
+        "type": "ebook",
+        "year_month": null
+      },
+      {
+        "title": "이달의 꽃",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005239973",
+        "type": "ebook",
+        "year_month": null
+      },
+      {
+        "title": "Plant space",
+        "thumbnail": null,
+        "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000003604403",
+        "type": "ebook",
+        "year_month": null
       }
     ]
   }

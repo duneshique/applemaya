@@ -8,7 +8,7 @@ const books = [
     subtitle: "A Story of Love, Growth, and Healing in Tarot Cards",
     year: "2025",
     description: "Tarot Card Reading Café is a psychological novel that keenly captures the raw truth of love, wounds, and desire through the eyes of tarot reader 'Shin Se-ryeon,' who peers into the wavering hearts of others. It is a romance narrative of healing and growth that never misses the subtle tremors of emotion.",
-    image: "https://images.unsplash.com/photo-1584670679624-78d361cc64f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib29rJTIwcGFnZXMlMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY4MDI4NDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/books/tarot_cafe.webp",
     kyobobookId: "S000217222317",
     purchaseLinks: [
       { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000217222317" },
@@ -21,7 +21,7 @@ const books = [
     subtitle: "Flower Styling Starting with a Single Bloom",
     year: "2022",
     description: "An eco-friendly flower styling book featuring 36 projects with step-by-step instructions using easily accessible flowers and sustainable materials. Packed with Hyejeong's unique arrangement techniques, it guides everyone from beginners to professional florists in creating naturally beautiful designs—from single-stem pieces to full space styling.",
-    image: "https://images.unsplash.com/photo-1591966801718-48eb8ba0f8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmbG9yYWwlMjBhcnJhbmdlbWVudHxlbnwxfHx8fDE3NjgwMjg0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/books/flower_moment.webp",
     kyobobookId: "S000001943120",
     purchaseLinks: [
       { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000001943120" },
@@ -34,7 +34,7 @@ const books = [
     subtitle: "How to Comfort Your Heart with Flowers",
     year: "2021",
     description: "Everything learned from watching flowers bloom and fade. 'No flower blooms without swaying.' As flowers become part of everyday self-care, this book offers healing for those newly drawn to blooms and comprehensive knowledge for enthusiasts—from flower history to care techniques. Includes practical lessons on arrangement and maintenance to help you enjoy beautiful flowers at home longer.",
-    image: "https://images.unsplash.com/photo-1727527248663-5b0c475061b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RhbmljYWwlMjBpbGx1c3RyYXRpb258ZW58MXx8fHwxNzY4MDI4NDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/books/eco_flower.webp",
     kyobobookId: "S000001949403",
     purchaseLinks: [
       { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000001949403" },
@@ -109,11 +109,11 @@ export default function BooksSection() {
             >
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="relative group">
-                  <div className="overflow-hidden rounded-2xl shadow-lg">
+                  <div className="overflow-hidden rounded-2xl shadow-lg bg-white p-4">
                     <img
                       src={book.image}
                       alt={book.title}
-                      className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   {/* Year Badge */}

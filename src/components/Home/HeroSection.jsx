@@ -37,8 +37,15 @@ export default function HeroSection() {
           className="text-center"
         >
           <h1 
-            className="text-[56px] md:text-[72px] mb-4 font-serif text-[#3D3D3D]"
-            style={{ fontFamily: 'Fraunces, serif' }}
+            style={{ 
+              fontFamily: 'Fraunces, serif',
+              fontWeight: 600,
+              textRendering: 'geometricPrecision',
+              WebkitFontSmoothing: 'antialiased',
+              fontOpticalSizing: 'auto',
+              fontVariationSettings: '"wght" 600, "opsz" 72',
+              letterSpacing: '0.02em'
+            }}
           >
             Hyejeong Moon
           </h1>

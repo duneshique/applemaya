@@ -60,7 +60,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-[36px] mb-8 font-serif text-[#3D3D3D]"
+              className="text-3xl font-semibold mb-8 text-[#3D3D3D]"
               style={{ fontFamily: 'Fraunces, serif' }}
             >
               About Hyejeong

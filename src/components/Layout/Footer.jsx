@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="mb-10 text-center">
           <h2 
-            className="text-[28px] mb-2 font-serif text-[#3D3D3D]"
+            className="text-2xl font-semibold mb-2 text-[#3D3D3D]"
             style={{ fontFamily: 'Fraunces, serif' }}
           >
             Hyejeong Moon

@@ -9,9 +9,8 @@ import Footer from '@/components/Layout/Footer';
 function MyApp({ Component, pageProps }) {
   return (
     <ParallaxProvider>
-      <LoadingScreen />
+      {/* <LoadingScreen /> */}
       <div className="flex flex-col min-h-screen">
-        <Header />
         <Component {...pageProps} />
         <Footer />
       </div>

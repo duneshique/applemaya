@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Instagram } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'ABOUT', href: '#about' },
-  { label: 'BOOKS', href: '#books' },
-  { label: 'FLOWERS', href: '#flowers' },
-  { label: 'MEDIA', href: '#media' },
-  { label: 'CONTACT', href: '#contact' }
+  { label: 'ABOUT', href: '/#about' },
+  { label: 'BOOKS', href: '/#books' },
+  { label: 'FLOWERS', href: '/flowers' },
+  { label: 'MEDIA', href: '/media' },
+  { label: 'CONTACT', href: '/#contact' }
 ];
 
 export default function Header() {
@@ -35,28 +35,17 @@ export default function Header() {
     >
       <nav className="max-w-[1400px] mx-auto px-6 lg:px-12 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link 
             href="/"
-            className="text-2xl tracking-wide font-serif text-[#3D3D3D]"
-            style={{ 
-              fontFamily: 'Fraunces, serif',
-              WebkitFontSmoothing: 'antialiased'
-            }}
+            className="text-2xl font-semibold tracking-tight text-[#3D3D3D] hover:opacity-70 transition-opacity"
+            style={{ fontFamily: 'Fraunces, serif' }}
           >
-            <motion.span 
-              whileHover={{ scale: 1.02 }} 
-              className="inline-block origin-left"
-              style={{ backfaceVisibility: 'hidden' }}
-            >
-              Hyejeong Moon
-            </motion.span>
+            Hyejeong Moon
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-12">
             {NAV_LINKS.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="tracking-[0.2em] text-[13px] transition-all duration-300 hover:text-[#9CAF88] text-[#3D3D3D] inline-block"
@@ -67,7 +56,7 @@ export default function Header() {
                 }}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -92,7 +81,7 @@ export default function Header() {
             >
               <div className="py-6 space-y-4">
                 {NAV_LINKS.map((item) => (
-                  <a
+                  <Link
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
@@ -100,7 +89,7 @@ export default function Header() {
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
 
               </div>

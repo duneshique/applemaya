@@ -26,8 +26,9 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <HeroSection />
-        <FeaturedWork />
+        <div className="pt-20 lg:pt-24" />
+        {/* <HeroSection /> */}
+        {/* <FeaturedWork /> */}
         <AboutSection />
         <BooksSection />
         <FlowersSection />
