@@ -41,7 +41,7 @@ export default function Footer() {
             <BookOpen size={24} />
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=hyejeong@applemaya.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#6B7A6E] hover:text-[#9CAF88] transition-colors"

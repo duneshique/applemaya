@@ -31,3 +31,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ignore npm-shrinkwrap.json and package-lock.json if needed, but usually kept.
+# however, for this specific resolution error we might use a different approach.

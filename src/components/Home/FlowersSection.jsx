@@ -48,7 +48,7 @@ export default function FlowersSection() {
               letterSpacing: '0.05em'
             }}
           >
-            Floral Artistry
+            Flowers
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 font-sans"
@@ -123,7 +123,7 @@ export default function FlowersSection() {
               letterSpacing: '0.05em'
             }}
           >
-            Recent Work
+            
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {gallery.map((image, index) => (

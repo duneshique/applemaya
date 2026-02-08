@@ -111,13 +111,13 @@ export default function ContactSection() {
                     Email
                   </p>
                   <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=hyejeong@applemaya.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#3D3D3D] hover:text-[#9CAF88] transition-colors font-sans"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
-                    hyejeong@applemaya.com
+                    maya@applemaya.com
                   </a>
                 </div>
               </div>
