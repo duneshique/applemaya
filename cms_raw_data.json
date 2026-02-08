@@ -14,6 +14,50 @@
       "liveklass": "https://liveklass.com/ch/mayaflor"
     }
   },
+  "published_works": [
+    {
+      "title_ko": "타로카드 읽는 카페",
+      "title_en": "Tarot Card Reading Café",
+      "subtitle_ko": "사랑과 성장, 치유의 타로카드 이야기",
+      "subtitle_en": "A Story of Love, Growth, and Healing in Tarot Cards",
+      "year": "2025",
+      "publisher": "창비",
+      "details": "Tarot Card Reading Café is a psychological novel that keenly captures the raw truth of love, wounds, and desire through the eyes of tarot reader 'Shin Se-ryeon,' who peers into the wavering hearts of others.",
+      "kyobobook_id": "S000217222317"
+    },
+    {
+      "title_ko": "사계절로 보는, 플라워 작업일지",
+      "title_en": "Four Seasons Flower Workbook",
+      "subtitle_ko": "계절별 꽃 소재, 계절의 꽃을 이용한 어레인지먼트, 워크북",
+      "subtitle_en": "A Personal Journal of Seasonal Blooms and Floral Arrangements",
+      "year": "2023",
+      "publisher": "지식과감성",
+      "details": "What flowers are actually used in a florist's studio? This workbook explores seasonal botanical materials and the arrangements created with them. Written with botanical names used in the actual market for practical use.",
+      "kyobobook_id": "S000201479306",
+      "isbn": "9791190717786",
+      "aladin_preview_url": "https://www.aladin.co.kr/shop/book/wletslookViewer.aspx?ItemId=314977620"
+    },
+    {
+      "title_ko": "에코 플라워 레시피",
+      "title_en": "Eco Flower Recipe",
+      "subtitle_ko": "한 송이 꽃부터 시작하는 플라워 스타일링",
+      "subtitle_en": "Flower Styling Starting with a Single Bloom",
+      "year": "2022",
+      "publisher": "지식과감성",
+      "details": "An eco-friendly flower styling book featuring 36 projects with step-by-step instructions using easily accessible flowers and sustainable materials.",
+      "kyobobook_id": "S000001943120"
+    },
+    {
+      "title_ko": "모든 순간에는 꽃이 필요하다",
+      "title_en": "Every Moment Needs Flowers",
+      "subtitle_ko": "꽃으로 내 마음을 다독이는 법",
+      "subtitle_en": "How to Comfort Your Heart with Flowers",
+      "year": "2021",
+      "publisher": "지식과감성",
+      "details": "Everything learned from watching flowers bloom and fade. As flowers become part of everyday self-care, this book offers healing for those newly drawn to blooms.",
+      "kyobobook_id": "S000001949403"
+    }
+  ],
   "home.html": {
     "title": "home - Maya Flor - 마야 플로르",
     "meta_description": "마야플로르 홈페이지",

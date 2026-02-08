@@ -45,7 +45,7 @@ export default function AboutSection() {
             <div className="relative">
               <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                 <img
-                  src="https://image.yes24.com/momo/TopCate5502/MidCate007/550165343.jpg?rb-4.1.0&q=80&w=1080"
+                  src="/images/profile/hyejeong_moon.webp"
                   alt="Hyejeong Moon"
                   className="w-full h-full object-cover"
                 />

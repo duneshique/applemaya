@@ -3,100 +3,85 @@ import { motion } from 'framer-motion';
 import { Newspaper, Youtube, Mic, BookOpen } from 'lucide-react';
 
 const categories = [
-  { id: 'all', label: '전체', icon: null },
-  { id: 'news', label: '뉴스', icon: Newspaper },
-  { id: 'interview', label: '인터뷰', icon: Mic },
-  { id: 'youtube', label: '유튜브', icon: Youtube },
+  { id: 'all', label: 'All', icon: null },
+  { id: 'news', label: 'News', icon: Newspaper },
+  { id: 'interview', label: 'Interview', icon: Mic },
+  { id: 'youtube', label: 'YouTube', icon: Youtube },
 ];
 
-const mediaItems = [
+// Shared media data - sorted by date descending
+export const mediaItems = [
   {
     id: 1,
     category: 'interview',
-    type: '인터뷰',
+    type: 'Interview',
     title: '운명은 정해져 있지만 내 선택으로 매 순간 바뀔 수 있다는 것이 타로카드의 매력',
     publication: '채널예스',
     date: '2025. 8. 4.',
-    excerpt: '『타로카드 읽는 카페』 문혜정 작가 인터뷰.',
+    excerpt: '타로카드는 사주팔자처럼 태어날 때부터 정해진 틀이 있는 게 아니라 카드를 뽑는 사람의 현재 상황, 마음 상태, 질문을 하는 시기에 따라 답이 달라집니다.',
     url: 'https://ch.yes24.com/article/details/81401',
-    year: 2025
+    year: 2025,
+    sortDate: new Date('2025-08-04')
   },
   {
     id: 2,
     category: 'news',
-    type: '뉴스',
-    title: '카카오 브런치스토리, 1000:1 경쟁 뚫은 10편의 이야기 책으로 펴내',
-    publication: '지디넷코리아',
-    date: '2025. 8. 4.',
-    excerpt: '카카오가 운영하는 콘텐츠 퍼블리싱 플랫폼 브런치스토리가 \'제12회 브런치북 출판 프로젝트\' 대상 수상작 10편을 도서로 출간했다.',
-    url: 'https://zdnet.co.kr/view/?no=20250804141609',
-    year: 2025
-  },
-  {
-    id: 3,
-    category: 'news',
-    type: '뉴스',
-    title: '카카오, 브런치북 대상 수상작 출간…경쟁률 1000대 1',
-    publication: '뉴시스',
-    date: '2025. 8. 4.',
-    excerpt: '카카오는 콘텐츠 퍼블리싱 플랫폼 브런치스토리가 \'제12회 브런치북 출판 프로젝트\' 대상 수상작 10편을 도서로 출간했다.',
-    url: 'https://www.newsis.com/view/NISX20250804_0003277165',
-    year: 2025
-  },
-  {
-    id: 4,
-    category: 'news',
-    type: '뉴스',
+    type: 'News',
     title: '삶을 버텨내야 한다면…다와다 요코 \'언어\'·이서수 \'춤\'·문혜정 \'카드\'',
     publication: '노컷뉴스',
     date: '2025. 8. 21.',
     excerpt: '다와다 요코 \'영혼 없는 작가\' 이서수 \'그래도 춤을 추세요\' 문혜정 \'타로카드 읽는 카페\'.',
     url: 'https://www.nocutnews.co.kr/news/6388188',
-    year: 2025
+    year: 2025,
+    sortDate: new Date('2025-08-21')
+  },
+  {
+    id: 3,
+    category: 'news',
+    type: 'News',
+    title: '카카오 브런치스토리, 1000:1 경쟁 뚫은 10편의 이야기 책으로 펴내',
+    publication: '지디넷코리아',
+    date: '2025. 8. 4.',
+    excerpt: '카카오가 운영하는 콘텐츠 퍼블리싱 플랫폼 브런치스토리가 \'제12회 브런치북 출판 프로젝트\' 대상 수상작 10편을 도서로 출간했다.',
+    url: 'https://zdnet.co.kr/view/?no=20250804141609',
+    year: 2025,
+    sortDate: new Date('2025-08-04')
+  },
+  {
+    id: 4,
+    category: 'news',
+    type: 'News',
+    title: '카카오, 브런치북 대상 수상작 출간…경쟁률 1000대 1',
+    publication: '뉴시스',
+    date: '2025. 8. 4.',
+    excerpt: '카카오는 콘텐츠 퍼블리싱 플랫폼 브런치스토리가 \'제12회 브런치북 출판 프로젝트\' 대상 수상작 10편을 도서로 출간했다.',
+    url: 'https://www.newsis.com/view/NISX20250804_0003277165',
+    year: 2025,
+    sortDate: new Date('2025-08-04')
   },
   {
     id: 5,
     category: 'youtube',
     type: 'YouTube',
-    title: '타로카드 읽는 카페 | 소설 낭독 & 북트레일러',
-    publication: '창비',
-    date: '2025',
-    excerpt: '타로카드 읽는 카페 북트레일러 영상',
+    title: '『타로카드 읽는 카페』 문혜정 작가가 알려주는 하반기 연애운',
+    publication: '창비 아카이브',
+    date: '2025. 9. 17.',
+    excerpt: '『타로카드 읽는 카페』 문혜정 작가님이 여러분의 연애운을 봐드립니다 ❣️ 모태솔로의 연애운부터 짝사랑, 재회, 그리고 사랑에 임해야 하는 자세까지 다채로운 연애운을 지금 바로 만나보세요!',
     url: 'https://www.youtube.com/watch?v=UbVsLtNcTQ4&t=583s',
-    year: 2025
+    year: 2025,
+    sortDate: new Date('2025-09-17')
   },
   {
     id: 6,
     category: 'youtube',
     type: 'YouTube',
-    title: '문혜정 작가 인터뷰: 타로로 읽는 마음',
-    publication: '창비',
-    date: '2025',
-    excerpt: '작가 인터뷰 영상',
-    url: 'https://www.youtube.com/watch?v=AvU3VA_Xv3U',
-    year: 2025
-  },
-  {
-    id: 7,
-    category: 'youtube',
-    type: 'YouTube Shorts',
-    title: '작가 픽 오늘의 한 구절: 사랑의 정답',
+    title: '당신도 모르는 당신의 마음을 읽어드립니다!',
     publication: '브런치',
-    date: '2025',
-    excerpt: '',
-    url: 'https://www.youtube.com/shorts/yUifn31TI3Q',
-    year: 2025
-  },
-  {
-    id: 8,
-    category: 'youtube',
-    type: 'YouTube Shorts',
-    title: '작가 픽 오늘의 한 구절: 눈물',
-    publication: '브런치',
-    date: '2025',
-    excerpt: '',
+    date: '2025. 9. 1.',
+    excerpt: '이혜성 아나운서가 소개하는 브런치북 12회 대상 출간작 10편 중, 마지막 작품 『타로카드 읽는 카페』가 출간되었습니다.',
     url: 'https://www.youtube.com/shorts/z4Chs7yXjIU',
-    year: 2025
+    year: 2025,
+    sortDate: new Date('2025-09-01')
   }
 ];
 
@@ -139,7 +124,7 @@ export default function MediaArchive() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-sm transition-all font-ui-ko ${
+              className={`px-6 py-2.5 rounded-full transition-all font-label-en text-xs ${
                 activeCategory === cat.id
                   ? 'bg-[#9CAF88] text-white shadow-md'
                   : 'bg-white text-[#3D3D3D]/70 hover:bg-[#9CAF88]/10 border border-[#E8DCC8]'
@@ -158,8 +143,7 @@ export default function MediaArchive() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-3xl mb-8 text-[#9CAF88]"
-              style={{ fontFamily: 'Fraunces, serif', letterSpacing: '0.05em' }}
+              className="text-3xl mb-8 text-[#9CAF88] font-display-en"
             >
               {year}
             </motion.h3>
@@ -180,45 +164,30 @@ export default function MediaArchive() {
                     className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer group"
                   >
                     <div className="flex items-start gap-4 mb-3">
-                      <div className="p-2.5 bg-[#9CAF88]/10 rounded-full text-[#9CAF88] group-hover:bg-[#9CAF88] group-hover:text-white transition-colors">
+                      <div className="p-2.5 bg-[#9CAF88]/10 rounded-full text-[#9CAF88] group-hover:bg-[#9CAF88] group-hover:text-white transition-colors flex-shrink-0">
                         <Icon size={20} />
                       </div>
-                      <div className="flex-1">
-                        <span
-                          className="text-[#9CAF88] tracking-[0.15em] block mb-1"
-                          style={{ fontSize: '11px', fontFamily: 'Inter, sans-serif' }}
-                        >
+                      <div className="flex-1 min-w-0">
+                        <span className="font-label-en text-[#9CAF88] block mb-1" style={{ fontSize: '11px' }}>
                           {item.type}
                         </span>
-                        <h4
-                          className="text-lg mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors"
-                          style={{ fontFamily: 'Noto Serif KR, serif', lineHeight: '1.5' }}
-                        >
+                        <h4 className="font-title-ko text-lg mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors line-clamp-1">
                           {item.title}
                         </h4>
                       </div>
                     </div>
                     
-                    <p
-                      className="text-[#3D3D3D]/50 mb-3 italic"
-                      style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px' }}
-                    >
+                    <p className="text-[#3D3D3D]/50 mb-3 italic text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
                       {item.publication} · {item.date}
                     </p>
 
                     {item.excerpt && (
-                      <p
-                        className="text-[#3D3D3D]/70 text-sm line-clamp-2"
-                        style={{ fontFamily: 'Noto Sans KR, sans-serif', lineHeight: '1.7' }}
-                      >
+                      <p className="text-[#3D3D3D]/70 text-sm line-clamp-2" style={{ fontFamily: 'Noto Sans KR, sans-serif', lineHeight: '1.7' }}>
                         {item.excerpt}
                       </p>
                     )}
 
-                    <span
-                      className="inline-block mt-4 text-[#9CAF88] tracking-[0.1em] text-xs group-hover:text-[#B85C50] transition-colors"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
+                    <span className="inline-block mt-4 font-label-en text-[#9CAF88] text-xs group-hover:text-[#B85C50] transition-colors">
                       READ MORE →
                     </span>
                   </motion.a>

@@ -21,9 +21,9 @@ const services = [
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1591966801718-48eb8ba0f8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmbG9yYWwlMjBhcnJhbmdlbWVudHxlbnwxfHx8fDE3NjgwMjg0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1607753975586-abbc68e237a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwZmxvd2Vyc3xlbnwxfHx8fDE3NjgwMjg0MDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1727527248663-5b0c475061b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RhbmljYWwlMjBpbGx1c3RyYXRpb258ZW58MXx8fHwxNzY4MDI4NDA1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  "/images/gallery/gallery_1.webp",
+  "/images/gallery/gallery_2.webp",
+  "/images/gallery/gallery_3.webp"
 ];
 
 export default function FlowersSection() {

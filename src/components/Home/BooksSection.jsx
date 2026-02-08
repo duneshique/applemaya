@@ -17,6 +17,15 @@ const books = [
     ]
   },
   {
+    title: "Four Seasons Flower Workbook",
+    subtitle: "A Personal Journal of Seasonal Blooms and Floral Arrangements",
+    year: "2023",
+    description: "What flowers are actually used in a florist's studio? This workbook explores seasonal botanical materials and the arrangements created with them. Written with botanical names used in the actual market for practical use, it includes detailed guides on seasonal availability, volume, colors, and styling tips. Like the author's own seasonal arrangement pages, it provides workbook sections for you to record and create your own floral journey.",
+    image: "/images/books/flower_workbook.webp",
+    aladinPreviewUrl: "https://www.aladin.co.kr/shop/book/wletslookViewer.aspx?ItemId=314977620",
+    detailUrl: "https://product.kyobobook.co.kr/detail/S000201479306"
+  },
+  {
     title: "Eco Flower Recipe",
     subtitle: "Flower Styling Starting with a Single Bloom",
     year: "2022",
@@ -45,8 +54,8 @@ const books = [
 ];
 
 export default function BooksSection() {
-  const openPreview = (bookId) => {
-    const previewUrl = `https://product.kyobobook.co.kr/book/preview/${bookId}`;
+  const openPreview = (book) => {
+    const previewUrl = book.aladinPreviewUrl || `https://product.kyobobook.co.kr/book/preview/${book.kyobobookId}`;
     
     const width = 1024;
     const height = 768;
@@ -157,7 +166,7 @@ export default function BooksSection() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <button
-                    onClick={() => openPreview(book.kyobobookId)}
+                    onClick={() => openPreview(book)}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#9CAF88] text-white rounded-full tracking-[0.2em] transition-all hover:bg-[#8A9E78] font-sans shadow-md hover:shadow-lg"
                     style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
                   >

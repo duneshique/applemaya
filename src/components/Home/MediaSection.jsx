@@ -1,43 +1,26 @@
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Newspaper, Radio, Camera } from 'lucide-react';
+import { Newspaper, Youtube, Mic, BookOpen, ArrowRight } from 'lucide-react';
 
-const mediaItems = [
-  {
-    icon: Newspaper,
-    type: "INTERVIEW",
-    title: "The Art of Floral Storytelling",
-    publication: "Seoul Design Magazine",
-    date: "January 2026",
-    excerpt: "Hyejeong Moon shares her unique approach to blending literary and botanical arts..."
-  },
-  {
-    icon: Radio,
-    type: "PODCAST",
-    title: "Creative Conversations",
-    publication: "The Modern Maker Podcast",
-    date: "December 2025",
-    excerpt: "An intimate discussion about finding inspiration in nature and the creative process..."
-  },
-  {
-    icon: Camera,
-    type: "FEATURE",
-    title: "Gardens & Pages: A Visual Essay",
-    publication: "Kinfolk Magazine",
-    date: "October 2025",
-    excerpt: "A photographic journey through Hyejeong's studio and garden sanctuary..."
-  },
-  {
-    icon: Newspaper,
-    type: "ARTICLE",
-    title: "Seasonal Living",
-    publication: "Cereal Magazine",
-    date: "September 2025",
-    excerpt: "On the philosophy of slow living and seasonal creativity..."
+// Import shared media data from MediaArchive
+import { mediaItems } from '@/components/Media/MediaArchive';
+
+const getIcon = (category) => {
+  switch (category) {
+    case 'news': return Newspaper;
+    case 'interview': return Mic;
+    case 'youtube': return Youtube;
+    default: return BookOpen;
   }
-];
+};
 
 export default function MediaSection() {
+  // Get the 4 most recent items sorted by date
+  const recentItems = [...mediaItems]
+    .sort((a, b) => b.sortDate - a.sortDate)
+    .slice(0, 4);
+
   return (
     <section id="media" className="py-24 lg:py-32 bg-[#FAF8F3]">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -47,95 +30,83 @@ export default function MediaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2
-            className="text-4xl lg:text-6xl mb-4 text-[#3D3D3D] font-serif"
-            style={{ 
-              fontFamily: 'Fraunces, serif',
-              letterSpacing: '0.05em'
-            }}
-          >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Newspaper className="text-[#9CAF88]" size={28} />
+          </div>
+          <h2 className="font-display-en text-4xl lg:text-5xl mb-4 text-[#3D3D3D]">
             Press & Media
           </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 font-sans"
-            style={{ 
-              fontFamily: 'Inter, sans-serif',
-              lineHeight: '1.8'
-            }}
-          >
+          <p className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 italic" style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
             Features, interviews, and conversations
           </p>
         </motion.div>
 
-        {/* Media Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {mediaItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer group"
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-[#9CAF88]/10 rounded-full text-[#9CAF88] group-hover:bg-[#9CAF88] group-hover:text-white transition-colors">
-                  <item.icon size={24} />
+        {/* Media Grid - 4 most recent items */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {recentItems.map((item, index) => {
+            const Icon = getIcon(item.category);
+            return (
+              <motion.a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer group"
+              >
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="p-2.5 bg-[#9CAF88]/10 rounded-full text-[#9CAF88] group-hover:bg-[#9CAF88] group-hover:text-white transition-colors flex-shrink-0">
+                    <Icon size={20} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="font-label-en text-[#9CAF88] block mb-1" style={{ fontSize: '11px' }}>
+                      {item.type}
+                    </span>
+                    <h3 className="font-title-ko text-lg mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors line-clamp-1">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <span
-                    className="text-[#9CAF88] tracking-[0.2em] block mb-2 font-sans"
-                    style={{ fontSize: '12px', fontFamily: 'Inter, sans-serif' }}
-                  >
-                    {item.type}
-                  </span>
-                  <h3
-                    className="text-xl mb-2 text-[#3D3D3D] font-serif"
-                    style={{ 
-                      fontFamily: 'Fraunces, serif',
-                      letterSpacing: '0.02em'
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-              
-              <div className="mb-3">
-                <p
-                  className="text-[#3D3D3D]/60 font-sans italic"
-                  style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '14px'
-                  }}
-                >
+                
+                <p className="text-[#3D3D3D]/50 mb-3 italic text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
                   {item.publication} · {item.date}
                 </p>
-              </div>
 
-              <p
-                className="text-[#3D3D3D]/70 mb-4 font-sans"
-                style={{ 
-                  fontFamily: 'Inter, sans-serif',
-                  lineHeight: '1.7',
-                  fontSize: '15px'
-                }}
-              >
-                {item.excerpt}
-              </p>
+                {item.excerpt && (
+                  <p className="text-[#3D3D3D]/70 text-sm line-clamp-2" style={{ fontFamily: 'Noto Sans KR, sans-serif', lineHeight: '1.7' }}>
+                    {item.excerpt}
+                  </p>
+                )}
 
-              <span
-                className="text-[#9CAF88] tracking-[0.15em] text-sm group-hover:text-[#B85C50] transition-colors font-sans"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                READ MORE →
-              </span>
-            </motion.div>
-          ))}
+                <span className="inline-block mt-4 font-label-en text-[#9CAF88] text-xs group-hover:text-[#B85C50] transition-colors">
+                  READ MORE →
+                </span>
+              </motion.a>
+            );
+          })}
         </div>
 
+        {/* View All Link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center"
+        >
+          <Link
+            href="/media"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[#9CAF88] text-white rounded-full font-label-en text-sm hover:bg-[#8A9E78] transition-colors shadow-md hover:shadow-lg"
+          >
+            VIEW ALL MEDIA
+            <ArrowRight size={16} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

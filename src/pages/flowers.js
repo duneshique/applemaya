@@ -21,15 +21,44 @@ export default function FlowersPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {/* Hero Section - Hidden as requested */}
-        {/* 
-        <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-[#FAF8F3]">...</section>
-        */}
-        
-        {/* Spacer for header */}
-        <div className="pt-24 lg:pt-28 bg-[#FAF8F3]" />
+        {/* Hero Header Section - Matching main page design */}
+        <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-[#FAF8F3]">
+          <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Flower2 className="text-[#9CAF88]" size={32} />
+              </div>
+              <h1
+                className="text-4xl lg:text-6xl mb-4 text-[#3D3D3D]"
+                style={{ 
+                  fontFamily: 'Fraunces, serif',
+                  letterSpacing: '0.05em'
+                }}
+              >
+                Flowers
+              </h1>
+              <p
+                className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70"
+                style={{ 
+                  fontFamily: 'Inter, sans-serif',
+                  lineHeight: '1.8',
+                  fontStyle: 'italic'
+                }}
+              >
+                Creating botanical beauty for life's meaningful moments
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-        {/* Instagram Section - Placeholder for widget integration */}
+        {/* Instagram Section - Hidden temporarily for re-direction */}
+        {/*
         <section className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
             <motion.div
@@ -62,7 +91,6 @@ export default function FlowersPage() {
               </p>
             </motion.div>
 
-            {/* Instagram Feed - SnapWidget (Free) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +98,6 @@ export default function FlowersPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-[800px] mx-auto"
             >
-              {/* SnapWidget Free Instagram Embed */}
               <iframe 
                 src="https://snapwidget.com/embed/1084892" 
                 className="snapwidget-widget w-full border-0 overflow-hidden rounded-xl" 
@@ -85,7 +112,6 @@ export default function FlowersPage() {
               </p>
             </motion.div>
 
-            {/* Instagram Profile Link */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -106,6 +132,7 @@ export default function FlowersPage() {
             </motion.div>
           </div>
         </section>
+        */}
 
         <FlowersArchive />
       </motion.div>
