@@ -10,7 +10,11 @@ const books = [
     description: "Tarot Card Reading Café is a psychological novel that keenly captures the raw truth of love, wounds, and desire through the eyes of tarot reader 'Shin Se-ryeon,' who peers into the wavering hearts of others. It is a romance narrative of healing and growth that never misses the subtle tremors of emotion.",
     image: "https://images.unsplash.com/photo-1584670679624-78d361cc64f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib29rJTIwcGFnZXMlMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY4MDI4NDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     kyobobookId: "S000217222317",
-    detailUrl: "https://product.kyobobook.co.kr/detail/S000217222317"
+    purchaseLinks: [
+      { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000217222317" },
+      { name: "YES24", url: "https://www.yes24.com/product/goods/150529430" },
+      { name: "Aladin", url: "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=369307743" }
+    ]
   },
   {
     title: "Eco Flower Recipe",
@@ -19,7 +23,11 @@ const books = [
     description: "An eco-friendly flower styling book featuring 36 projects with step-by-step instructions using easily accessible flowers and sustainable materials. Packed with Hyejeong's unique arrangement techniques, it guides everyone from beginners to professional florists in creating naturally beautiful designs—from single-stem pieces to full space styling.",
     image: "https://images.unsplash.com/photo-1591966801718-48eb8ba0f8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmbG9yYWwlMjBhcnJhbmdlbWVudHxlbnwxfHx8fDE3NjgwMjg0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     kyobobookId: "S000001943120",
-    detailUrl: "https://product.kyobobook.co.kr/detail/S000001943120"
+    purchaseLinks: [
+      { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000001943120" },
+      { name: "YES24", url: "http://www.yes24.com/Product/Goods/99480676" },
+      { name: "Aladin", url: "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=266925841" }
+    ]
   },
   {
     title: "Every Moment Needs Flowers",
@@ -28,7 +36,11 @@ const books = [
     description: "Everything learned from watching flowers bloom and fade. 'No flower blooms without swaying.' As flowers become part of everyday self-care, this book offers healing for those newly drawn to blooms and comprehensive knowledge for enthusiasts—from flower history to care techniques. Includes practical lessons on arrangement and maintenance to help you enjoy beautiful flowers at home longer.",
     image: "https://images.unsplash.com/photo-1727527248663-5b0c475061b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RhbmljYWwlMjBpbGx1c3RyYXRpb258ZW58MXx8fHwxNzY4MDI4NDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     kyobobookId: "S000001949403",
-    detailUrl: "https://product.kyobobook.co.kr/detail/S000001949403"
+    purchaseLinks: [
+      { name: "Kyobo", url: "https://product.kyobobook.co.kr/detail/S000001949403" },
+      { name: "YES24", url: "http://www.yes24.com/Product/Goods/106540288" },
+      { name: "Aladin", url: "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=283048281" }
+    ]
   }
 ];
 
@@ -143,7 +155,7 @@ export default function BooksSection() {
                 >
                   {book.description}
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => openPreview(book.kyobobookId)}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#9CAF88] text-white rounded-full tracking-[0.2em] transition-all hover:bg-[#8A9E78] font-sans shadow-md hover:shadow-lg"
@@ -152,16 +164,19 @@ export default function BooksSection() {
                     <BookOpen size={16} />
                     PREVIEW
                   </button>
-                  <a
-                    href={book.detailUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#9CAF88] text-[#9CAF88] rounded-full tracking-[0.2em] transition-all hover:bg-[#9CAF88] hover:text-white font-sans"
-                    style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
-                  >
-                    LEARN MORE
-                    <ExternalLink size={16} />
-                  </a>
+                  {book.purchaseLinks.map((link, linkIndex) => (
+                    <a
+                      key={linkIndex}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-3 border border-[#3D3D3D]/20 text-[#3D3D3D]/80 rounded-full tracking-[0.1em] transition-all hover:bg-[#3D3D3D] hover:text-white font-sans text-sm"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      {link.name}
+                      <ExternalLink size={14} />
+                    </a>
+                  ))}
                 </div>
               </div>
             </motion.div>
