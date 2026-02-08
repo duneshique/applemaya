@@ -56,8 +56,8 @@ const floraItems = [
   // 2022
   { year: '2022', month: '12월', title: '월간 플로라 2022년 12월호', thumbnail: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000345390.jpg', link: 'https://product.kyobobook.co.kr/detail/S000200330305' },
   { year: '2022', month: '11월', title: '월간 플로라 2022년 11월호', subtitle: "'에코 플라워' 플라잉드라이플라워 슈즈 / 표지 작업", thumbnail: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000339726.jpg', link: 'https://product.kyobobook.co.kr/detail/S000200128281' },
-  { year: '2022', month: '10월', title: '월간 플로라 2022년 10월호', subtitle: "'에코 플라워' 후르츠어레인지먼트 시즌테마 디자인 2종", thumbnail: null, link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018101' },
-  { year: '2022', month: '9월', title: '월간 플로라 2022년 9월호', subtitle: "'에코 플라워' 포토테이블 장식", thumbnail: null, link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018095' },
+  { year: '2022', month: '10월', title: '월간 플로라 2022년 10월호', subtitle: "'에코 플라워' 후르츠어레인지먼트 시즌테마 디자인 2종", thumbnail: 'https://contents.kyobobook.co.kr/pdt/480D221056860.jpg', link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018101' },
+  { year: '2022', month: '9월', title: '월간 플로라 2022년 9월호', subtitle: "'에코 플라워' 포토테이블 장식", thumbnail: 'https://contents.kyobobook.co.kr/pdt/480D221056780.jpg', link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018095' },
   { year: '2022', month: '8월', title: '월간 플로라 2022년 8월호', subtitle: "'에코 플라워' 스머지 스틱 / 표지 작업", thumbnail: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000285214.jpg', link: 'https://product.kyobobook.co.kr/detail/S000000327681' },
   { year: '2022', month: '7월', title: '월간 플로라 2022년 7월호', subtitle: "'에코 플라워' 그린 시험관 어레인지먼트", thumbnail: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000284088.jpg', link: 'https://product.kyobobook.co.kr/detail/S000000327568' },
   { year: '2022', month: '6월', title: '월간 플로라 2022년 6월호', subtitle: "'에코 플라워' 레인 포레스트", thumbnail: 'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/3904000283081.jpg', link: 'https://product.kyobobook.co.kr/detail/S000000327468' },
