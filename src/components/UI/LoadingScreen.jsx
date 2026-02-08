@@ -54,7 +54,7 @@ export default function LoadingScreen() {
               transition={{ delay: 1, duration: 0.5 }}
               className="mt-6 text-[10px] uppercase tracking-[0.4em] text-accent-sage font-bold"
             >
-              Hyejeong Studio
+              Hyejoung Studio
             </motion.span>
           </div>
         </motion.div>

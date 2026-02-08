@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Hyejeong Moon | Author & Florist</title>
-        <meta name="description" content="Portfolio of Hyejeong Moon - Author, Florist, and Tarot Reader based in Seoul." />
-        <meta property="og:title" content="Hyejeong Moon | Author & Florist" />
-        <meta property="og:description" content="Portfolio of Hyejeong Moon - Author, Florist, and Tarot Reader based in Seoul." />
+        <title>Hyejoung Moon | Author & Florist</title>
+        <meta name="description" content="Portfolio of Hyejoung Moon - Author, Florist, and Tarot Reader based in Seoul." />
+        <meta property="og:title" content="Hyejoung Moon | Author & Florist" />
+        <meta property="og:description" content="Portfolio of Hyejoung Moon - Author, Florist, and Tarot Reader based in Seoul." />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -26,14 +26,12 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="pt-20 lg:pt-24" />
-        {/* <HeroSection /> */}
-        {/* <FeaturedWork /> */}
+        <HeroSection />
         <AboutSection />
         <BooksSection />
         <FlowersSection />
         <MediaSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </motion.div>
     </Layout>
   );

@@ -7,9 +7,8 @@ import { Menu, X, Instagram } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'ABOUT', href: '/#about' },
   { label: 'BOOKS', href: '/#books' },
-  { label: 'FLOWERS', href: '/flowers' },
-  { label: 'MEDIA', href: '/media' },
-  { label: 'CONTACT', href: '/#contact' }
+  { label: 'FLOWERS', href: '/#flowers' },
+  { label: 'MEDIA', href: '/#media' }
 ];
 
 export default function Header() {
@@ -40,7 +39,7 @@ export default function Header() {
             className="text-2xl font-semibold tracking-tight text-[#3D3D3D] hover:opacity-70 transition-opacity"
             style={{ fontFamily: 'Fraunces, serif' }}
           >
-            Hyejeong Moon
+            Hyejoung Moon
           </Link>
 
           <div className="hidden lg:flex items-center gap-12">

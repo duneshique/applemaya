@@ -4,30 +4,30 @@ export const booksData = [
   {
     id: 1,
     title: {
-      ko: "Tarot Card Reading Café",
+      ko: "타로카드 읽는 카페",
       en: "Tarot Card Reading Café"
     },
     subtitle: {
-      ko: "Reading Hearts Through Tarot, Changing Fate Through Choice",
+      ko: "타로로 마음을 읽고, 선택으로 운명을 바꾸는 곳",
       en: "Reading Hearts Through Tarot, Changing Fate Through Choice"
     },
     author: {
-      ko: "Hyejeong Moon",
-      en: "Hyejeong Moon"
+      ko: "Hyejoung Moon",
+      en: "Hyejoung Moon"
     },
     publisher: {
-      ko: "Changbi Publishers",
+      ko: "창비 공식 출판",
       en: "Changbi Publishers"
     },
     publishDate: "2025-08-14",
     coverImage: imageData.books[0].cover,
     description: {
-      ko: "A psychological novel that captures the raw essence of anxiety, desire, and love through the eyes of tarot reader 'Shin Se-ryeon', who quietly reads people's wavering hearts through tarot cards.",
+      ko: "타로 카드로 타인의 흔들리는 마음을 읽어주는 타로 리더 '신세련'의 시선을 통해, 불안과 열망, 사랑의 민낯을 예리하게 포착해낸 심리 소설입니다.",
       en: "A psychological novel that captures the raw essence of anxiety, desire, and love through the eyes of tarot reader 'Shin Se-ryeon', who quietly reads people's wavering hearts through tarot cards."
     },
     awards: [
       {
-        ko: "🏆 Brunch Book Project 12th Grand Prize",
+        ko: "🏆 브런치북 프로젝트 12회 대상 수상",
         en: "🏆 Brunch Book Project 12th Grand Prize"
       }
     ],
@@ -58,21 +58,21 @@ export const booksData = [
   {
     id: 2,
     title: {
-      ko: "Eco Flower Styling Book",
+      ko: "에코 플라워 스타일링북",
       en: "Eco Flower Styling Book"
     },
     subtitle: {
-      ko: "Harmless to Nature",
+      ko: "자연에게 해롭지 않게",
       en: "Harmless to Nature"
     },
     author: {
-      ko: "Hyejeong Moon",
-      en: "Hyejeong Moon"
+      ko: "Hyejoung Moon",
+      en: "Hyejoung Moon"
     },
     publishDate: "2021-03-15",
     coverImage: imageData.books[1].cover,
     description: {
-      ko: "Everything about eco-friendly flower styling that doesn't harm nature. Contains methods of practicing sustainable floristry and beautiful works.",
+      ko: "자연을 해치지 않는 친환경 플라워 스타일링의 모든 것. 지속 가능한 플로리스트리를 실천하는 방법과 아름다운 작품들을 담았습니다.",
       en: "Everything about eco-friendly flower styling that doesn't harm nature. Contains methods of practicing sustainable floristry and beautiful works."
     },
     purchaseLinks: [

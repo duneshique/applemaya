@@ -6,27 +6,27 @@ import Link from 'next/link';
 const categories = [
   {
     id: 'flora',
-    title: "Flora",
-    titleKo: "월간 플로라",
-    description: "2022년부터 매월 친환경 플라워 프로젝트를 주제로 연재 중인 플라워 디자인 포트폴리오입니다.",
+    title: "Monthly Flora",
+    titleKo: "FLORA",
+    description: "A 2022 collection that celebrates sustainable flower design through thoughtful craftsmanship and natural botanicals, creating timeless arrangements for everyday enjoyment.",
     icon: BookOpen,
     link: "/flowers#flora",
     color: "#9CAF88"
   },
   {
     id: 'portfolio',
-    title: "Portfolio",
-    titleKo: "플라워 작품",
-    description: "다양한 공간 장식과 프로젝트를 통해 선보이는 마야플로르의 독창적인 플라워 작품들을 소개합니다.",
+    title: "Artistic Works",
+    titleKo: "PORTFOLIO",
+    description: "A showcase of diverse design disciplines and artistic methodologies that transform creative vision into distinctive, impactful work across multiple mediums.",
     icon: Flower2,
     link: "/flowers#portfolio",
     color: "#B85C50"
   },
   {
     id: 'class',
-    title: "Online Class",
-    titleKo: "온라인 클래스",
-    description: "플라워 러버들을 위해 제작된 전문적인 온라인 플라워 워크샵과 에코 디자인 강의를 만나보세요.",
+    title: "Workshop",
+    titleKo: "ONLINE CLASS",
+    description: "Comprehensive flower design workshops developed for aspiring artists to master professional techniques, industry insights, and creative skills through structured curriculum.",
     icon: Video,
     link: "/flowers#class",
     color: "#7A6B5D"
@@ -45,11 +45,11 @@ export default function FlowersSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Flower2 className="text-[#9CAF88]" size={32} />
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <Flower2 className="text-[#9CAF88]" size={36} />
           </div>
           <h2
-            className="text-4xl lg:text-6xl mb-6 text-[#3D3D3D] font-serif"
+            className="text-4xl lg:text-6xl mb-8 text-[#3D3D3D] font-serif"
             style={{ 
               fontFamily: 'Fraunces, serif',
               letterSpacing: '0.05em'
@@ -58,10 +58,10 @@ export default function FlowersSection() {
             Flowers
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 font-sans leading-relaxed"
+            className="text-lg lg:text-xl max-w-3xl mx-auto text-[#3D3D3D]/70 font-sans leading-relaxed"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            계절의 흐름을 담은 지속가능한 플라워 디자인 프로젝트
+            Creating botanical beauty for life's meaningful moments
           </p>
         </motion.div>
 
@@ -105,7 +105,8 @@ export default function FlowersSection() {
 
                 <Link
                   href={cat.link}
-                  className="inline-flex items-center gap-2 text-sm font-label-en tracking-wider text-[#3D3D3D] group/btn transition-colors hover:text-[#9CAF88]"
+                  className="inline-flex items-center gap-2 tracking-wider text-[#3D3D3D] group/btn transition-colors hover:text-[#9CAF88]"
+                  style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
                 >
                   VIEW DETAILS
                   <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />

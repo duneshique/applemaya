@@ -158,7 +158,7 @@ export default function ContactSection() {
           >
             <div className="mt-12 p-6 bg-[#E8DCC8]/30 rounded-2xl">
               <p
-                className="text-[#3D3D3D]/70 italic font-sans"
+                className="text-[#3D3D3D]/70 font-sans"
                 style={{ 
                   fontFamily: 'Inter, sans-serif',
                   lineHeight: '1.8',
@@ -175,7 +175,7 @@ export default function ContactSection() {
                   fontSize: '16px'
                 }}
               >
-                — Hyejeong
+                — Hyejoung
               </p>
             </div>
           </motion.div>

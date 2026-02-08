@@ -1,4 +1,4 @@
-import { Instagram, BookOpen, Mail } from 'lucide-react';
+import { Instagram, BookOpen, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ export default function Footer() {
             className="text-2xl font-semibold mb-2 text-[#3D3D3D]"
             style={{ fontFamily: 'Fraunces, serif' }}
           >
-            Hyejeong Moon
+            Hyejoung Moon
           </h2>
           <p 
             className="text-[14px] text-[#6B7A6E] tracking-[0.2em] uppercase font-sans"
@@ -26,7 +26,7 @@ export default function Footer() {
             href="https://www.instagram.com/mayaflor_co/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6B7A6E] hover:text-[#9CAF88] transition-colors"
+            className="text-[#6B7A6E] hover:text-[#E4405F] transition-colors"
             aria-label="Instagram"
           >
             <Instagram size={24} />
@@ -35,19 +35,19 @@ export default function Footer() {
             href="https://brunch.co.kr/@mayaflor"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6B7A6E] hover:text-[#9CAF88] transition-colors"
+            className="text-[#6B7A6E] hover:text-[#00C73C] transition-colors"
             aria-label="Brunch"
           >
             <BookOpen size={24} />
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
+            href="https://www.youtube.com/@mayaflor"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6B7A6E] hover:text-[#9CAF88] transition-colors"
-            aria-label="Email"
+            className="text-[#6B7A6E] hover:text-[#FF0000] transition-colors"
+            aria-label="YouTube"
           >
-            <Mail size={24} />
+            <Youtube size={24} />
           </a>
         </div>
 
@@ -56,7 +56,7 @@ export default function Footer() {
             className="text-[12px] text-[#6B7A6E]/60 font-sans"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            © {currentYear} Hyejeong Moon. All rights reserved.
+            Copyrights @ Hyejoung Moon. All Rights Reserved.
           </p>
         </div>
       </div>

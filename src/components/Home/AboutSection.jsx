@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import { Instagram, BookOpen } from 'lucide-react';
+import { Instagram, BookOpen, Youtube } from 'lucide-react';
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +46,7 @@ export default function AboutSection() {
               <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                 <img
                   src="/images/profile/hyejeong_moon.webp"
-                  alt="Hyejeong Moon"
+                  alt="Hyejoung Moon"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -63,7 +63,7 @@ export default function AboutSection() {
               className="text-3xl font-semibold mb-8 text-[#3D3D3D]"
               style={{ fontFamily: 'Fraunces, serif' }}
             >
-              About Hyejeong
+              About Hyejoung
             </h2>
             
             <div 
@@ -71,7 +71,7 @@ export default function AboutSection() {
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               <p>
-                With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejeong's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
+                With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejoung's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
               </p>
               
               <p>
@@ -89,7 +89,7 @@ export default function AboutSection() {
                 href="https://www.instagram.com/mayaflor_co/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#7A9168] transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#E4405F] transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -98,10 +98,19 @@ export default function AboutSection() {
                 href="https://brunch.co.kr/@mayaflor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#7A9168] transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#00C73C] transition-colors duration-300"
                 aria-label="Brunch"
               >
                 <BookOpen className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@mayaflor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#FF0000] transition-colors duration-300"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </motion.div>

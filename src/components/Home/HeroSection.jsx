@@ -12,7 +12,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
       {/* Parallax Background Image */}
       <div 
         className="absolute inset-0 z-0"
@@ -21,10 +21,18 @@ export default function HeroSection() {
           willChange: 'transform'
         }}
       >
-        <img
-          src="https://images.unsplash.com/photo-1756266749980-eb11d4a8194c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY28lMjBmbG93ZXIlMjBhcnJhbmdlbWVudHxlbnwxfHx8fDE3NjgwMjk3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Flower Arrangement"
-          className="w-full h-full object-cover"
+        <div 
+          className="w-full h-full bg-cover bg-center-right"
+          style={{
+            backgroundImage: 'url(/images/hero/hero_background1.webp)',
+            backgroundPosition: 'center right',
+            backgroundSize: 'cover'
+          }}
+        />
+        {/* Overlay for visual balance - 40% opacity */}
+        <div 
+          className="absolute inset-0 bg-white"
+          style={{ opacity: 0.4 }}
         />
       </div>
 
@@ -33,10 +41,11 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center"
         >
           <h1 
+            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-[#3D3D3D]"
             style={{ 
               fontFamily: 'Fraunces, serif',
               fontWeight: 600,
@@ -47,33 +56,44 @@ export default function HeroSection() {
               letterSpacing: '0.02em'
             }}
           >
-            Hyejeong Moon
+            Hyejoung Moon
           </h1>
           <p 
-            className="text-[18px] tracking-[0.3em] text-[#2C3E2F] uppercase font-sans"
+            className="text-base md:text-lg tracking-[0.3em] text-[#3D3D3D]/80 uppercase font-sans"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
             Author · Florist
           </p>
         </motion.div>
 
-        {/* Animated Scroll Indicator */}
+        {/* Animated Scroll Indicator - Pulsing V shape for next action guidance */}
         <motion.div
-          className="absolute bottom-12"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 0.5
+          className="absolute bottom-10 md:bottom-16 flex flex-col items-center gap-2 cursor-pointer group"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          onClick={() => {
+            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          <ChevronDown className="w-8 h-8 text-[#9CAF88]" />
+          <span className="text-[#3D3D3D]/40 text-[10px] tracking-[0.3em] font-sans uppercase mb-1 group-hover:text-[#9CAF88] transition-colors">
+            Scroll
+          </span>
+          <motion.div
+            animate={{ 
+              y: [0, 8, 0],
+              opacity: [0.4, 1, 0.4]
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <ChevronDown className="w-8 h-8 text-[#9CAF88]" strokeWidth={1.5} />
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
-

@@ -32,13 +32,13 @@ export default function MediaSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-3 mb-8">
             <Newspaper className="text-[#9CAF88]" size={28} />
           </div>
-          <h2 className="font-display-en text-4xl lg:text-5xl mb-4 text-[#3D3D3D]">
+          <h2 className="font-display-en text-4xl lg:text-6xl mb-8 text-[#3D3D3D]">
             Press & Media
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 italic" style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
+          <p className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70" style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
             Features, interviews, and conversations
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export default function MediaSection() {
                     {item.title}
                   </h3>
                   
-                  <p className="font-sans text-[#3D3D3D]/40 mb-3 italic text-[11px] tracking-wide">
+                  <p className="font-sans text-[#3D3D3D]/40 mb-3 text-[11px] tracking-wide">
                     {item.publication}
                   </p>
 
@@ -102,7 +102,8 @@ export default function MediaSection() {
         >
           <Link
             href="/media"
-            className="inline-flex items-center gap-2 px-10 py-3.5 bg-[#9CAF88] text-white rounded-full font-label-en text-[11px] tracking-[0.2em] hover:bg-[#8A9E78] transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-10 py-3.5 bg-[#9CAF88] text-white rounded-full tracking-[0.2em] hover:bg-[#8A9E78] transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
+            style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
           >
             VIEW ALL MEDIA
             <ArrowRight size={14} />

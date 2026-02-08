@@ -9,9 +9,9 @@ export default function FlowersPage() {
   return (
     <Layout>
       <Head>
-        <title>Flowers | Hyejeong Moon</title>
-        <meta name="description" content="Floral works, monthly flora magazine portfolio, and projects by Hyejeong Moon." />
-        <meta property="og:title" content="Flowers | Hyejeong Moon" />
+        <title>Flowers | Hyejoung Moon</title>
+        <meta name="description" content="Floral works, monthly flora magazine portfolio, and projects by Hyejoung Moon." />
+        <meta property="og:title" content="Flowers | Hyejoung Moon" />
         <meta property="og:description" content="플라워 작품, 월간 플로라 포트폴리오, 프로젝트" />
         <meta property="og:type" content="website" />
       </Head>
@@ -47,8 +47,7 @@ export default function FlowersPage() {
                 className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70"
                 style={{ 
                   fontFamily: 'Inter, sans-serif',
-                  lineHeight: '1.8',
-                  fontStyle: 'italic'
+                  lineHeight: '1.8'
                 }}
               >
                 Creating botanical beauty for life's meaningful moments

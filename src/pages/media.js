@@ -9,9 +9,9 @@ export default function MediaPage() {
   return (
     <Layout>
       <Head>
-        <title>Media | Hyejeong Moon</title>
-        <meta name="description" content="Press coverage, interviews, and media appearances of Hyejeong Moon - Author and Florist." />
-        <meta property="og:title" content="Media | Hyejeong Moon" />
+        <title>Media | Hyejoung Moon</title>
+        <meta name="description" content="Press coverage, interviews, and media appearances of Hyejoung Moon - Author and Florist." />
+        <meta property="og:title" content="Media | Hyejoung Moon" />
         <meta property="og:description" content="Press coverage, interviews, and media appearances." />
         <meta property="og:type" content="website" />
       </Head>
@@ -29,18 +29,18 @@ export default function MediaPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Newspaper className="text-[#9CAF88]" size={32} />
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <Newspaper className="text-[#9CAF88]" size={36} />
               </div>
               <h1
-                className="text-4xl lg:text-6xl mb-4 text-[#3D3D3D]"
+                className="text-4xl lg:text-6xl mb-8 text-[#3D3D3D]"
                 style={{ fontFamily: 'Fraunces, serif', letterSpacing: '0.05em' }}
               >
                 Press & Media
               </h1>
               <p
-                className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70"
-                style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8', fontStyle: 'italic' }}
+                className="text-lg lg:text-xl max-w-3xl mx-auto text-[#3D3D3D]/70"
+                style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}
               >
                 Features, interviews, and conversations
               </p>

@@ -1,13 +1,13 @@
 export const imageData = {
   profile: {
     src: '/images/profile/maya-profile.webp',
-    alt: 'Hyejeong Moon',
+    alt: 'Hyejoung Moon',
     width: 800,
     height: 800
   },
   hero: {
     bg: '/images/flowers/hero-bg.webp',
-    alt: 'Hyejeong Studio Hero Background'
+    alt: 'Hyejoung Studio Hero Background'
   },
   books: [
     {

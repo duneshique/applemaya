@@ -192,7 +192,7 @@ export default function MediaArchive() {
                           {item.title}
                         </h4>
                         
-                        <p className="font-sans text-[#3D3D3D]/40 mb-4 italic text-xs tracking-wide">
+                        <p className="font-sans text-[#3D3D3D]/40 mb-4 text-xs tracking-wide">
                           {item.publication} · {item.date}
                         </p>
 

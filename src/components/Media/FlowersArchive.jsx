@@ -98,20 +98,20 @@ const projectItems = [
 
 const classItems = [
   { 
-    title: 'Part 1. 부케 Bouquet', 
-    subtitle: '마야플로르의 첫 번째 온라인 플라워 워크샵',
-    desc: '단순한 기술을 넘어 꽃을 고르고 컬러를 결정하는 안목을 다룹니다.',
-    curriculum: ['도구 및 소재 다루기', 'Light Bouquet', 'Bold Bouquet', 'Vivid Bouquet'],
+    title: 'Part 1. Bouquet', 
+    subtitle: 'Design your own Bouquet',
+    desc: 'Video lectures and text handbook to start your Mayaflor flower design workshop',
+    curriculum: ['Light Bouquet', 'Bold Bouquet', 'Vivid Bouquet', 'Neutral Bouquet'],
     link: 'https://mayaflor.liveklass.com/classes/6942',
     thumbnail: '/images/flowers/class_bouquet.webp'
   },
   { 
-    title: 'Part 2. 노플로랄폼 어레인지먼트', 
-    subtitle: '지속가능한 디자인을 위한 테크닉',
-    desc: '침봉, 치킨와이어 등 자연 친화적 재료를 활용한 고정 기법을 배웁니다.',
-    curriculum: ['노플로랄폼의 이해', '치킨와이어 페데스탈', '에코 꽃바구니 세팅'],
+    title: 'Part 2. No-Floral Foam Arrangement', 
+    subtitle: 'Sustainable techniques for eco-friendly design',
+    desc: 'Master natural fixing methods using chicken wire and pin frogs for environmentally conscious arrangements',
+    curriculum: ['Chicken wire fixing technique', 'Pin frog fixing technique', 'No-floral foam arrangement inspiration'],
     link: 'https://mayaflor.liveklass.com/classes/6943',
-    thumbnail: '/images/flowers/class_no_floral_foam.webp'
+    thumbnail: '/images/flowers/no_floral_foam.webp'
   },
 ];
 
