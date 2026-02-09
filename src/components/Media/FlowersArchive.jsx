@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Flower2, Video, FolderOpen, ExternalLink, Calendar, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Flower2, Video, FolderOpen, ExternalLink, Calendar, CheckCircle2, X } from 'lucide-react';
+import { floraItems, projectItems, classItems, portfolioImages, monthlyFlowerImages, ECO_FLOWER_TOTAL } from '@/data/flowers';
+import { handleImageError } from '@/utils/imageUtils';
 
 const tabs = [
   { id: 'flora', label: 'Flora', icon: BookOpen },
@@ -9,117 +12,11 @@ const tabs = [
   { id: 'class', label: 'Online Class', icon: Video },
 ];
 
-const floraItems = [
-  // 2026
-  { year: '2026', month: '2월', title: '월간 플로라 2026년 2월호', thumbnail: '/images/flora/flora_2026_02.webp', link: 'https://product.kyobobook.co.kr/detail/S000219157501' },
-  { year: '2026', month: '1월', title: '월간 플로라 2026년 1월호', thumbnail: '/images/flora/flora_2026_01.webp', link: 'https://product.kyobobook.co.kr/detail/S000218936265' },
-  // 2025
-  { year: '2025', month: '12월', title: '월간 플로라 2025년 12월호', thumbnail: '/images/flora/flora_2025_12.webp', link: 'https://product.kyobobook.co.kr/detail/S000218704290' },
-  { year: '2025', month: '11월', title: '월간 플로라 2025년 11월호', thumbnail: '/images/flora/flora_2025_11.webp', link: 'https://product.kyobobook.co.kr/detail/S000218315399' },
-  { year: '2025', month: '10월', title: '월간 플로라 2025년 10월호', thumbnail: '/images/flora/flora_2025_10.webp', link: 'https://product.kyobobook.co.kr/detail/S000218053700' },
-  { year: '2025', month: '9월', title: '월간 플로라 2025년 9월호', thumbnail: '/images/flora/flora_2025_09.webp', link: 'https://product.kyobobook.co.kr/detail/S000217444463' },
-  { year: '2025', month: '8월', title: '월간 플로라 2025년 8월호', thumbnail: '/images/flora/flora_2025_08.webp', link: 'https://product.kyobobook.co.kr/detail/S000217192569' },
-  { year: '2025', month: '7월', title: '월간 플로라 2025년 7월호', thumbnail: '/images/flora/flora_2025_07.webp', link: 'https://product.kyobobook.co.kr/detail/S000216951107' },
-  { year: '2025', month: '6월', title: '월간 플로라 2025년 6월호', thumbnail: '/images/flora/flora_2025_06.webp', link: 'https://product.kyobobook.co.kr/detail/S000216702974' },
-  { year: '2025', month: '5월', title: '월간 플로라 2025년 5월호', thumbnail: '/images/flora/flora_2025_05.webp', link: 'https://product.kyobobook.co.kr/detail/S000216406228' },
-  { year: '2025', month: '4월', title: '월간 플로라 2025년 4월호', thumbnail: '/images/flora/flora_2025_04.webp', link: 'https://product.kyobobook.co.kr/detail/S000216180058' },
-  { year: '2025', month: '3월', title: '월간 플로라 2025년 3월호', thumbnail: '/images/flora/flora_2025_03.webp', link: 'https://product.kyobobook.co.kr/detail/S000215934167' },
-  { year: '2025', month: '2월', title: '월간 플로라 2025년 2월호', thumbnail: '/images/flora/flora_2025_02.webp', link: 'https://product.kyobobook.co.kr/detail/S000215648247' },
-  { year: '2025', month: '1월', title: '월간 플로라 2025년 1월호', thumbnail: '/images/flora/flora_2025_01.webp', link: 'https://product.kyobobook.co.kr/detail/S000215097734' },
-  // 2024
-  { year: '2024', month: '12월', title: '월간 플로라 2024년 12월호', thumbnail: '/images/flora/flora_2024_12.webp', link: 'https://product.kyobobook.co.kr/detail/S000214883307' },
-  { year: '2024', month: '11월', title: '월간 플로라 2024년 11월호', thumbnail: '/images/flora/flora_2024_11.webp', link: 'https://product.kyobobook.co.kr/detail/S000214650698' },
-  { year: '2024', month: '10월', title: '월간 플로라 2024년 10월호', thumbnail: '/images/flora/flora_2024_10.webp', link: 'https://product.kyobobook.co.kr/detail/S000214451651' },
-  { year: '2024', month: '9월', title: '월간 플로라 2024년 9월호', thumbnail: '/images/flora/flora_2024_09.webp', link: 'https://product.kyobobook.co.kr/detail/S000214158441' },
-  { year: '2024', month: '8월', title: '월간 플로라 2024년 8월호', thumbnail: '/images/flora/flora_2024_08.webp', link: 'https://product.kyobobook.co.kr/detail/S000213921689' },
-  { year: '2024', month: '7월', title: '월간 플로라 2024년 7월호', thumbnail: '/images/flora/flora_2024_07.webp', link: 'https://product.kyobobook.co.kr/detail/S000213676021' },
-  { year: '2024', month: '6월', title: '월간 플로라 2024년 6월호', thumbnail: '/images/flora/flora_2024_06.webp', link: 'https://product.kyobobook.co.kr/detail/S000213425216' },
-  { year: '2024', month: '5월', title: '월간 플로라 2024년 5월호', thumbnail: '/images/flora/flora_2024_05.webp', link: 'https://product.kyobobook.co.kr/detail/S000213134285' },
-  { year: '2024', month: '4월', title: '월간 플로라 2024년 4월호', thumbnail: '/images/flora/flora_2024_04.webp', link: 'https://product.kyobobook.co.kr/detail/S000212807433' },
-  { year: '2024', month: '3월', title: '월간 플로라 2024년 3월호', thumbnail: '/images/flora/flora_2024_03.webp', link: 'https://product.kyobobook.co.kr/detail/S000212604598' },
-  { year: '2024', month: '2월', title: '월간 플로라 2024년 2월호', thumbnail: '/images/flora/flora_2024_02.webp', link: 'https://product.kyobobook.co.kr/detail/S000212176719' },
-  { year: '2024', month: '1월', title: '월간 플로라 2024년 1월호', thumbnail: '/images/flora/flora_2024_01.webp', link: 'https://product.kyobobook.co.kr/detail/S000211796521' },
-  // 2023
-  { year: '2023', month: '12월', title: '월간 플로라 2023년 12월호', thumbnail: '/images/flora/flora_2023_12.webp', link: 'https://product.kyobobook.co.kr/detail/S000211545967' },
-  { year: '2023', month: '11월', title: '월간 플로라 2023년 11월호', thumbnail: '/images/flora/flora_2023_11.webp', link: 'https://product.kyobobook.co.kr/detail/S000210833232' },
-  { year: '2023', month: '10월', title: '월간 플로라 2023년 10월호', thumbnail: '/images/flora/flora_2023_10.webp', link: 'https://product.kyobobook.co.kr/detail/S000209650973' },
-  { year: '2023', month: '9월', title: '월간 플로라 2023년 9월호', thumbnail: '/images/flora/flora_2023_09.webp', link: 'https://product.kyobobook.co.kr/detail/S000208721315' },
-  { year: '2023', month: '8월', title: '월간 플로라 2023년 8월호', thumbnail: '/images/flora/flora_2023_08.webp', link: 'https://product.kyobobook.co.kr/detail/S000208257475' },
-  { year: '2023', month: '7월', title: '월간 플로라 2023년 7월호', thumbnail: '/images/flora/flora_2023_07.webp', link: 'https://product.kyobobook.co.kr/detail/S000202827421' },
-  { year: '2023', month: '6월', title: '월간 플로라 2023년 6월호', thumbnail: '/images/flora/flora_2023_06.webp', link: 'https://product.kyobobook.co.kr/detail/S000202478958' },
-  { year: '2023', month: '5월', title: '월간 플로라 2023년 5월호', thumbnail: '/images/flora/flora_2023_05.webp', link: 'https://product.kyobobook.co.kr/detail/S000201794311' },
-  { year: '2023', month: '4월', title: '월간 플로라 2023년 4월호', thumbnail: '/images/flora/flora_2023_04.webp', link: 'https://product.kyobobook.co.kr/detail/S000201360836' },
-  { year: '2023', month: '3월', title: '월간 플로라 2023년 3월호', thumbnail: '/images/flora/flora_2023_03.webp', link: 'https://product.kyobobook.co.kr/detail/S000201160902' },
-  { year: '2023', month: '2월', title: '월간 플로라 2023년 2월호', thumbnail: '/images/flora/flora_2023_02.webp', link: 'https://product.kyobobook.co.kr/detail/S000200787686' },
-  { year: '2023', month: '1월', title: '월간 플로라 2023년 1월호', thumbnail: '/images/flora/flora_2023_01.webp', link: 'https://product.kyobobook.co.kr/detail/S000200554180' },
-  // 2022
-  { year: '2022', month: '12월', title: '월간 플로라 2022년 12월호', thumbnail: '/images/flora/flora_2022_12.webp', link: 'https://product.kyobobook.co.kr/detail/S000200330305' },
-  { year: '2022', month: '11월', title: '월간 플로라 2022년 11월호', subtitle: "'에코 플라워' 플라잉드라이플라워 슈즈 / 표지 작업", thumbnail: '/images/flora/flora_2022_11.webp', link: 'https://product.kyobobook.co.kr/detail/S000200128281' },
-  { year: '2022', month: '10월', title: '월간 플로라 2022년 10월호', subtitle: "'에코 플라워' 후르츠어레인지먼트 시즌테마 디자인 2종", thumbnail: '/images/flora/flora_2022_10.webp', link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018101' },
-  { year: '2022', month: '9월', title: '월간 플로라 2022년 9월호', subtitle: "'에코 플라워' 포토테이블 장식", thumbnail: '/images/flora/flora_2022_09.webp', link: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005018095' },
-  { year: '2022', month: '8월', title: '월간 플로라 2022년 8월호', subtitle: "'에코 플라워' 스머지 스틱 / 표지 작업", thumbnail: '/images/flora/flora_2022_08.webp', link: 'https://product.kyobobook.co.kr/detail/S000000327681' },
-  { year: '2022', month: '7월', title: '월간 플로라 2022년 7월호', subtitle: "'에코 플라워' 그린 시험관 어레인지먼트", thumbnail: '/images/flora/flora_2022_07.webp', link: 'https://product.kyobobook.co.kr/detail/S000000327568' },
-  { year: '2022', month: '6월', title: '월간 플로라 2022년 6월호', subtitle: "'에코 플라워' 레인 포레스트", thumbnail: '/images/flora/flora_2022_06.webp', link: 'https://product.kyobobook.co.kr/detail/S000000327468' },
-  { year: '2022', month: '5월', title: '월간 플로라 2022년 5월호', subtitle: "'에코 플라워' 버드네스트 어레인지먼트", thumbnail: '/images/flora/flora_2022_05.webp', link: 'https://product.kyobobook.co.kr/detail/S000000327364' },
-  { year: '2022', month: '4월', title: '월간 플로라 2022년 4월호', subtitle: "'에코 플라워' 내추럴폼 카네이션 화단", thumbnail: '/images/flora/flora_2022_04.webp', link: 'https://product.kyobobook.co.kr/detail/S000000327342' },
-  { year: '2022', month: '3월', title: '월간 플로라 2022년 3월호', subtitle: "'에코 플라워' 노플로랄폼 스프링 토피어리", thumbnail: '/images/flora/flora_2022_03.webp', link: 'https://product.kyobobook.co.kr/detail/S000000328383' },
-];
-
-const projectItems = [
-  {
-    title: 'Sustainability & Eco Projects',
-    subtitle: '지속가능한 디자인을 향한 크라우드펀딩 및 출간 프로젝트',
-    isSpecial: true,
-    items: [
-      { 
-        name: "선물 <에코 플라워 디자인>", 
-        desc: "일회용 플로럴폼을 대신하는 친환경 기법 소개. 텀블벅 325% 달성 및 'Eco Flower Recipe' 도서 출간의 모태.",
-        url: 'https://tumblbug.com/ecoflower',
-        thumbnail: '/images/flowers/project_ecoflower.webp'
-      },
-      { 
-        name: "에세이 <일년, 열두달 흔들리는 꽃>", 
-        desc: "제철 꽃들이 선사하는 위로의 기록. 텀블벅 251% 달성 후 '꽃이 필요한 모든 순간'으로 정식 출간.",
-        url: 'https://tumblbug.com/yearflower',
-        thumbnail: '/images/flowers/project_yearflower.webp'
-      }
-    ]
-  },
-  {
-    title: '농림축산식품부 X aT 계절 꽃 프로젝트',
-    subtitle: '꽃문화 플랫폼 겨울꽃 시즌 참여',
-    items: [
-      { name: "겨울꽃: 심비디움 '우아하고 유니크한 심비디움 부케'", url: 'https://www.instagram.com/p/CI-GFwzn_6s/' },
-      { name: "겨울꽃: 스카비오사 '시험관 어레인지먼트'", url: 'https://www.instagram.com/p/CIDHpINnaYQ/' },
-      { name: "겨울꽃: 아네모네 '파티 어레인지먼트'", url: 'https://www.instagram.com/p/CH-I3YUHjrC/' },
-    ]
-  }
-];
-
-const classItems = [
-  { 
-    title: 'Part 1. Bouquet', 
-    subtitle: 'Design your own Bouquet',
-    desc: 'Video lectures and text handbook to start your Mayaflor flower design workshop',
-    curriculum: ['Light Bouquet', 'Bold Bouquet', 'Vivid Bouquet', 'Neutral Bouquet'],
-    link: 'https://mayaflor.liveklass.com/classes/6942',
-    thumbnail: '/images/flowers/class_bouquet.webp'
-  },
-  { 
-    title: 'Part 2. No-Floral Foam Arrangement', 
-    subtitle: 'Sustainable techniques for eco-friendly design',
-    desc: 'Master natural fixing methods using chicken wire and pin frogs for environmentally conscious arrangements',
-    curriculum: ['Chicken wire fixing technique', 'Pin frog fixing technique', 'No-floral foam arrangement inspiration'],
-    link: 'https://mayaflor.liveklass.com/classes/6943',
-    thumbnail: '/images/flowers/no_floral_foam.webp'
-  },
-];
-
 export default function FlowersArchive() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState('flora');
-  const [selectedYear, setSelectedYear] = useState('all');
-
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [visibleEcoCount, setVisibleEcoCount] = useState(9);
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
@@ -137,17 +34,20 @@ export default function FlowersArchive() {
     router.push({ pathname: router.pathname, hash: tabId }, undefined, { shallow: true });
   };
 
-  const groupedFlora = floraItems.reduce((acc, item) => {
-    if (!acc[item.year]) acc[item.year] = [];
-    acc[item.year].push(item);
-    return acc;
-  }, {});
-
-  const sortedYears = Object.keys(groupedFlora).sort((a, b) => b - a);
-  const filteredYears = selectedYear === 'all' ? sortedYears : sortedYears.filter(y => y === selectedYear);
+  const handleKeyDown = (e, idx) => {
+    if (e.key === 'ArrowRight') {
+      const nextIdx = (idx + 1) % tabs.length;
+      document.getElementById(`tab-${tabs[nextIdx].id}`).focus();
+      handleTabChange(tabs[nextIdx].id);
+    } else if (e.key === 'ArrowLeft') {
+      const prevIdx = (idx - 1 + tabs.length) % tabs.length;
+      document.getElementById(`tab-${tabs[prevIdx].id}`).focus();
+      handleTabChange(tabs[prevIdx].id);
+    }
+  };
 
   return (
-    <section className="bg-[#FAF8F3]">
+    <section className="bg-background-linen">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Tab Navigation */}
         <motion.div
@@ -155,21 +55,30 @@ export default function FlowersArchive() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-12"
+          role="tablist"
+          aria-label="Portfolio Categories"
         >
-          {tabs.map((tab) => {
+          {tabs.map((tab, idx) => {
             const Icon = tab.icon;
+            const isSelected = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
+                id={`tab-${tab.id}`}
+                role="tab"
+                aria-selected={isSelected}
+                aria-controls={`panel-${tab.id}`}
+                tabIndex={isSelected ? 0 : -1}
                 onClick={() => handleTabChange(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs transition-all font-label-en tracking-widest ${
-                  activeTab === tab.id
-                    ? 'bg-[#3D3D3D] text-white shadow-md border-transparent'
-                    : 'bg-white text-[#3D3D3D]/70 hover:bg-white/80 shadow-sm border border-[#E8DCC8]'
+                onKeyDown={(e) => handleKeyDown(e, idx)}
+                className={`flex items-center gap-1.5 md:gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-full text-[10px] md:text-xs transition-all font-label-en tracking-widest ${
+                  isSelected
+                    ? 'bg-text-warm text-white shadow-md border-transparent'
+                    : 'bg-white text-text-warm/70 hover:bg-white/80 shadow-sm border border-background-beige'
                 }`}
               >
-                <Icon size={14} />
+                <Icon size={14} aria-hidden="true" />
                 {tab.label.toUpperCase()}
               </button>
             );
@@ -180,119 +89,263 @@ export default function FlowersArchive() {
           {activeTab === 'flora' && (
             <motion.div
               key="flora"
+              id="panel-flora"
+              role="tabpanel"
+              aria-labelledby="tab-flora"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="flex flex-wrap justify-center gap-2 mb-10">
-                <button
-                  onClick={() => setSelectedYear('all')}
-                  className={`px-4 py-2 rounded-full text-sm transition-all font-sans ${
-                    selectedYear === 'all' ? 'bg-[#9CAF88] text-white' : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
-                  }`}
-                >
-                  전체
-                </button>
-                {sortedYears.map((year) => (
-                  <button
-                    key={year}
-                    onClick={() => setSelectedYear(year)}
-                    className={`px-4 py-2 rounded-full text-sm transition-all font-sans ${
-                      selectedYear === year ? 'bg-[#9CAF88] text-white' : 'bg-white text-[#3D3D3D]/60 hover:bg-[#9CAF88]/10'
-                    }`}
-                  >
-                    {year}
-                  </button>
-                ))}
+              <div className="mb-16">
+                <div className="flex items-center gap-3 mb-10">
+                  <h3 className="text-2xl text-text-warm font-display-en">
+                    Magazine 'Flora' Cover Floral Design
+                  </h3>
+                  <div className="flex-1 h-px bg-background-beige" />
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
+                  {floraItems.map((item, idx) => (
+                    <motion.a
+                      key={idx}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      className="group block"
+                    >
+                      <div className="relative overflow-hidden rounded-xl bg-white shadow-sm group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 aspect-[3/4]">
+                        <Image
+                          src={item.thumbnail || '/images/placeholders/flora.webp'}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 33vw"
+                          className="object-cover"
+                          onError={handleImageError}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                          <span className="text-white text-[11px] tracking-[0.2em] flex items-center gap-2 font-sans px-4 text-center uppercase">
+                            <ExternalLink size={14} /> View Details
+                          </span>
+                        </div>
+                      </div>
+                      <div className="mt-6 text-center lg:text-left">
+                        <h4 className="text-text-warm text-[15px] mb-1 tracking-wide italic font-display-en">
+                          {item.title}
+                        </h4>
+                        <p className="text-accent-sage text-[11px] uppercase tracking-[0.1em] font-sans">
+                          Mayaflor Design
+                        </p>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
               </div>
 
-              {filteredYears.map((year) => (
-                <div key={year} className="mb-16">
-                  <div className="flex items-center gap-3 mb-8">
-                    <h3 className="text-3xl text-[#3D3D3D] font-serif" style={{ fontFamily: 'Fraunces, serif' }}>{year}</h3>
-                    <div className="flex-1 h-px bg-[#E8DCC8]" />
-                    <span className="text-[#9CAF88] text-sm font-sans">{groupedFlora[year].length}권</span>
+              {/* Eco-Flower Series Section */}
+              <div className="mb-24">
+                <div className="flex flex-col gap-2 mb-12">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-2xl text-text-warm font-display-en">
+                      Eco-Flower series
+                    </h3>
+                    <div className="flex-1 h-px bg-background-beige" />
                   </div>
+                  <p className="text-text-warm/60 text-sm font-sans italic">
+                    Currently serializing the 'Eco-Flower' series in Magazine 'Flora' (since 2021)
+                  </p>
+                </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-                    {groupedFlora[year].map((item, idx) => (
-                      <motion.a
-                        key={idx}
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, y: 30 }}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
+                  {Array.from({ length: visibleEcoCount }, (_, i) => {
+                    const imgNum = String(i + 1).padStart(2, '0');
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.05 }}
-                        className="group block"
+                        transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
+                        className="relative group cursor-pointer"
+                        onClick={() => setSelectedImage(`/images/flora_ecoflower/flora_megazine_eco_flower${imgNum}.webp`)}
                       >
-                        <div className="relative overflow-hidden rounded-xl bg-white shadow-sm group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                        {/* Thumbnail Container: Zoomed to left half, matching upper section style */}
+                        <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-sm bg-white group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                           <img
-                            src={item.thumbnail || '/images/placeholders/flora.webp'}
-                            alt={item.title}
-                            className="w-full aspect-[3/4] object-cover"
+                            src={`/images/flora_ecoflower/flora_megazine_eco_flower${imgNum}.webp`}
+                            alt={`Eco-Flower series ${imgNum}`}
+                            className="w-[200%] h-full object-cover object-left transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                            <span className="text-white text-sm tracking-[0.1em] flex items-center gap-2 font-sans px-4 text-center">
-                              <ExternalLink size={14} /> 교보문고에서 보기
+
+                          {/* Hover Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pb-0">
+                            <span className="text-white text-[10px] tracking-[0.2em] font-label-en border border-white/40 px-3 py-2 rounded-full backdrop-blur-sm">
+                              VIEW FULL ARTICLE
                             </span>
                           </div>
                         </div>
-                        <div className="mt-4">
-                          <h4 className="text-[#3D3D3D] text-base mb-1 font-sans font-medium">
-                            월간 플로라 {item.year}년 {item.month}호
+
+                        {/* Caption styling to match Flora covers */}
+                        <div className="mt-6 text-center lg:text-left">
+                          <h4 className="text-text-warm text-[15px] mb-1 tracking-wide italic font-display-en">
+                            Eco-Flower No.{imgNum}
                           </h4>
-                          {item.subtitle && <p className="text-[#3D3D3D]/60 text-sm leading-relaxed font-sans">{item.subtitle}</p>}
+                          <p className="text-accent-sage text-[11px] uppercase tracking-[0.1em] font-sans">
+                            Published in Flora
+                          </p>
                         </div>
-                      </motion.a>
-                    ))}
-                  </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
-              ))}
+
+                {/* Load More Button */}
+                {visibleEcoCount < ECO_FLOWER_TOTAL && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="flex flex-col items-center gap-3 mt-12"
+                  >
+                    <p className="text-text-warm/40 text-xs font-label-en tracking-widest">
+                      {visibleEcoCount} / {ECO_FLOWER_TOTAL}
+                    </p>
+                    <button
+                      onClick={() => setVisibleEcoCount(prev => Math.min(prev + 9, ECO_FLOWER_TOTAL))}
+                      className="px-8 py-3 bg-white border border-background-beige text-text-warm/70 rounded-full text-xs font-label-en tracking-widest hover:bg-text-warm hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md"
+                    >
+                      LOAD MORE
+                    </button>
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
           )}
 
           {activeTab === 'portfolio' && (
             <motion.div
               key="portfolio"
+              id="panel-portfolio"
+              role="tabpanel"
+              aria-labelledby="tab-portfolio"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Instagram Style Grid */}
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-4 mb-20 max-w-4xl mx-auto">
-                {[1, 2, 3, 2, 3, 1, 3, 1, 2].map((imgIdx, idx) => (
-                  <div key={idx} className="relative aspect-square overflow-hidden rounded-2xl bg-white shadow-sm group">
-                    <img
-                      src={`/images/gallery/gallery_${imgIdx}.webp`}
-                      alt={`Gallery ${idx}`}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Flower2 className="text-white/80" size={24} />
-                    </div>
-                  </div>
-                ))}
+              <div className="mb-24">
+                <div className="flex items-center gap-3 mb-10">
+                  <h3 className="text-2xl text-text-warm font-display-en">
+                    Flower Reflection on Books
+                  </h3>
+                  <div className="flex-1 h-px bg-background-beige" />
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 mb-12 w-full">
+                  {portfolioImages.map((image, idx) => (
+                    <motion.div
+                      key={image.id}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      onClick={() => setSelectedImage(image.src)}
+                      className={`relative overflow-hidden bg-white group cursor-pointer ${
+                        image.isWide ? 'col-span-2 aspect-[16/9]' : 'aspect-square'
+                      } rounded-sm sm:rounded-md`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Flower2 className="text-white/80" size={image.isWide ? 32 : 24} />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
+              {/* Monthly Flower Section - Scroll Layered Animation */}
+              <div className="mb-24">
+                <div className="flex flex-col gap-2 mb-16">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-2xl text-text-warm font-display-en">
+                      Monthly Flower
+                    </h3>
+                    <div className="flex-1 h-px bg-background-beige" />
+                  </div>
+                  <p className="text-text-warm/60 text-sm font-sans italic">
+                    A year of floral expressions, layered month by month
+                  </p>
+                </div>
+
+                <div className="space-y-24">
+                  {monthlyFlowerImages.map((item, idx) => (
+                    <motion.div
+                      key={item.month}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-10%" }}
+                      transition={{ duration: 0.8 }}
+                      className="max-w-5xl mx-auto px-4"
+                    >
+                      <div className="relative group">
+                        <div className="flex flex-col md:flex-row gap-8 items-start">
+                          {/* Month Indicator Sidebar */}
+                          <div className="flex flex-col items-center pt-2 min-w-[60px]">
+                            <span className="text-4xl font-display-en text-accent-sage/30 font-bold select-none">
+                              {String(item.month).padStart(2, '0')}
+                            </span>
+                            <div className="w-px h-16 bg-accent-sage/20 mt-4 hidden md:block" />
+                          </div>
+                          
+                          {/* Image Container */}
+                          <div className="flex-1 relative">
+                            <div className="overflow-hidden rounded-[2rem] bg-white shadow-lg hover:shadow-2xl transition-all duration-700 border border-background-beige/20">
+                              <img
+                                src={item.src}
+                                alt={item.alt}
+                                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105"
+                                loading="lazy"
+                              />
+                            </div>
+
+                            {/* Label */}
+                            <div className="absolute -bottom-6 right-8 md:-right-6 bg-white/90 backdrop-blur-md border border-background-beige/30 px-8 py-5 rounded-2xl shadow-xl">
+                              <p className="text-accent-sage font-label-en tracking-[0.2em] text-[10px] mb-1">MAYFLOR ARCHIVE</p>
+                              <h4 className="text-text-warm font-display-en text-2xl italic">
+                                {new Date(2024, item.month - 1).toLocaleString('en-US', { month: 'long' })}
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/*
               <div className="space-y-12">
                 <div className="flex items-center gap-4">
-                  <FolderOpen className="text-[#9CAF88]" size={28} />
-                  <h3 className="text-3xl font-title-ko text-[#3D3D3D]">Projects</h3>
+                  <FolderOpen className="text-accent-sage" size={28} />
+                  <h3 className="text-3xl font-title-ko text-text-warm">Projects</h3>
                 </div>
                 
                 {projectItems.map((project, idx) => (
-                  <div key={idx} className={`bg-white rounded-[2.5rem] p-10 lg:p-12 shadow-sm border border-[#E8DCC8]/30 ${project.isSpecial ? 'ring-2 ring-[#9CAF88]/20' : ''}`}>
+                  <div key={idx} className={`bg-white rounded-[2.5rem] p-10 lg:p-12 shadow-sm border border-background-beige/30 ${project.isSpecial ? 'ring-2 ring-accent-sage/20' : ''}`}>
                     <div className="mb-8">
                       {project.isSpecial && (
-                        <span className="inline-block px-3 py-1 rounded-full bg-[#9CAF88]/10 text-[#9CAF88] text-[10px] font-label-en tracking-widest mb-4">SPECIAL PROJECT</span>
+                        <span className="inline-block px-3 py-1 rounded-full bg-accent-sage/10 text-accent-sage text-[10px] font-label-en tracking-widest mb-4">SPECIAL PROJECT</span>
                       )}
-                      <h4 className="text-2xl mb-2 text-[#3D3D3D] font-title-ko">{project.title}</h4>
-                      <p className="text-[#3D3D3D]/60 font-sans">{project.subtitle}</p>
+                      <h4 className="text-2xl mb-2 text-text-warm font-title-ko">{project.title}</h4>
+                      <p className="text-text-warm/60 font-sans">{project.subtitle}</p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-8">
@@ -302,17 +355,19 @@ export default function FlowersArchive() {
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex flex-col gap-4 p-6 bg-[#FAF8F3] rounded-[1.5rem] hover:bg-[#9CAF88]/10 transition-all group"
+                          className="flex flex-col gap-4 p-6 bg-background-linen rounded-[1.5rem] hover:bg-accent-sage/10 transition-all group"
                         >
                           {item.thumbnail && (
-                            <img src={item.thumbnail} alt={item.name} className="w-full h-32 object-cover rounded-xl mb-2" />
+                            <div className="relative w-full h-32 overflow-hidden rounded-xl mb-2">
+                              <Image src={item.thumbnail} alt={item.name} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
+                            </div>
                           )}
                           <div>
                             <div className="flex items-center gap-2 mb-2">
-                              <Flower2 size={16} className="text-[#9CAF88] transition-transform group-hover:rotate-12" />
-                              <span className="font-title-ko text-lg text-[#3D3D3D]">{item.name}</span>
+                              <Flower2 size={16} className="text-accent-sage transition-transform group-hover:rotate-12" />
+                              <span className="font-title-ko text-lg text-text-warm">{item.name}</span>
                             </div>
-                            {item.desc && <p className="text-sm text-[#3D3D3D]/60 leading-relaxed font-sans">{item.desc}</p>}
+                            {item.desc && <p className="text-sm text-text-warm/60 leading-relaxed font-sans">{item.desc}</p>}
                           </div>
                         </a>
                       ))}
@@ -320,36 +375,47 @@ export default function FlowersArchive() {
                   </div>
                 ))}
               </div>
+              */}
             </motion.div>
           )}
 
           {activeTab === 'class' && (
             <motion.div
               key="class"
+              id="panel-class"
+              role="tabpanel"
+              aria-labelledby="tab-class"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="mb-16">
+                <div className="flex items-center gap-3 mb-10">
+                  <h3 className="text-2xl text-text-warm font-display-en">
+                    Flower Online Class
+                  </h3>
+                  <div className="flex-1 h-px bg-background-beige" />
+                </div>
+                <div className="grid md:grid-cols-2 gap-8">
                 {classItems.map((item, idx) => (
-                  <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-[#E8DCC8]/30 flex flex-col">
+                  <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-background-beige/30 flex flex-col">
                     <div className="aspect-video relative overflow-hidden group">
-                      <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={item.thumbnail} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute top-6 left-6">
-                        <span className="px-3 py-1 bg-[#3D3D3D] text-white text-[10px] font-label-en tracking-widest rounded-full shadow-lg">ONLINE WORKSHOP</span>
+                        <span className="px-3 py-1 bg-text-warm text-white text-[10px] font-label-en tracking-widest rounded-full shadow-lg">ONLINE WORKSHOP</span>
                       </div>
                     </div>
                     <div className="p-10 flex flex-col flex-1">
-                      <h4 className="text-2xl text-[#3D3D3D] font-title-ko mb-2">{item.title}</h4>
-                      <p className="text-[#9CAF88] text-sm font-sans mb-4">{item.subtitle}</p>
-                      <p className="text-[#3D3D3D]/60 text-[15px] leading-relaxed mb-8 font-sans">{item.desc}</p>
+                      <h4 className="text-2xl text-text-warm font-title-ko mb-2">{item.title}</h4>
+                      <p className="text-accent-sage text-sm font-sans mb-4">{item.subtitle}</p>
+                      <p className="text-text-warm/60 text-[15px] leading-relaxed mb-8 font-sans">{item.desc}</p>
                       
                       <div className="mt-auto">
                         <div className="space-y-3 mb-10">
                           {item.curriculum.map((c, i) => (
-                            <div key={i} className="flex items-center gap-3 text-sm text-[#3D3D3D]/70 font-sans">
-                              <CheckCircle2 size={14} className="text-[#9CAF88]" />
+                            <div key={i} className="flex items-center gap-3 text-sm text-text-warm/70 font-sans">
+                              <CheckCircle2 size={14} className="text-accent-sage" />
                               {c}
                             </div>
                           ))}
@@ -358,7 +424,7 @@ export default function FlowersArchive() {
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-4 bg-[#FAF8F3] rounded-2xl flex items-center justify-center gap-3 text-[#3D3D3D] hover:bg-[#3D3D3D] hover:text-white transition-all font-label-en tracking-widest text-xs"
+                          className="w-full py-4 bg-background-linen rounded-2xl flex items-center justify-center gap-3 text-text-warm hover:bg-text-warm hover:text-white transition-all font-label-en tracking-widest text-xs"
                         >
                           <Video size={16} /> VIEW CURRICULUM
                         </a>
@@ -366,7 +432,44 @@ export default function FlowersArchive() {
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10"
+              onClick={() => setSelectedImage(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-5xl w-full max-h-full flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="relative w-full h-full flex items-center justify-center group/modal">
+                  <img
+                    src={selectedImage}
+                    alt="Full view"
+                    className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                  />
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 border border-white/20 shadow-lg"
+                    aria-label="Close"
+                  >
+                    <X size={20} strokeWidth={2.5} />
+                  </button>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

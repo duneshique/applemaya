@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
@@ -54,15 +55,14 @@ export default function FeaturedWork() {
   return (
     <section 
       ref={sectionRef}
-      className="py-[120px] px-6 md:px-[60px] bg-[#FAF8F3]"
+      className="py-[120px] px-6 md:px-[60px] bg-background-linen"
     >
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-[36px] text-center mb-16 font-serif text-[#3D3D3D]"
-          style={{ fontFamily: 'Fraunces, serif' }}
+          className="text-[36px] text-center mb-16 font-display-en text-text-warm"
         >
           Featured Work
         </motion.h2>
@@ -78,31 +78,31 @@ export default function FeaturedWork() {
               className="group block bg-white rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2"
             >
               <div className="relative w-full overflow-hidden" style={{ paddingTop: '62.5%' }}>
-                <img
+                <Image
                   src={work.image}
                   alt={work.title}
-                  className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               <div className="p-6">
                 <h3 
-                  className="text-[24px] mb-3 text-[#2C3E2F] font-serif"
-                  style={{ fontFamily: 'Fraunces, serif' }}
+                  className="text-[24px] mb-3 text-text-warm font-display-en"
                 >
                   {work.title}
                 </h3>
                 <p 
-                  className="text-[14px] text-[#6B7A6E] mb-4 line-clamp-2 font-sans"
+                  className="text-[14px] text-text-muted mb-4 line-clamp-2 font-sans-en"
                   style={{ 
-                    fontFamily: 'Inter, sans-serif',
                     lineHeight: '1.6'
                   }}
                 >
                   {work.description}
                 </p>
-                <div className="flex items-center gap-2 text-[#B85C50] group-hover:gap-3 transition-all font-sans">
-                  <span style={{ fontFamily: 'Inter, sans-serif' }}>View More</span>
+                <div className="flex items-center gap-2 text-accent-rose group-hover:gap-3 transition-all font-sans-en">
+                  <span>View More</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
@@ -113,4 +113,3 @@ export default function FeaturedWork() {
     </section>
   );
 }
-

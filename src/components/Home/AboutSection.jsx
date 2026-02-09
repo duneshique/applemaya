@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { Instagram, BookOpen, Youtube } from 'lucide-react';
@@ -31,7 +32,7 @@ export default function AboutSection() {
     <section 
       ref={sectionRef}
       id="about" 
-      className="py-[120px] px-6 md:px-[60px] bg-[#FAF8F3]"
+      className="py-[120px] px-6 md:px-[60px] bg-background-linen"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -43,11 +44,14 @@ export default function AboutSection() {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-                <img
+              <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                <Image
                   src="/images/profile/hyejeong_moon.webp"
                   alt="Hyejoung Moon"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 300px, 400px"
+                  className="object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -60,15 +64,13 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-3xl font-semibold mb-8 text-[#3D3D3D]"
-              style={{ fontFamily: 'Fraunces, serif' }}
+              className="text-3xl font-semibold mb-8 text-text-warm font-display-en"
             >
               About Hyejoung
             </h2>
             
             <div 
-              className="space-y-6 text-[16px] text-[#6B7A6E] leading-relaxed font-sans"
-              style={{ fontFamily: 'Inter, sans-serif' }}
+              className="space-y-6 text-[16px] text-text-muted leading-relaxed font-sans-en"
             >
               <p>
                 With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejoung's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
@@ -89,7 +91,7 @@ export default function AboutSection() {
                 href="https://www.instagram.com/mayaflor_co/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#E4405F] transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#E4405F] transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -98,7 +100,7 @@ export default function AboutSection() {
                 href="https://brunch.co.kr/@mayaflor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#00C73C] transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#1C1C1C] transition-colors duration-300"
                 aria-label="Brunch"
               >
                 <BookOpen className="w-5 h-5" />
@@ -107,7 +109,7 @@ export default function AboutSection() {
                 href="https://www.youtube.com/@mayaflor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#9CAF88] flex items-center justify-center text-white hover:bg-[#FF0000] transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#FF0000] transition-colors duration-300"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
@@ -119,4 +121,3 @@ export default function AboutSection() {
     </section>
   );
 }
-

@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600&family=Inter:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@400;600&display=swap');
-
+/* Fonts loaded via _document.js <link> to avoid render-blocking @import */
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* Colors - Primary Palette */
   --color-background-linen: #FAF8F3;
   --color-background-beige: #E8DCC8;
   --color-accent-sage: #9CAF88;
+  --color-accent-sage-dark: #8A9E78;
   --color-accent-terracotta: #C4A57B;
   --color-accent-rose: #B85C50;
+  --color-accent-brown: #7A6B5D;
   --color-text-warm: #3D3D3D;
+  --color-text-muted: #6B7A6E;
+
+  /* Social Colors */
+  --color-social-instagram: #E1306C;
+  --color-social-youtube: #FF0000;
+  --color-social-brunch: #1C1C1C;
 
   /* Fonts */
   --font-display-en: "Fraunces", serif;
@@ -81,13 +88,11 @@
 /* English Display (Fraunces) - for brand name, English headings */
 .font-display-en {
   font-family: var(--font-display-en);
-  font-weight: 600;
 }
 
 /* Korean Serif Title (Noto Serif KR) - for Korean headings */
 .font-title-ko {
   font-family: var(--font-title-ko);
-  font-weight: 500;
 }
 
 /* English Sans (Inter) - for labels, tags, uppercase text */
@@ -160,4 +165,102 @@
 .hover-organic:hover {
   transform: translateY(-0.25rem);
   opacity: 0.9;
+}
+
+/* ===== Accessibility ===== */
+
+/* Focus-visible styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent-sage);
+  outline-offset: 4px;
+}
+
+/* Accessibility - ARIA Tabs */
+[role="tablist"] {
+  display: flex;
+}
+
+[role="tab"][aria-selected="true"] {
+  background-color: var(--color-text-warm);
+  color: white;
+}
+
+/* Skip to content link (sr-only until focused) */
+.skip-to-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--color-text-warm);
+  color: var(--color-background-linen);
+  font-size: 14px;
+  font-family: var(--font-sans-en);
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Design Token Extensions ===== */
+
+/* Hover card utilities */
+.hover-card-subtle {
+  transition: all 0.3s var(--animate-organic-ease);
+}
+.hover-card-subtle:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.hover-card-prominent {
+  transition: all 0.3s var(--animate-organic-ease);
+}
+.hover-card-prominent:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+/* English body font utility */
+.font-body-en {
+  font-family: var(--font-sans-en);
+  font-weight: 400;
+}
+
+/* Lazy image blur placeholder */
+img[loading="lazy"] {
+  filter: blur(0);
+  transition: filter 0.3s ease;
 }

@@ -45,12 +45,9 @@ export default function HeroSection() {
           className="text-center"
         >
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-[#3D3D3D]"
+            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-text-warm font-display-en font-semibold"
             style={{ 
-              fontFamily: 'Fraunces, serif',
-              fontWeight: 600,
               textRendering: 'geometricPrecision',
-              WebkitFontSmoothing: 'antialiased',
               fontOpticalSizing: 'auto',
               fontVariationSettings: '"wght" 600, "opsz" 72',
               letterSpacing: '0.02em'
@@ -59,8 +56,7 @@ export default function HeroSection() {
             Hyejoung Moon
           </h1>
           <p 
-            className="text-base md:text-lg tracking-[0.3em] text-[#3D3D3D]/80 uppercase font-sans"
-            style={{ fontFamily: 'Inter, sans-serif' }}
+            className="text-base md:text-lg tracking-[0.3em] text-text-warm/80 uppercase font-sans-en"
           >
             Author · Florist
           </p>
@@ -76,7 +72,7 @@ export default function HeroSection() {
             document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          <span className="text-[#3D3D3D]/40 text-[10px] tracking-[0.3em] font-sans uppercase mb-1 group-hover:text-[#9CAF88] transition-colors">
+          <span className="text-text-warm/40 text-[10px] tracking-[0.3em] font-sans uppercase mb-1 group-hover:text-accent-sage transition-colors">
             Scroll
           </span>
           <motion.div
@@ -90,7 +86,7 @@ export default function HeroSection() {
               ease: "easeInOut"
             }}
           >
-            <ChevronDown className="w-8 h-8 text-[#9CAF88]" strokeWidth={1.5} />
+            <ChevronDown className="w-8 h-8 text-accent-sage" strokeWidth={1.5} />
           </motion.div>
         </motion.div>
       </div>

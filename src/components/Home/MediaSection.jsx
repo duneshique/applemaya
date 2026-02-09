@@ -1,10 +1,10 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Newspaper, Youtube, Mic, BookOpen, ArrowRight } from 'lucide-react';
 
-// Import shared media data from MediaArchive
-import { mediaItems } from '@/components/Media/MediaArchive';
+import { mediaItems } from '@/data/media';
 
 const getIcon = (category) => {
   switch (category) {
@@ -22,7 +22,7 @@ export default function MediaSection() {
     .slice(0, 4);
 
   return (
-    <section id="media" className="py-24 lg:py-32 bg-[#FAF8F3]">
+    <section id="media" className="py-24 lg:py-32 bg-white">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -33,12 +33,12 @@ export default function MediaSection() {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-8">
-            <Newspaper className="text-[#9CAF88]" size={28} />
+            <Newspaper className="text-accent-sage" size={28} />
           </div>
-          <h2 className="font-display-en text-4xl lg:text-6xl mb-8 text-[#3D3D3D]">
+          <h2 className="font-display-en text-4xl lg:text-6xl mb-8 text-text-warm">
             Press & Media
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70" style={{ fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
+          <p className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en" style={{ lineHeight: '1.8' }}>
             Features, interviews, and conversations
           </p>
         </motion.div>
@@ -57,33 +57,35 @@ export default function MediaSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group border border-[#E8DCC8]/30"
+                className="flex bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group border border-background-beige/30"
               >
                 {/* Thumbnail */}
                 <div className="w-1/3 h-full relative overflow-hidden flex-shrink-0">
-                  <img 
-                    src={item.image} 
+                  <Image
+                    src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 33vw, 16vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 p-1.5 bg-white/90 backdrop-blur-sm rounded-full text-[#9CAF88] shadow-sm">
+                  <div className="absolute top-3 left-3 p-1.5 bg-white/90 backdrop-blur-sm rounded-full text-accent-sage shadow-sm">
                     <Icon size={14} />
                   </div>
                 </div>
 
                 <div className="flex-1 p-6 flex flex-col justify-center">
-                  <span className="font-label-en text-[#9CAF88] text-[9px] block mb-2 tracking-[0.2em]">
+                  <span className="font-label-en text-accent-sage text-[9px] block mb-2 tracking-[0.2em]">
                     {item.type}
                   </span>
-                  <h3 className="font-title-ko text-base mb-2 text-[#3D3D3D] group-hover:text-[#9CAF88] transition-colors line-clamp-2 leading-[1.5]">
+                  <h3 className="font-title-ko text-base mb-2 text-text-warm group-hover:text-accent-sage transition-colors line-clamp-2 leading-[1.5]">
                     {item.title}
                   </h3>
                   
-                  <p className="font-sans text-[#3D3D3D]/40 mb-3 text-[11px] tracking-wide">
+                  <p className="font-sans text-text-warm/40 mb-3 text-[11px] tracking-wide">
                     {item.publication}
                   </p>
 
-                  <span className="font-label-en text-[#9CAF88] text-[9px] tracking-[0.15em] group-hover:text-[#B85C50] transition-colors inline-flex items-center gap-1">
+                  <span className="font-label-en text-accent-sage text-[9px] tracking-[0.15em] group-hover:text-accent-rose transition-colors inline-flex items-center gap-1">
                     READ MORE →
                   </span>
                 </div>
@@ -102,8 +104,7 @@ export default function MediaSection() {
         >
           <Link
             href="/media"
-            className="inline-flex items-center gap-2 px-10 py-3.5 bg-[#9CAF88] text-white rounded-full tracking-[0.2em] hover:bg-[#8A9E78] transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5"
-            style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
+            className="inline-flex items-center gap-2 px-10 py-3.5 bg-accent-sage text-white rounded-full tracking-[0.2em] hover:bg-accent-sage-dark transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 font-sans-en text-[13px]"
           >
             VIEW ALL MEDIA
             <ArrowRight size={14} />

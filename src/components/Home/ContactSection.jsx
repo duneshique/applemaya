@@ -47,7 +47,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-[#FAF8F3]">
+    <section id="contact" className="py-24 lg:py-32 bg-background-linen">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -58,18 +58,16 @@ export default function ContactSection() {
           className="text-center mb-20"
         >
           <h2
-            className="text-4xl lg:text-6xl mb-4 text-[#3D3D3D] font-serif"
+            className="text-4xl lg:text-6xl mb-4 text-text-warm font-display-en"
             style={{ 
-              fontFamily: 'Fraunces, serif',
               letterSpacing: '0.05em'
             }}
           >
             Contact
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70 font-sans"
+            className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
             style={{ 
-              fontFamily: 'Inter, sans-serif',
               lineHeight: '1.8'
             }}
           >
@@ -86,9 +84,8 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <h3
-              className="text-2xl mb-8 text-[#3D3D3D] font-serif"
+              className="text-2xl mb-8 text-text-warm font-display-en"
               style={{ 
-                fontFamily: 'Fraunces, serif',
                 letterSpacing: '0.05em'
               }}
             >
@@ -97,16 +94,12 @@ export default function ContactSection() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#E8DCC8] rounded-full text-[#9CAF88]">
+                <div className="p-3 bg-background-beige rounded-full text-accent-sage">
                   <Mail size={20} />
                 </div>
                 <div>
                   <p
-                    className="text-[#3D3D3D]/60 mb-1 font-sans"
-                    style={{ 
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '14px'
-                    }}
+                    className="text-text-warm/60 mb-1 font-sans-en text-sm"
                   >
                     Email
                   </p>
@@ -114,8 +107,7 @@ export default function ContactSection() {
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=maya@applemaya.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#3D3D3D] hover:text-[#9CAF88] transition-colors font-sans"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
+                    className="text-text-warm hover:text-accent-sage transition-colors font-sans-en"
                   >
                     maya@applemaya.com
                   </a>
@@ -123,22 +115,17 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#E8DCC8] rounded-full text-[#9CAF88]">
+                <div className="p-3 bg-background-beige rounded-full text-accent-sage">
                   <MapPin size={20} />
                 </div>
                 <div>
                   <p
-                    className="text-[#3D3D3D]/60 mb-1 font-sans"
-                    style={{ 
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '14px'
-                    }}
+                    className="text-text-warm/60 mb-1 font-sans-en text-sm"
                   >
                     Studio
                   </p>
                   <p
-                    className="text-[#3D3D3D] font-sans"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
+                    className="text-text-warm font-sans-en"
                   >
                     Ilsan, Gyeonggi-do, South Korea<br />
                   </p>
@@ -156,11 +143,10 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mt-12 p-6 bg-[#E8DCC8]/30 rounded-2xl">
+            <div className="mt-12 p-6 bg-background-beige/30 rounded-2xl">
               <p
-                className="text-[#3D3D3D]/70 font-sans"
+                className="text-text-warm/70 font-sans-en"
                 style={{ 
-                  fontFamily: 'Inter, sans-serif',
                   lineHeight: '1.8',
                   fontSize: '15px'
                 }}
@@ -169,11 +155,7 @@ export default function ContactSection() {
                 for a special occasion or interested in my books, I'd love to hear from you."
               </p>
               <p
-                className="mt-3 text-[#9CAF88] font-serif"
-                style={{ 
-                  fontFamily: 'Fraunces, serif',
-                  fontSize: '16px'
-                }}
+                className="mt-3 text-accent-sage font-display-en text-base"
               >
                 — Hyejoung
               </p>

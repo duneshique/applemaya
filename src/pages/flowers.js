@@ -1,4 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import FlowersArchive from '@/components/Media/FlowersArchive';
@@ -6,13 +7,15 @@ import { motion } from 'framer-motion';
 import { Flower2, Instagram } from 'lucide-react';
 
 export default function FlowersPage() {
+  const { t } = useTranslation('flowers');
+  
   return (
     <Layout>
       <Head>
-        <title>Flowers | Hyejoung Moon</title>
-        <meta name="description" content="Floral works, monthly flora magazine portfolio, and projects by Hyejoung Moon." />
-        <meta property="og:title" content="Flowers | Hyejoung Moon" />
-        <meta property="og:description" content="플라워 작품, 월간 플로라 포트폴리오, 프로젝트" />
+        <title>{t('page_title')}</title>
+        <meta name="description" content={t('meta_description')} />
+        <meta property="og:title" content={t('page_title')} />
+        <meta property="og:description" content={t('og_description')} />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -22,7 +25,7 @@ export default function FlowersPage() {
         transition={{ duration: 1 }}
       >
         {/* Hero Header Section - Matching main page design */}
-        <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-[#FAF8F3]">
+        <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-background-linen">
           <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -32,25 +35,23 @@ export default function FlowersPage() {
               className="text-center"
             >
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Flower2 className="text-[#9CAF88]" size={32} />
+                <Flower2 className="text-accent-sage" size={32} />
               </div>
               <h1
-                className="text-4xl lg:text-6xl mb-4 text-[#3D3D3D]"
+                className="text-4xl lg:text-6xl mb-4 text-text-warm font-display-en font-medium"
                 style={{ 
-                  fontFamily: 'Fraunces, serif',
                   letterSpacing: '0.05em'
                 }}
               >
-                Flowers
+                {t('hero_title')}
               </h1>
               <p
-                className="text-lg max-w-2xl mx-auto text-[#3D3D3D]/70"
+                className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
                 style={{ 
-                  fontFamily: 'Inter, sans-serif',
                   lineHeight: '1.8'
                 }}
               >
-                Creating botanical beauty for life's meaningful moments
+                {t('hero_subtitle')}
               </p>
             </motion.div>
           </div>
@@ -70,21 +71,19 @@ export default function FlowersPage() {
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Instagram className="text-[#9CAF88]" size={24} />
                 <span 
-                  className="text-[#9CAF88] tracking-[0.15em]"
-                  style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
+                  className="text-[#9CAF88] tracking-[0.15em] font-sans-en"
+                  style={{ fontSize: '13px' }}
                 >
                   INSTAGRAM
                 </span>
               </div>
               <h2
-                className="text-3xl lg:text-4xl mb-2 text-[#3D3D3D]"
-                style={{ fontFamily: 'Fraunces, serif' }}
+                className="text-3xl lg:text-4xl mb-2 text-[#3D3D3D] font-display-en"
               >
                 Latest Works
               </h2>
               <p
-                className="text-[#3D3D3D]/60"
-                style={{ fontFamily: 'Noto Sans KR, sans-serif' }}
+                className="text-[#3D3D3D]/60 font-sans-ko"
               >
                 @mayaflor_co 에서 최신 작품을 만나보세요
               </p>
@@ -106,7 +105,7 @@ export default function FlowersPage() {
                 style={{ border: 'none', overflow: 'hidden', width: '100%', height: '400px' }}
                 title="Instagram Feed from @mayaflor_co"
               />
-              <p className="text-center text-[#3D3D3D]/40 text-xs mt-4" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-center text-[#3D3D3D]/40 text-xs mt-4 font-sans-en">
                 SnapWidget 무료 버전 (위젯 ID 설정 필요)
               </p>
             </motion.div>
@@ -122,8 +121,8 @@ export default function FlowersPage() {
                 href="https://www.instagram.com/mayaflor_co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#9CAF88] text-white rounded-full tracking-[0.15em] hover:bg-[#8A9E78] transition-colors shadow-md"
-                style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#9CAF88] text-white rounded-full tracking-[0.15em] hover:bg-[#8A9E78] transition-colors shadow-md font-sans-en"
+                style={{ fontSize: '13px' }}
               >
                 <Instagram size={18} />
                 FOLLOW ON INSTAGRAM
@@ -142,7 +141,7 @@ export default function FlowersPage() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      ...(await serverSideTranslations(locale, ['common', 'flowers'])),
     },
   };
 }

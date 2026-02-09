@@ -35,7 +35,7 @@ const categories = [
 
 export default function FlowersSection() {
   return (
-    <section id="flowers" className="py-24 lg:py-32 bg-[#FAF8F3]">
+    <section id="flowers" className="py-24 lg:py-32 bg-background-linen">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -46,20 +46,18 @@ export default function FlowersSection() {
           className="text-center mb-20"
         >
           <div className="flex items-center justify-center gap-3 mb-8">
-            <Flower2 className="text-[#9CAF88]" size={36} />
+            <Flower2 className="text-accent-sage" size={36} />
           </div>
           <h2
-            className="text-4xl lg:text-6xl mb-8 text-[#3D3D3D] font-serif"
+            className="text-4xl lg:text-6xl mb-8 text-text-warm font-display-en font-medium"
             style={{ 
-              fontFamily: 'Fraunces, serif',
               letterSpacing: '0.05em'
             }}
           >
             Flowers
           </h2>
           <p
-            className="text-lg lg:text-xl max-w-3xl mx-auto text-[#3D3D3D]/70 font-sans leading-relaxed"
-            style={{ fontFamily: 'Inter, sans-serif' }}
+            className="text-lg lg:text-xl max-w-3xl mx-auto text-text-warm/70 font-sans-en leading-relaxed"
           >
             Creating botanical beauty for life's meaningful moments
           </p>
@@ -76,7 +74,7 @@ export default function FlowersSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-[2.5rem] bg-white p-10 shadow-sm border border-[#E8DCC8]/30 hover:shadow-xl transition-all duration-500"
+                className="group relative overflow-hidden rounded-[2.5rem] bg-white p-10 shadow-sm border border-background-beige/30 hover:shadow-xl transition-all duration-500"
               >
                 {/* Icon Circle */}
                 <div 
@@ -87,26 +85,25 @@ export default function FlowersSection() {
                 </div>
 
                 <div className="mb-2">
-                  <span className="text-[11px] font-label-en tracking-[0.2em] text-[#9CAF88] block mb-2">
+                  <span className="text-[11px] font-label-en tracking-[0.2em] text-accent-sage block mb-2">
                     {cat.title.toUpperCase()}
                   </span>
                   <h3 
-                    className="text-2xl font-title-ko text-[#3D3D3D] mb-4"
+                    className="text-2xl font-title-ko text-text-warm mb-4"
                   >
                     {cat.titleKo}
                   </h3>
                 </div>
 
                 <p 
-                  className="text-[#3D3D3D]/60 text-[15px] leading-relaxed mb-8 font-sans"
+                  className="text-text-warm/60 text-[15px] leading-relaxed mb-8 font-sans"
                 >
                   {cat.description}
                 </p>
 
                 <Link
                   href={cat.link}
-                  className="inline-flex items-center gap-2 tracking-wider text-[#3D3D3D] group/btn transition-colors hover:text-[#9CAF88]"
-                  style={{ fontSize: '13px', fontFamily: 'Inter, sans-serif' }}
+                  className="inline-flex items-center gap-2 tracking-wider text-text-warm group/btn transition-colors hover:text-accent-sage font-sans-en text-[13px]"
                 >
                   VIEW DETAILS
                   <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />

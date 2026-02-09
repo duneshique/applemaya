@@ -28,7 +28,7 @@ export default function LoadingScreen() {
                 <motion.path
                   key={i}
                   d="M50 50C50 50 40 20 50 10C60 20 50 50 50 50Z"
-                  fill="#9CAF88"
+                  fill="var(--color-accent-sage, #9CAF88)"
                   initial={{ scale: 0, rotate: angle, opacity: 0 }}
                   animate={{ scale: 1, rotate: angle, opacity: 0.6 }}
                   transition={{ 
@@ -42,7 +42,7 @@ export default function LoadingScreen() {
               {/* Center */}
               <motion.circle
                 cx="50" cy="50" r="5"
-                fill="#C4A57B"
+                fill="var(--color-accent-warm, #C4A57B)"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
