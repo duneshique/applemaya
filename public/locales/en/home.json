@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "name": "Hyejoung Moon",
+    "subtitle": "Author · Florist",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About Hyejoung",
+    "altPhoto": "Hyejoung Moon",
+    "paragraph1": "With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejoung's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.",
+    "paragraph2": "Flowers taught me that we all have our own seasons, and beauty isn't about perfection—it's about authenticity. I've shared these reflections in Every Moment Needs Flowers, Eco Flower Recipe, and Season Flower Work Journal. Recently, I began writing Tarot Card Reading Café, revisiting my lifelong dream of storytelling and exploring how we learn to listen to ourselves.",
+    "paragraph3": "I live by one question: \"Will I regret not doing this before I die?\" It's helped me choose meaning over comfort. My hope is that through my work—with flowers or words—I can encourage you to ask the same question and trust where your heart leads."
+  },
+  "featured": {
+    "title": "Featured Work",
+    "works": [
+      {
+        "title": "Tarot Card Reading Café",
+        "description": "A journey through tarot wisdom and coffee culture, exploring the mystical connections between cards and daily life."
+      },
+      {
+        "title": "Monthly Flora",
+        "description": "Seasonal floral arrangements celebrating nature's beauty, designed with sustainable and eco-friendly practices."
+      },
+      {
+        "title": "Eco Flower Styling Book",
+        "description": "Comprehensive guide to sustainable floral design, featuring zero-waste techniques and natural materials."
+      }
+    ]
+  },
+  "flowersSection": {
+    "title": "Flowers",
+    "subtitle": "Creating botanical beauty for life's meaningful moments",
+    "categories": [
+      {
+        "label": "Monthly Flora",
+        "display": "FLORA",
+        "description": "A 2022 collection that celebrates sustainable flower design through thoughtful craftsmanship and natural botanicals, creating timeless arrangements for everyday enjoyment."
+      },
+      {
+        "label": "Artistic Works",
+        "display": "PORTFOLIO",
+        "description": "A showcase of diverse design disciplines and artistic methodologies that transform creative vision into distinctive, impactful work across multiple mediums."
+      },
+      {
+        "label": "Workshop",
+        "display": "ONLINE CLASS",
+        "description": "Comprehensive flower design workshops developed for aspiring artists to master professional techniques, industry insights, and creative skills through structured curriculum."
+      }
+    ]
+  },
+  "mediaSection": {
+    "title": "Press & Media",
+    "subtitle": "Features, interviews, and conversations"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's create something beautiful together",
+    "infoTitle": "Contact Information",
+    "emailLabel": "Email",
+    "email": "maya@applemaya.com",
+    "studioLabel": "Studio",
+    "address": "Ilsan, Gyeonggi-do, South Korea",
+    "quote": "Every inquiry is a seed of possibility. Whether you're seeking floral designs for a special occasion or interested in my books, I'd love to hear from you.",
+    "quoteAuthor": "— Hyejoung",
+    "successAlert": "Thank you! Your message has been sent successfully.",
+    "errorAlert": "Oops! There was a problem sending your message. Please try again or email directly."
+  }
+}

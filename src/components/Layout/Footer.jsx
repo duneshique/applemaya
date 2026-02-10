@@ -1,9 +1,10 @@
 import { Instagram, BookOpen, Youtube } from 'lucide-react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const { t } = useTranslation('common');
   const router = useRouter();
   const { locale, asPath } = router;
 
@@ -12,14 +13,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="mb-10 text-center">
           <h2 
-            className="text-2xl font-display-en font-semibold mb-2 text-text-warm"
+            className="text-2xl font-display-en font-medium mb-2 text-text-warm"
           >
-            Hyejoung Moon
+            {t('nav.brand')}
           </h2>
           <p 
             className="text-[14px] text-text-muted tracking-[0.2em] uppercase font-sans-en"
           >
-            Author & Florist
+            {t('footer_role')}
           </p>
         </div>
 
@@ -29,7 +30,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-muted hover:text-[#E4405F] transition-colors"
-            aria-label="Instagram"
+            aria-label={t('a11y.instagram')}
           >
             <Instagram size={24} />
           </a>
@@ -84,7 +85,7 @@ export default function Footer() {
           <p 
             className="text-[12px] text-text-muted/60 font-sans-en"
           >
-            Copyrights @ Hyejoung Moon. All Rights Reserved.
+            {t('footer_copyright')}
           </p>
         </div>
       </div>

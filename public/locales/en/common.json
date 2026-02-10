@@ -15,5 +15,36 @@
   "skip_to_content": "Skip to main content",
   "load_more": "LOAD MORE",
   "read_article": "Read Article",
-  "view_all": "View All"
+  "view_all": "View All",
+
+  "nav": {
+    "about": "ABOUT",
+    "books": "BOOKS",
+    "flowers": "FLOWERS",
+    "media": "MEDIA",
+    "brand": "Hyejoung Moon"
+  },
+  "cta": {
+    "viewDetails": "VIEW DETAILS",
+    "viewMore": "View More",
+    "readMore": "READ MORE",
+    "viewAllMedia": "VIEW ALL MEDIA",
+    "preview": "PREVIEW",
+    "backToHome": "Back to Home",
+    "goBack": "Go Back",
+    "viewCurriculum": "VIEW CURRICULUM"
+  },
+  "meta": {
+    "siteName": "Hyejoung Moon",
+    "homeTitle": "Hyejoung Moon | Author & Florist",
+    "homeDesc": "Portfolio of Hyejoung Moon - Author, Florist, and Tarot Reader based in Seoul.",
+    "flowersTitle": "Flowers | Hyejoung Moon",
+    "flowersDesc": "Floral works, monthly flora magazine portfolio, and projects by Hyejoung Moon.",
+    "flowersOgDesc": "Floral works, monthly flora portfolio, and projects.",
+    "mediaTitle": "Media | Hyejoung Moon",
+    "mediaDesc": "Press coverage, interviews, and media appearances of Hyejoung Moon - Author and Florist.",
+    "mediaDescShort": "Press coverage, interviews, and media appearances.",
+    "notFoundTitle": "Page Not Found | Hyejoung Moon",
+    "notFoundDesc": "The page you're looking for doesn't exist."
+  }
 }

@@ -3,18 +3,20 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Instagram } from 'lucide-react';
-
-const NAV_LINKS = [
-  { label: 'ABOUT', href: '/#about' },
-  { label: 'BOOKS', href: '/#books' },
-  { label: 'FLOWERS', href: '/flowers' },
-  { label: 'MEDIA', href: '/media' }
-];
+import { useTranslation } from 'next-i18next';
 
 export default function Header() {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+
+  const NAV_LINKS = [
+    { label: t('nav.about'), href: '/#about' },
+    { label: t('nav.books'), href: '/#books' },
+    { label: t('nav.flowers'), href: '/flowers' },
+    { label: t('nav.media'), href: '/media' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,9 +54,9 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/"
-            className="text-2xl font-display-en font-semibold tracking-tight text-text-warm hover:opacity-70 transition-opacity"
+            className="text-2xl font-display-en font-medium tracking-tight text-text-warm hover:opacity-70 transition-opacity"
           >
-            Hyejoung Moon
+            {t('nav.brand')}
           </Link>
 
           <div className="hidden lg:flex items-center gap-12">
@@ -77,7 +79,7 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-text-warm"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isOpen ? t('a11y.closeMenu') : t('a11y.openMenu')}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
           >
@@ -97,7 +99,7 @@ export default function Header() {
               <nav
                 id="mobile-navigation"
                 role="navigation"
-                aria-label="Mobile navigation"
+                aria-label={t('a11y.mobileNav')}
                 className="py-6 px-6 space-y-4"
               >
                 {NAV_LINKS.map((item) => (

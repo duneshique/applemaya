@@ -1,26 +1,18 @@
-import { useState, useEffect } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const cursorX = useSpring(0, springConfig);
-  const cursorY = useSpring(0, springConfig);
+  const cursorX = useSpring(0, { damping: 20, stiffness: 100, mass: 0.5 });
+  const cursorY = useSpring(0, { damping: 20, stiffness: 100, mass: 0.5 });
 
   useEffect(() => {
-    let rafId;
-    
     const mouseMove = (e) => {
-      // Use requestAnimationFrame to optimize mouse move updates
-      if (rafId) cancelAnimationFrame(rafId);
-      
-      rafId = requestAnimationFrame(() => {
-        cursorX.set(e.clientX - 16);
-        cursorY.set(e.clientY - 16);
-        setMousePosition({ x: e.clientX, y: e.clientY });
-        
+      cursorX.set(e.clientX - 16);
+      cursorY.set(e.clientY - 16);
+
+      // Raf loop or direct check for interactive nodes
+      requestAnimationFrame(() => {
         // Accurate target detection using data-cursor or standard interactive elements
         const target = e.target;
         const isInteractive = target.closest('a, button, [role="button"], [data-cursor]');
@@ -37,7 +29,6 @@ export default function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
-      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [cursorX, cursorY]);
 
@@ -50,7 +41,6 @@ export default function CustomCursor() {
         scale: isHovering ? 2.5 : 1,
         backgroundColor: isHovering ? 'rgba(156, 175, 136, 0.1)' : 'transparent',
       }}
-      transition={{ type: "spring", damping: 20, stiffness: 100, mass: 0.5 }}
     />
   );
 }

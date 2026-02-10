@@ -1,4 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Layout from '@/components/Layout/Layout';
 import HeroSection from '@/components/Home/HeroSection';
@@ -11,13 +12,15 @@ import ContactSection from '@/components/Home/ContactSection';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const { t } = useTranslation('common');
+
   return (
     <Layout>
       <Head>
-        <title>Hyejoung Moon | Author & Florist</title>
-        <meta name="description" content="Portfolio of Hyejoung Moon - Author, Florist, and Tarot Reader based in Seoul." />
-        <meta property="og:title" content="Hyejoung Moon | Author & Florist" />
-        <meta property="og:description" content="Portfolio of Hyejoung Moon - Author, Florist, and Tarot Reader based in Seoul." />
+        <title>{t('meta.homeTitle')}</title>
+        <meta name="description" content={t('meta.homeDesc')} />
+        <meta property="og:title" content={t('meta.homeTitle')} />
+        <meta property="og:description" content={t('meta.homeDesc')} />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -40,7 +43,7 @@ export default function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      ...(await serverSideTranslations(locale, ['common', 'home', 'books'])),
     },
   };
 }

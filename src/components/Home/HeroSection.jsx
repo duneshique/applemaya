@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
 
 export default function HeroSection() {
+  const { t } = useTranslation('home');
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -45,20 +47,19 @@ export default function HeroSection() {
           className="text-center"
         >
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-text-warm font-display-en font-semibold"
+            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-text-warm font-display-en font-medium"
             style={{ 
               textRendering: 'geometricPrecision',
               fontOpticalSizing: 'auto',
-              fontVariationSettings: '"wght" 600, "opsz" 72',
               letterSpacing: '0.02em'
             }}
           >
-            Hyejoung Moon
+            {t('hero.name')}
           </h1>
           <p 
             className="text-base md:text-lg tracking-[0.3em] text-text-warm/80 uppercase font-sans-en"
           >
-            Author · Florist
+            {t('hero.subtitle')}
           </p>
         </motion.div>
 
@@ -73,7 +74,7 @@ export default function HeroSection() {
           }}
         >
           <span className="text-text-warm/40 text-[10px] tracking-[0.3em] font-sans uppercase mb-1 group-hover:text-accent-sage transition-colors">
-            Scroll
+            {t('hero.scroll')}
           </span>
           <motion.div
             animate={{ 

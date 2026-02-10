@@ -15,5 +15,52 @@
   "skip_to_content": "본문으로 건너뛰기",
   "load_more": "더 보기",
   "read_article": "기사 읽기",
-  "view_all": "전체 보기"
+  "view_all": "전체 보기",
+
+  "nav": {
+    "about": "소개",
+    "books": "도서",
+    "flowers": "플라워",
+    "media": "미디어",
+    "brand": "문혜정"
+  },
+  "footer": {
+    "name": "문혜정",
+    "subtitle": "작가 · 플로리스트",
+    "copyright": "© Hyejoung Moon. All Rights Reserved."
+  },
+  "a11y": {
+    "skipToContent": "본문으로 바로가기",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "mainNav": "메인 내비게이션",
+    "mobileNav": "모바일 내비게이션",
+    "scrollToTop": "맨 위로 이동",
+    "instagram": "인스타그램",
+    "brunch": "브런치",
+    "youtube": "유튜브"
+  },
+  "cta": {
+    "viewDetails": "자세히 보기",
+    "viewMore": "더 보기",
+    "readMore": "기사 읽기",
+    "viewAllMedia": "미디어 전체 보기",
+    "preview": "미리보기",
+    "backToHome": "홈으로 돌아가기",
+    "goBack": "이전 페이지",
+    "viewCurriculum": "커리큘럼 보기"
+  },
+  "meta": {
+    "siteName": "문혜정",
+    "homeTitle": "문혜정 | 작가 · 플로리스트",
+    "homeDesc": "작가이자 에코 플로리스트, 타로 리더 문혜정의 포트폴리오 사이트입니다.",
+    "flowersTitle": "플라워 | 문혜정",
+    "flowersDesc": "플라워 작품, 월간 플로라 포트폴리오, 프로젝트 모음.",
+    "flowersOgDesc": "플라워 작품, 월간 플로라 포트폴리오, 프로젝트",
+    "mediaTitle": "미디어 | 문혜정",
+    "mediaDesc": "작가이자 플로리스트 문혜정의 언론 보도, 인터뷰, 미디어 출연 기록.",
+    "mediaDescShort": "언론 보도, 인터뷰, 미디어 출연.",
+    "notFoundTitle": "페이지를 찾을 수 없습니다 | 문혜정",
+    "notFoundDesc": "요청하신 페이지가 존재하지 않습니다."
+  }
 }

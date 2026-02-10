@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
 import { books } from '@/data/books';
 
 export default function BooksSection() {
+  const { t } = useTranslation(['books', 'common']);
+  
   const openPreview = (book) => {
     const previewUrl = book.aladinPreviewUrl || `https://product.kyobobook.co.kr/book/preview/${book.kyobobookId}`;
     
@@ -35,12 +38,12 @@ export default function BooksSection() {
             <BookOpen className="text-accent-sage" size={32} />
           </div>
           <h2
-            className="text-4xl lg:text-6xl mb-8 text-text-warm font-display-en"
+            className="text-4xl lg:text-6xl mb-8 text-text-warm font-display-en font-medium"
             style={{ 
               letterSpacing: '0.05em'
             }}
           >
-            Published Works
+            {t('books:title')}
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
@@ -48,7 +51,7 @@ export default function BooksSection() {
               lineHeight: '1.8'
             }}
           >
-            Stories that bloom on the page
+            {t('books:subtitle')}
           </p>
         </motion.div>
 
@@ -70,7 +73,7 @@ export default function BooksSection() {
                   <div className="overflow-hidden rounded-2xl shadow-lg bg-white p-4">
                     <Image
                       src={book.image}
-                      alt={book.title}
+                      alt={t(`books:items.${index}.title`)}
                       width={600}
                       height={800}
                       sizes="(max-width: 1024px) 80vw, 40vw"
@@ -80,7 +83,7 @@ export default function BooksSection() {
                   {/* Year Badge */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent-sage rounded-full flex items-center justify-center text-white shadow-lg">
                     <span
-                      className="text-lg font-display-en"
+                      className="text-lg font-display-en font-medium"
                     >
                       {book.year}
                     </span>
@@ -90,17 +93,17 @@ export default function BooksSection() {
 
               <div className={index % 2 === 1 ? 'lg:order-1 flex flex-col items-end text-right' : 'flex flex-col items-start'}>
                 <h3
-                  className="text-3xl lg:text-4xl mb-3 text-text-warm font-display-en"
+                  className="text-3xl lg:text-4xl mb-3 text-text-warm font-display-en font-medium"
                   style={{ 
                     letterSpacing: '0.05em'
                   }}
                 >
-                  {book.title}
+                  {t(`books:items.${index}.title`)}
                 </h3>
                 <p
                   className="text-xl mb-6 text-accent-sage font-display-en"
                 >
-                  {book.subtitle}
+                  {t(`books:items.${index}.subtitle`)}
                 </p>
                 <p
                   className="text-text-warm/80 mb-8 font-sans-en"
@@ -108,7 +111,7 @@ export default function BooksSection() {
                     lineHeight: '1.8'
                   }}
                 >
-                  {book.description}
+                  {t(`books:items.${index}.description`)}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <button
@@ -116,7 +119,7 @@ export default function BooksSection() {
                     className="inline-flex items-center gap-2 px-6 py-3 bg-accent-sage text-white rounded-full tracking-[0.2em] transition-all hover:bg-accent-sage-dark font-sans-en text-[13px] shadow-md hover:shadow-lg cursor-pointer"
                   >
                     <BookOpen size={16} />
-                    PREVIEW
+                    {t('common:cta.preview')}
                   </button>
                   {book.purchaseLink && (
                     <a
@@ -125,7 +128,7 @@ export default function BooksSection() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-3 border border-text-warm/20 text-text-warm/80 rounded-full tracking-[0.1em] transition-all hover:bg-text-warm hover:text-white font-sans-en text-[13px]"
                     >
-                      VIEW DETAILS
+                      {t('common:cta.viewDetails')}
                       <ExternalLink size={14} />
                     </a>
                   )}

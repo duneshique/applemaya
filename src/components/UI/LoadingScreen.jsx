@@ -1,13 +1,22 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if it's the first visit of the session
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    if (hasVisited) {
+      setLoading(false);
+      return;
+    }
+
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+      sessionStorage.setItem('hasVisited', 'true');
+    }, 2500);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -16,21 +25,28 @@ export default function LoadingScreen() {
       {loading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] bg-background-linen flex items-center justify-center"
+          exit={{ 
+            opacity: 0,
+            transition: { duration: 0.8, ease: "easeInOut" }
+          }}
+          className="fixed inset-0 z-[100] bg-background-linen flex flex-col items-center justify-center p-6"
         >
           <div className="relative flex flex-col items-center">
-            {/* Blooming Flower SVG */}
-            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Petals */}
-              {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-                <motion.path
+            <svg width="100" height="100" viewBox="0 0 100 100" className="mb-8">
+              {/* Organic "Flower" SVG Animation */}
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((rotation, i) => (
+                <motion.ellipse
                   key={i}
-                  d="M50 50C50 50 40 20 50 10C60 20 50 50 50 50Z"
-                  fill="var(--color-accent-sage, #9CAF88)"
-                  initial={{ scale: 0, rotate: angle, opacity: 0 }}
-                  animate={{ scale: 1, rotate: angle, opacity: 0.6 }}
+                  cx="50" cy="35" rx="10" ry="25"
+                  fill="none"
+                  stroke="#9CAF88"
+                  strokeWidth="1.5"
+                  initial={{ rotate: rotation, scale: 0, opacity: 0 }}
+                  animate={{ 
+                    rotate: rotation, 
+                    scale: [0, 1.2, 1], 
+                    opacity: 1 
+                  }}
                   transition={{ 
                     duration: 1, 
                     delay: i * 0.1, 
@@ -42,7 +58,7 @@ export default function LoadingScreen() {
               {/* Center */}
               <motion.circle
                 cx="50" cy="50" r="5"
-                fill="var(--color-accent-warm, #C4A57B)"
+                fill="#C4A57B"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}

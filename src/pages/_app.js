@@ -5,6 +5,7 @@ import LoadingScreen from '@/components/UI/LoadingScreen';
 
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
+import CustomCursor from '@/components/UI/CustomCursor';
 
 function MyApp({ Component, pageProps }) {
   const { t } = useTranslation('common');
@@ -14,7 +15,8 @@ function MyApp({ Component, pageProps }) {
       <a href="#main-content" className="skip-to-content">
         {t('skip_to_content')}
       </a>
-      {/* <LoadingScreen /> */}
+      <LoadingScreen />
+      <CustomCursor />
       <div className="flex flex-col min-h-screen">
         <Component {...pageProps} />
         <Footer />

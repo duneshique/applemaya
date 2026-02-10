@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Newspaper, Youtube, Mic, BookOpen, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
 
 import { mediaItems } from '@/data/media';
 
@@ -16,6 +17,8 @@ const getIcon = (category) => {
 };
 
 export default function MediaSection() {
+  const { t } = useTranslation(['home', 'common']);
+  
   // Get the 4 most recent items sorted by date
   const recentItems = [...mediaItems]
     .sort((a, b) => b.sortDate - a.sortDate)
@@ -35,11 +38,11 @@ export default function MediaSection() {
           <div className="flex items-center justify-center gap-3 mb-8">
             <Newspaper className="text-accent-sage" size={28} />
           </div>
-          <h2 className="font-display-en text-4xl lg:text-6xl mb-8 text-text-warm">
-            Press & Media
+          <h2 className="font-display-en text-4xl lg:text-6xl font-medium mb-8 text-text-warm">
+            {t('home:media.title')}
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en" style={{ lineHeight: '1.8' }}>
-            Features, interviews, and conversations
+            {t('home:media.subtitle')}
           </p>
         </motion.div>
 
@@ -77,7 +80,7 @@ export default function MediaSection() {
                   <span className="font-label-en text-accent-sage text-[9px] block mb-2 tracking-[0.2em]">
                     {item.type}
                   </span>
-                  <h3 className="font-title-ko text-base mb-2 text-text-warm group-hover:text-accent-sage transition-colors line-clamp-2 leading-[1.5]">
+                  <h3 className="font-title-ko font-medium text-base mb-2 text-text-warm group-hover:text-accent-sage transition-colors line-clamp-2 leading-[1.5]">
                     {item.title}
                   </h3>
                   
@@ -86,7 +89,7 @@ export default function MediaSection() {
                   </p>
 
                   <span className="font-label-en text-accent-sage text-[9px] tracking-[0.15em] group-hover:text-accent-rose transition-colors inline-flex items-center gap-1">
-                    READ MORE →
+                    {t('common:cta.readMore')} →
                   </span>
                 </div>
               </motion.a>
@@ -106,7 +109,7 @@ export default function MediaSection() {
             href="/media"
             className="inline-flex items-center gap-2 px-10 py-3.5 bg-accent-sage text-white rounded-full tracking-[0.2em] hover:bg-accent-sage-dark transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 font-sans-en text-[13px]"
           >
-            VIEW ALL MEDIA
+            {t('common:cta.viewAllMedia')}
             <ArrowRight size={14} />
           </Link>
         </motion.div>

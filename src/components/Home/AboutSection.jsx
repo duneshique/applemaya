@@ -2,8 +2,10 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { Instagram, BookOpen, Youtube } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
 
 export default function AboutSection() {
+  const { t } = useTranslation('home');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -47,7 +49,7 @@ export default function AboutSection() {
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                 <Image
                   src="/images/profile/hyejeong_moon.webp"
-                  alt="Hyejoung Moon"
+                  alt={t('about.altPhoto')}
                   fill
                   sizes="(max-width: 768px) 300px, 400px"
                   className="object-cover"
@@ -64,24 +66,24 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-3xl font-semibold mb-8 text-text-warm font-display-en"
+              className="text-3xl font-display-en font-medium mb-8 text-text-warm"
             >
-              About Hyejoung
+              {t('about.title')}
             </h2>
             
             <div 
               className="space-y-6 text-[16px] text-text-muted leading-relaxed font-sans-en"
             >
               <p>
-                With a background in psychology and years as a marketer, I spent most of my life understanding others' desires. But when I finally asked what I truly wanted, everything changed. Following my heart led me to flowers and to founding Hyejoung's Studio—a studio where I practice eco-friendly, naturalistic design, replacing plastic with biodegradable materials and honoring the beauty of each season.
+                {t('about.paragraph1')}
               </p>
               
               <p>
-                Flowers taught me that we all have our own seasons, and beauty isn't about perfection—it's about authenticity. I've shared these reflections in Every Moment Needs Flowers, Eco Flower Recipe, and Season Flower Work Journal. Recently, I began writing Tarot Card Reading Café, revisiting my lifelong dream of storytelling and exploring how we learn to listen to ourselves.
+                {t('about.paragraph2')}
               </p>
               
               <p>
-                I live by one question: "Will I regret not doing this before I die?" It's helped me choose meaning over comfort. My hope is that through my work—with flowers or words—I can encourage you to ask the same question and trust where your heart leads.
+                {t('about.paragraph3')}
               </p>
             </div>
 

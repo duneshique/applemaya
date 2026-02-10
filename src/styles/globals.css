@@ -88,11 +88,13 @@
 /* English Display (Fraunces) - for brand name, English headings */
 .font-display-en {
   font-family: var(--font-display-en);
+  font-weight: 500;
 }
 
 /* Korean Serif Title (Noto Serif KR) - for Korean headings */
 .font-title-ko {
   font-family: var(--font-title-ko);
+  font-weight: 500;
 }
 
 /* English Sans (Inter) - for labels, tags, uppercase text */
