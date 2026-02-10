@@ -2,31 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Flower2, BookOpen, Video, FolderOpen, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
-const categories = [
+const categoryConfig = [
   {
     id: 'flora',
-    title: "Monthly Flora",
-    titleKo: "FLORA",
-    description: "A 2022 collection that celebrates sustainable flower design through thoughtful craftsmanship and natural botanicals, creating timeless arrangements for everyday enjoyment.",
     icon: BookOpen,
     link: "/flowers#flora",
     color: "#9CAF88"
   },
   {
     id: 'portfolio',
-    title: "Artistic Works",
-    titleKo: "PORTFOLIO",
-    description: "A showcase of diverse design disciplines and artistic methodologies that transform creative vision into distinctive, impactful work across multiple mediums.",
     icon: Flower2,
     link: "/flowers#portfolio",
     color: "#B85C50"
   },
   {
     id: 'class',
-    title: "Workshop",
-    titleKo: "ONLINE CLASS",
-    description: "Comprehensive flower design workshops developed for aspiring artists to master professional techniques, industry insights, and creative skills through structured curriculum.",
     icon: Video,
     link: "/flowers#class",
     color: "#7A6B5D"
@@ -34,12 +27,16 @@ const categories = [
 ];
 
 export default function FlowersSection() {
+  const { t } = useTranslation(['home', 'common']);
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
+  
   return (
     <section id="flowers" className="py-24 lg:py-32 bg-background-linen">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+  initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
@@ -49,23 +46,23 @@ export default function FlowersSection() {
             <Flower2 className="text-accent-sage" size={36} />
           </div>
           <h2
-            className="text-4xl lg:text-6xl mb-8 text-text-warm font-display-en font-medium"
+            className={`text-4xl lg:text-6xl mb-8 text-text-warm ${isEnglish ? 'font-display-en font-medium' : 'font-bold'}`}
             style={{ 
-              letterSpacing: '0.05em'
+              letterSpacing: isEnglish ? '0.05em' : '0.02em'
             }}
           >
-            Flowers
+            {t('flowersSection.title')}
           </h2>
           <p
-            className="text-lg lg:text-xl max-w-3xl mx-auto text-text-warm/70 font-sans-en leading-relaxed"
+            className="text-lg lg:text-xl max-w-3xl mx-auto text-text-warm/70 leading-relaxed"
           >
-            Creating botanical beauty for life's meaningful moments
+            {t('flowersSection.subtitle')}
           </p>
         </motion.div>
 
         {/* Category Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {categories.map((cat, index) => {
+          {categoryConfig.map((cat, index) => {
             const Icon = cat.icon;
             return (
               <motion.div
@@ -86,26 +83,26 @@ export default function FlowersSection() {
 
                 <div className="mb-2">
                   <span className="text-[11px] font-label-en tracking-[0.2em] text-accent-sage block mb-2">
-                    {cat.title.toUpperCase()}
+                    {t(`flowersSection.categories.${index}.label`).toUpperCase()}
                   </span>
                   <h3 
-                    className="text-2xl font-title-ko text-text-warm mb-4"
+                    className={`text-2xl text-text-warm mb-4 ${isEnglish ? 'font-display-en' : 'font-bold'}`}
                   >
-                    {cat.titleKo}
+                    {t(`flowersSection.categories.${index}.display`)}
                   </h3>
                 </div>
 
                 <p 
-                  className="text-text-warm/60 text-[15px] leading-relaxed mb-8 font-sans"
+                  className={`text-text-warm/60 text-[15px] leading-relaxed mb-8 ${isEnglish ? 'font-sans-en' : ''}`}
                 >
-                  {cat.description}
+                  {t(`flowersSection.categories.${index}.description`)}
                 </p>
 
                 <Link
                   href={cat.link}
                   className="inline-flex items-center gap-2 tracking-wider text-text-warm group/btn transition-colors hover:text-accent-sage font-sans-en text-[13px]"
                 >
-                  VIEW DETAILS
+                  {t('common:cta.viewDetails')}
                   <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                 </Link>
 

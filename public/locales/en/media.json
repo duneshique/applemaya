@@ -12,5 +12,37 @@
   "filter_youtube": "YouTube",
   
   "read_article": "Read Article",
-  "watch_video": "Watch Video"
+  "watch_video": "Watch Video",
+  "items": {
+    "1": {
+      "title": "The charm of Tarot is that destiny is set, but it can change every moment by my choices",
+      "publication": "Channel YES",
+      "excerpt": "Tarot cards don't have a fixed frame from birth like Saju-palja, but the answer changes depending on the current situation, state of mind, and the time the person asks the question."
+    },
+    "6": {
+      "title": "Reading your heart even you don't know!",
+      "publication": "Brunch",
+      "excerpt": "Following announcer Lee Hye-sung's introduction of the 10 grand prize winners of the 12th Brunch Book, the final work, 'The Cafe That Reads Tarot Cards', has been published."
+    },
+    "7": {
+      "title": "What Changes When You Live with Flowers",
+      "publication": "Channel YES",
+      "excerpt": ""
+    },
+    "8": {
+      "title": "Today's Featured Read: The Tarot Card Reading Cafe",
+      "publication": "KNN News",
+      "excerpt": ""
+    },
+    "9": {
+      "title": "The process of facing and healing deficiency: 'The Tarot Card Reading Cafe'",
+      "publication": "Newsis",
+      "excerpt": ""
+    },
+    "10": {
+      "title": "Twelve Months of Swaying Flowers",
+      "publication": "Monthly Essay",
+      "excerpt": ""
+    }
+  }
 }

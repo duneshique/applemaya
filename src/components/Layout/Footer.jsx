@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 export default function Footer() {
   const { t } = useTranslation('common');
   const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const { locale, asPath } = router;
 
   return (
@@ -13,7 +14,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="mb-10 text-center">
           <h2 
-            className="text-2xl font-display-en font-medium mb-2 text-text-warm"
+            className={`text-2xl mb-2 text-text-warm ${
+              isEnglish ? 'font-display-en font-medium' : 'font-bold'
+            }`}
           >
             {t('nav.brand')}
           </h2>

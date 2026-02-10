@@ -3,20 +3,23 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Flower2, Video, FolderOpen, ExternalLink, Calendar, CheckCircle2, X } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
 import { floraItems, projectItems, classItems, portfolioImages, monthlyFlowerImages, ECO_FLOWER_TOTAL } from '@/data/flowers';
 import { handleImageError } from '@/utils/imageUtils';
 
-const tabs = [
-  { id: 'flora', label: 'Flora', icon: BookOpen },
-  { id: 'portfolio', label: 'Portfolio', icon: Flower2 },
-  { id: 'class', label: 'Online Class', icon: Video },
-];
-
 export default function FlowersArchive() {
+  const { t } = useTranslation('flowers');
   const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const [activeTab, setActiveTab] = useState('flora');
   const [selectedImage, setSelectedImage] = useState(null);
   const [visibleEcoCount, setVisibleEcoCount] = useState(9);
+
+  const tabs = [
+    { id: 'flora', label: t('tab_flora'), icon: BookOpen },
+    { id: 'portfolio', label: t('tab_portfolio'), icon: Flower2 },
+    { id: 'class', label: t('tab_class'), icon: Video },
+  ];
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
@@ -99,8 +102,8 @@ export default function FlowersArchive() {
             >
               <div className="mb-16">
                 <div className="flex items-center gap-3 mb-10">
-                  <h3 className="text-2xl text-text-warm font-display-en">
-                    Magazine 'Flora' Cover Floral Design
+                  <h3 className={`text-2xl text-text-warm ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                    {t('section_flora_covers')}
                   </h3>
                   <div className="flex-1 h-px bg-background-beige" />
                 </div>
@@ -129,16 +132,19 @@ export default function FlowersArchive() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
                           <span className="text-white text-[11px] tracking-[0.2em] flex items-center gap-2 font-sans px-4 text-center uppercase">
-                            <ExternalLink size={14} /> View Details
+                            <ExternalLink size={14} /> {t('view_details')}
                           </span>
                         </div>
                       </div>
                       <div className="mt-6 text-center lg:text-left">
-                        <h4 className="text-text-warm text-[15px] mb-1 tracking-wide italic font-display-en">
-                          {item.title}
+                        <h4 className={`text-text-warm text-[15px] mb-1 tracking-wide italic ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                          {t('items.flora.issue_title', { 
+                            year: item.year, 
+                            month: new Date(2024, item.month - 1).toLocaleString(isEnglish ? 'en-US' : 'ko-KR', { month: isEnglish ? 'long' : 'numeric' }).replace('월', '')
+                          })}
                         </h4>
                         <p className="text-accent-sage text-[11px] uppercase tracking-[0.1em] font-sans">
-                          Mayaflor Design
+                          {t('mayaflor_design')}
                         </p>
                       </div>
                     </motion.a>
@@ -150,13 +156,13 @@ export default function FlowersArchive() {
               <div className="mb-24">
                 <div className="flex flex-col gap-2 mb-12">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-2xl text-text-warm font-display-en">
-                      Eco-Flower series
+                    <h3 className={`text-2xl text-text-warm ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                      {t('section_eco_flower')}
                     </h3>
                     <div className="flex-1 h-px bg-background-beige" />
                   </div>
-                  <p className="text-text-warm/60 text-sm font-sans italic">
-                    Currently serializing the 'Eco-Flower' series in Magazine 'Flora' (since 2021)
+                  <p className={`text-text-warm/60 text-sm italic ${isEnglish ? 'font-sans' : 'font-sans'}`}>
+                    {t('section_eco_flower_desc')}
                   </p>
                 </div>
 
@@ -185,18 +191,18 @@ export default function FlowersArchive() {
                           {/* Hover Overlay */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pb-0">
                             <span className="text-white text-[10px] tracking-[0.2em] font-label-en border border-white/40 px-3 py-2 rounded-full backdrop-blur-sm">
-                              VIEW FULL ARTICLE
+                              {t('view_full_article')}
                             </span>
                           </div>
                         </div>
 
                         {/* Caption styling to match Flora covers */}
                         <div className="mt-6 text-center lg:text-left">
-                          <h4 className="text-text-warm text-[15px] mb-1 tracking-wide italic font-display-en">
-                            Eco-Flower No.{imgNum}
+                          <h4 className={`text-text-warm text-[15px] mb-1 tracking-wide italic ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                            {t('section_eco_flower')} No.{imgNum}
                           </h4>
                           <p className="text-accent-sage text-[11px] uppercase tracking-[0.1em] font-sans">
-                            Published in Flora
+                            {t('published_in')}
                           </p>
                         </div>
                       </motion.div>
@@ -218,7 +224,7 @@ export default function FlowersArchive() {
                       onClick={() => setVisibleEcoCount(prev => Math.min(prev + 9, ECO_FLOWER_TOTAL))}
                       className="px-8 py-3 bg-white border border-background-beige text-text-warm/70 rounded-full text-xs font-label-en tracking-widest hover:bg-text-warm hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md"
                     >
-                      LOAD MORE
+                      {t('load_more')}
                     </button>
                   </motion.div>
                 )}
@@ -239,8 +245,8 @@ export default function FlowersArchive() {
             >
               <div className="mb-24">
                 <div className="flex items-center gap-3 mb-10">
-                  <h3 className="text-2xl text-text-warm font-display-en">
-                    Flower Reflection on Books
+                  <h3 className={`text-2xl text-text-warm ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                    {t('section_portfolio')}
                   </h3>
                   <div className="flex-1 h-px bg-background-beige" />
                 </div>
@@ -275,13 +281,13 @@ export default function FlowersArchive() {
               <div className="mb-24">
                 <div className="flex flex-col gap-2 mb-16">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-2xl text-text-warm font-display-en">
-                      Monthly Flower
+                    <h3 className={`text-2xl text-text-warm ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                      {t('section_monthly')}
                     </h3>
                     <div className="flex-1 h-px bg-background-beige" />
                   </div>
-                  <p className="text-text-warm/60 text-sm font-sans italic">
-                    A year of floral expressions, layered month by month
+                  <p className={`text-text-warm/60 text-sm italic ${isEnglish ? 'font-sans' : 'font-sans'}`}>
+                    {t('section_monthly_desc')}
                   </p>
                 </div>
 
@@ -319,8 +325,8 @@ export default function FlowersArchive() {
                             {/* Label */}
                             <div className="absolute -bottom-6 right-8 md:-right-6 bg-white/90 backdrop-blur-md border border-background-beige/30 px-8 py-5 rounded-2xl shadow-xl">
                               <p className="text-accent-sage font-label-en tracking-[0.2em] text-[10px] mb-1">MAYFLOR ARCHIVE</p>
-                              <h4 className="text-text-warm font-display-en text-2xl italic">
-                                {new Date(2024, item.month - 1).toLocaleString('en-US', { month: 'long' })}
+                              <h4 className={`text-text-warm text-2xl italic ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                                {new Date(2024, item.month - 1).toLocaleString(isEnglish ? 'en-US' : 'ko-KR', { month: 'long' })}
                               </h4>
                             </div>
                           </div>
@@ -392,8 +398,8 @@ export default function FlowersArchive() {
             >
               <div className="mb-16">
                 <div className="flex items-center gap-3 mb-10">
-                  <h3 className="text-2xl text-text-warm font-display-en">
-                    Flower Online Class
+                  <h3 className={`text-2xl text-text-warm ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                    {t('section_class')}
                   </h3>
                   <div className="flex-1 h-px bg-background-beige" />
                 </div>
@@ -406,15 +412,21 @@ export default function FlowersArchive() {
                         <span className="px-3 py-1 bg-text-warm text-white text-[10px] font-label-en tracking-widest rounded-full shadow-lg">ONLINE WORKSHOP</span>
                       </div>
                     </div>
-                    <div className="p-10 flex flex-col flex-1">
-                      <h4 className="text-2xl text-text-warm font-title-ko mb-2">{item.title}</h4>
-                      <p className="text-accent-sage text-sm font-sans mb-4">{item.subtitle}</p>
-                      <p className="text-text-warm/60 text-[15px] leading-relaxed mb-8 font-sans">{item.desc}</p>
+                     <div className="p-10 flex flex-col flex-1">
+                      <h4 className={`text-2xl text-text-warm mb-2 ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                        {t(`items.classes.${item.id}.title`)}
+                      </h4>
+                      <p className={`text-accent-sage text-sm mb-4 ${isEnglish ? 'font-sans' : 'font-sans'}`}>
+                        {t(`items.classes.${item.id}.subtitle`)}
+                      </p>
+                      <p className={`text-text-warm/60 text-[15px] leading-relaxed mb-8 ${isEnglish ? 'font-sans' : 'font-sans'}`}>
+                        {t(`items.classes.${item.id}.desc`)}
+                      </p>
                       
                       <div className="mt-auto">
                         <div className="space-y-3 mb-10">
-                          {item.curriculum.map((c, i) => (
-                            <div key={i} className="flex items-center gap-3 text-sm text-text-warm/70 font-sans">
+                          {t(`items.classes.${item.id}.curriculum`, { returnObjects: true }).map((c, i) => (
+                            <div key={i} className={`flex items-center gap-3 text-sm text-text-warm/70 ${isEnglish ? 'font-sans' : 'font-sans'}`}>
                               <CheckCircle2 size={14} className="text-accent-sage" />
                               {c}
                             </div>
@@ -426,7 +438,7 @@ export default function FlowersArchive() {
                           rel="noopener noreferrer"
                           className="w-full py-4 bg-background-linen rounded-2xl flex items-center justify-center gap-3 text-text-warm hover:bg-text-warm hover:text-white transition-all font-label-en tracking-widest text-xs"
                         >
-                          <Video size={16} /> VIEW CURRICULUM
+                          <Video size={16} /> {t('view_curriculum')}
                         </a>
                       </div>
                     </div>

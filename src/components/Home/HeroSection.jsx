@@ -2,9 +2,12 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 export default function HeroSection() {
   const { t } = useTranslation('home');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -46,21 +49,28 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center"
         >
-          <h1 
-            className="text-5xl md:text-6xl lg:text-7xl mb-4 text-text-warm font-display-en font-medium"
+          <motion.h1 
+            className={`text-5xl md:text-6xl lg:text-7xl mb-4 text-text-warm ${
+              isEnglish ? 'font-display-en font-medium' : 'font-bold'
+            }`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             style={{ 
               textRendering: 'geometricPrecision',
-              fontOpticalSizing: 'auto',
-              letterSpacing: '0.02em'
+              letterSpacing: isEnglish ? '0.05em' : '0.02em'
             }}
           >
             {t('hero.name')}
-          </h1>
-          <p 
-            className="text-base md:text-lg tracking-[0.3em] text-text-warm/80 uppercase font-sans-en"
+          </motion.h1>
+          <motion.p 
+            className="text-base md:text-lg tracking-[0.3em] text-text-warm/80 uppercase font-label-en"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
             {t('hero.subtitle')}
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Animated Scroll Indicator - Pulsing V shape for next action guidance */}

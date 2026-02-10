@@ -5,9 +5,12 @@ import Layout from '@/components/Layout/Layout';
 import FlowersArchive from '@/components/Media/FlowersArchive';
 import { motion } from 'framer-motion';
 import { Flower2, Instagram } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 export default function FlowersPage() {
   const { t } = useTranslation('flowers');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   
   return (
     <Layout>
@@ -38,15 +41,17 @@ export default function FlowersPage() {
                 <Flower2 className="text-accent-sage" size={32} />
               </div>
               <h1
-                className="text-4xl lg:text-6xl mb-4 text-text-warm font-display-en font-medium"
+                className={`text-4xl lg:text-6xl mb-4 text-text-warm ${
+                  isEnglish ? 'font-display-en font-medium' : 'font-title-ko'
+                }`}
                 style={{ 
-                  letterSpacing: '0.05em'
+                  letterSpacing: isEnglish ? '0.05em' : '0.02em'
                 }}
               >
                 {t('hero_title')}
               </h1>
               <p
-                className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
+                className="text-lg max-w-2xl mx-auto text-text-warm/70"
                 style={{ 
                   lineHeight: '1.8'
                 }}
@@ -78,7 +83,7 @@ export default function FlowersPage() {
                 </span>
               </div>
               <h2
-                className="text-3xl lg:text-4xl mb-2 text-[#3D3D3D] font-display-en"
+                className="text-3xl lg:text-4xl mb-2 text-[#3D3D3D] font-bold"
               >
                 Latest Works
               </h2>

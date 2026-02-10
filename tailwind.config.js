@@ -22,9 +22,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        serif: ["Noto Serif KR", "serif"],
         display: ["Fraunces", "serif"],
-        sans: ["Noto Sans KR", "Inter", "sans-serif"],
+        sans: ["Pretendard Variable", "Inter", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
       },
       lineHeight: {
         organic: "1.9",

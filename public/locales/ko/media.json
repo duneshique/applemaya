@@ -1,16 +1,48 @@
 {
   "page_title": "미디어 | 문혜정",
-  "meta_description": "문혜정 작가의 언론 보도, 인터뷰, 미디어 출연 모음.",
-  "og_description": "언론 보도, 인터뷰, 미디어 출연",
+  "meta_description": "작가이자 플로리스트 문혜정 작가의 언론 보도, 인터뷰 및 미디어 출연 기록",
+  "og_description": "언론 보도, 인터뷰 및 미디어 출연",
   
   "hero_title": "Press & Media",
-  "hero_subtitle": "인터뷰, 언론 보도, 미디어 출연",
+  "hero_subtitle": "언론 보도, 인터뷰 그리고 미디어 출연",
   
   "filter_all": "전체",
   "filter_interview": "인터뷰",
   "filter_news": "뉴스",
-  "filter_youtube": "유튜브",
+  "filter_youtube": "YouTube",
   
   "read_article": "기사 읽기",
-  "watch_video": "영상 보기"
+  "watch_video": "영상 보기",
+  "items": {
+    "1": {
+      "title": "운명은 정해져 있지만 내 선택으로 매 순간 바뀔 수 있다는 것이 타로카드의 매력",
+      "publication": "채널예스",
+      "excerpt": "타로카드는 사주팔자처럼 태어날 때부터 정해진 틀이 있는 게 아니라 카드를 뽑는 사람의 현재 상황, 마음 상태, 질문을 하는 시기에 따라 답이 달라집니다."
+    },
+    "6": {
+      "title": "당신도 모르는 당신의 마음을 읽어드립니다!",
+      "publication": "브런치",
+      "excerpt": "이혜성 아나운서가 소개하는 브런치북 12회 대상 출간작 10편 중, 마지막 작품 『타로카드 읽는 카페』가 출간되었습니다."
+    },
+    "7": {
+      "title": "꽃과 살다보면 달라지는 것들",
+      "publication": "채널 예스",
+      "excerpt": ""
+    },
+    "8": {
+      "title": "오늘의 책 '타로카드 읽는 카페'",
+      "publication": "KNN 뉴스",
+      "excerpt": ""
+    },
+    "9": {
+      "title": "[신간] 결핍을 마주하고 치유하는 과정…'타로카드 읽는 카페'",
+      "publication": "뉴시스",
+      "excerpt": ""
+    },
+    "10": {
+      "title": "일 년 열두 달, 흔들리는 꽃",
+      "publication": "월간에세이",
+      "excerpt": ""
+    }
+  }
 }

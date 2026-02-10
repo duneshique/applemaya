@@ -10,9 +10,9 @@
   "tab_portfolio": "PORTFOLIO",
   "tab_class": "ONLINE CLASS",
   
-  "section_flora_covers": "Flora Covers",
+  "section_flora_covers": "Magazine 'Flora' Cover Design",
   "section_eco_flower": "Eco-Flower Series",
-  "section_eco_flower_desc": "A sustainable floral design series featured in Flora magazine",
+  "section_eco_flower_desc": "A sustainable floral design series featured in Flora magazine since 2021",
   "section_portfolio": "Flower Reflection on Books",
   "section_monthly": "Monthly Flower",
   "section_monthly_desc": "A year of floral expressions, layered month by month",
@@ -20,5 +20,30 @@
   
   "badge_online_workshop": "ONLINE WORKSHOP",
   "view_curriculum": "VIEW CURRICULUM",
-  "coming_soon": "Coming Soon"
+  "view_details": "VIEW DETAILS",
+  "view_full_article": "VIEW FULL ARTICLE",
+  "load_more": "LOAD MORE",
+  "coming_soon": "Coming Soon",
+  "published_in": "Published in Flora",
+  "mayaflor_design": "Mayaflor Design",
+
+  "items": {
+    "flora": {
+      "issue_title": "{{year}}, {{month}} Issue"
+    },
+    "classes": {
+      "1": {
+        "title": "Part 1. Bouquet",
+        "subtitle": "Design your own Bouquet",
+        "desc": "Video lectures and text handbook to start your Mayaflor flower design workshop",
+        "curriculum": ["Light Bouquet", "Bold Bouquet", "Vivid Bouquet", "Neutral Bouquet"]
+      },
+      "2": {
+        "title": "Part 2. No-Floral Foam Arrangement",
+        "subtitle": "Sustainable techniques for eco-friendly design",
+        "desc": "Master natural fixing methods using chicken wire and pin frogs for environmentally conscious arrangements",
+        "curriculum": ["Chicken wire fixing technique", "Pin frog fixing technique", "No-floral foam arrangement inspiration"]
+      }
+    }
+  }
 }

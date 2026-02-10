@@ -3,10 +3,13 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { books } from '@/data/books';
 
 export default function BooksSection() {
   const { t } = useTranslation(['books', 'common']);
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   
   const openPreview = (book) => {
     const previewUrl = book.aladinPreviewUrl || `https://product.kyobobook.co.kr/book/preview/${book.kyobobookId}`;
@@ -38,15 +41,17 @@ export default function BooksSection() {
             <BookOpen className="text-accent-sage" size={32} />
           </div>
           <h2
-            className="text-4xl lg:text-6xl mb-8 text-text-warm font-display-en font-medium"
+            className={`text-4xl lg:text-6xl mb-8 text-text-warm ${
+              isEnglish ? 'font-display-en font-medium' : 'font-bold'
+            }`}
             style={{ 
-              letterSpacing: '0.05em'
+              letterSpacing: isEnglish ? '0.05em' : '0.02em'
             }}
           >
             {t('books:title')}
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
+            className="text-lg max-w-2xl mx-auto text-text-warm/70"
             style={{ 
               lineHeight: '1.8'
             }}
@@ -93,20 +98,24 @@ export default function BooksSection() {
 
               <div className={index % 2 === 1 ? 'lg:order-1 flex flex-col items-end text-right' : 'flex flex-col items-start'}>
                 <h3
-                  className="text-3xl lg:text-4xl mb-3 text-text-warm font-display-en font-medium"
-                  style={{ 
-                    letterSpacing: '0.05em'
-                  }}
+                  className={`text-3xl lg:text-4xl mb-3 text-text-warm ${
+                    isEnglish ? 'font-display-en font-medium' : 'font-bold'
+                  }`}
+                  style={{ letterSpacing: isEnglish ? '0.02em' : '0.01em' }}
                 >
                   {t(`books:items.${index}.title`)}
                 </h3>
                 <p
-                  className="text-xl mb-6 text-accent-sage font-display-en"
+                  className={`text-xl mb-6 text-accent-sage ${
+                    isEnglish ? 'font-sans-en' : ''
+                  }`}
                 >
                   {t(`books:items.${index}.subtitle`)}
                 </p>
                 <p
-                  className="text-text-warm/80 mb-8 font-sans-en"
+                  className={`text-text-warm/80 mb-8 ${
+                    isEnglish ? 'font-sans-en' : ''
+                  }`}
                   style={{ 
                     lineHeight: '1.8'
                   }}

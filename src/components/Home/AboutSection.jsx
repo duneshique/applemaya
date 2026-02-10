@@ -1,11 +1,13 @@
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
-import { Instagram, BookOpen, Youtube } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 export default function AboutSection() {
   const { t } = useTranslation('home');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -16,7 +18,7 @@ export default function AboutSection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -32,90 +34,77 @@ export default function AboutSection() {
 
   return (
     <section 
-      ref={sectionRef}
       id="about" 
-      className="py-[120px] px-6 md:px-[60px] bg-background-linen"
+      ref={sectionRef}
+      className="py-24 lg:py-32 bg-background-linen"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-          {/* Left: Circular Profile Photo */}
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="flex justify-center"
+            className="relative flex justify-center items-center"
           >
-            <div className="relative">
-              <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+            {/* Oval Frame Container - 20% smaller */}
+            <div className="relative w-[80%] max-w-[400px] mx-auto">
+              {/* Decorative Oval Border */}
+              <div 
+                className="absolute inset-0 rounded-[50%] border-4 border-accent-sage/30"
+                style={{
+                  transform: 'scale(1.05)',
+                  filter: 'blur(1px)'
+                }}
+              />
+              
+              {/* Main Oval Image Container */}
+              <div 
+                className="relative w-full overflow-hidden shadow-2xl"
+                style={{
+                  aspectRatio: '3/4',
+                  borderRadius: '50%'
+                }}
+              >
                 <Image
                   src="/images/profile/hyejeong_moon.webp"
                   alt={t('about.altPhoto')}
                   fill
-                  sizes="(max-width: 768px) 300px, 400px"
+                  sizes="(max-width: 768px) 80vw, 40vw"
                   className="object-cover"
+                  style={{
+                    objectPosition: 'center 20%'
+                  }}
                   priority
                 />
               </div>
             </div>
           </motion.div>
 
-          {/* Right: About Text */}
+          {/* Right: Text Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-3xl font-display-en font-medium mb-8 text-text-warm"
+              className={`text-3xl mb-8 text-text-warm ${isEnglish ? 'font-display-en font-medium' : 'font-bold'}`}
             >
               {t('about.title')}
             </h2>
             
             <div 
-              className="space-y-6 text-[16px] text-text-muted leading-relaxed font-sans-en"
+              className="space-y-6 text-[16px] text-text-muted leading-relaxed"
             >
               <p>
                 {t('about.paragraph1')}
               </p>
-              
               <p>
                 {t('about.paragraph2')}
               </p>
-              
               <p>
                 {t('about.paragraph3')}
               </p>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex gap-4 mt-8">
-              <a
-                href="https://www.instagram.com/mayaflor_co/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#E4405F] transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://brunch.co.kr/@mayaflor"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#1C1C1C] transition-colors duration-300"
-                aria-label="Brunch"
-              >
-                <BookOpen className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.youtube.com/@mayaflor"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-accent-sage flex items-center justify-center text-white hover:bg-[#FF0000] transition-colors duration-300"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
             </div>
           </motion.div>
         </div>

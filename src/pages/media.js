@@ -5,9 +5,12 @@ import Layout from '@/components/Layout/Layout';
 import MediaArchive from '@/components/Media/MediaArchive';
 import { motion } from 'framer-motion';
 import { Newspaper } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 export default function MediaPage() {
   const { t } = useTranslation('media');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   
   return (
     <Layout>
@@ -36,13 +39,15 @@ export default function MediaPage() {
                 <Newspaper className="text-accent-sage" size={32} />
               </div>
               <h1
-                className="text-4xl lg:text-6xl mb-4 text-text-warm font-display-en font-medium"
-                style={{ letterSpacing: '0.05em' }}
+                className={`text-4xl lg:text-6xl mb-4 text-text-warm ${
+                  isEnglish ? 'font-display-en font-medium' : 'font-bold'
+                }`}
+                style={{ letterSpacing: isEnglish ? '0.05em' : '0.02em' }}
               >
                 {t('hero_title')}
               </h1>
               <p
-                className="text-lg max-w-2xl mx-auto text-text-warm/70 font-sans-en"
+                className="text-lg max-w-2xl mx-auto text-text-warm/70"
                 style={{ lineHeight: '1.8' }}
               >
                 {t('hero_subtitle')}

@@ -54,7 +54,9 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/"
-            className="text-2xl font-display-en font-medium tracking-tight text-text-warm hover:opacity-70 transition-opacity"
+            className={`text-2xl tracking-tight text-text-warm hover:opacity-70 transition-opacity ${
+              router.locale === 'en' ? 'font-display-en font-medium' : 'font-bold'
+            }`}
           >
             {t('nav.brand')}
           </Link>

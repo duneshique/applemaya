@@ -2,14 +2,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Newspaper, Youtube, Mic, BookOpen } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { mediaItems } from '@/data/media';
-
-const categories = [
-  { id: 'all', label: 'All', icon: BookOpen },
-  { id: 'news', label: 'News', icon: Newspaper },
-  { id: 'interview', label: 'Interview', icon: Mic },
-  { id: 'youtube', label: 'YouTube', icon: Youtube },
-];
 
 const getIcon = (category) => {
   switch (category) {
@@ -21,7 +16,17 @@ const getIcon = (category) => {
 };
 
 export default function MediaArchive() {
+  const { t } = useTranslation(['media', 'common']);
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const [activeCategory, setActiveCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: t('filter_all'), icon: BookOpen },
+    { id: 'news', label: t('filter_news'), icon: Newspaper },
+    { id: 'interview', label: t('filter_interview'), icon: Mic },
+    { id: 'youtube', label: t('filter_youtube'), icon: Youtube },
+  ];
 
   const filteredItems = (activeCategory === 'all' 
     ? mediaItems 
@@ -78,7 +83,7 @@ export default function MediaArchive() {
                 <div className="sm:w-2/5 h-48 sm:h-auto relative overflow-hidden flex-shrink-0">
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={t(`media:items.${item.id}.title`)}
                     fill
                     sizes="(max-width: 640px) 100vw, 40vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -91,25 +96,25 @@ export default function MediaArchive() {
                 <div className="flex-1 p-6 lg:p-8 flex flex-col">
                   <div className="flex-1">
                     <span className="font-label-en text-accent-sage text-[9px] block mb-2 tracking-[0.2em]">
-                      {item.type}
+                      {t(`media:filter_${item.category}`).toUpperCase()}
                     </span>
-                    <h4 className="font-title-ko text-xl mb-3 text-text-warm group-hover:text-accent-sage transition-colors line-clamp-2 leading-[1.45]">
-                      {item.title}
+                    <h4 className={`text-xl mb-3 text-text-warm group-hover:text-accent-sage transition-colors line-clamp-2 leading-[1.45] ${isEnglish ? 'font-display-en' : 'font-title-ko'}`}>
+                      {t(`media:items.${item.id}.title`)}
                     </h4>
                     
-                    <p className="font-sans text-text-warm/40 mb-4 text-xs tracking-wide">
-                      {item.publication} · {item.date}
+                    <p className={`text-text-warm/40 mb-4 text-xs tracking-wide ${isEnglish ? 'font-sans-en' : 'font-sans'}`}>
+                      {t(`media:items.${item.id}.publication`)} · {item.date}
                     </p>
 
-                    {item.excerpt && (
-                      <p className="font-sans text-text-warm/60 text-sm line-clamp-2 leading-[1.8] mb-4">
-                        {item.excerpt}
+                    {t(`media:items.${item.id}.excerpt`) && (
+                      <p className={`text-text-warm/60 text-sm line-clamp-2 leading-[1.8] mb-4 ${isEnglish ? 'font-sans-en' : 'font-sans'}`}>
+                        {t(`media:items.${item.id}.excerpt`)}
                       </p>
                     )}
                   </div>
 
                   <span className="font-label-en text-accent-sage text-[10px] tracking-[0.15em] group-hover:text-accent-rose transition-colors inline-flex items-center gap-1">
-                    READ MORE 
+                    {t('common:cta.readMore')}
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </span>
                 </div>

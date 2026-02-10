@@ -1,24 +1,49 @@
 {
-  "page_title": "플라워 | 문혜정",
-  "meta_description": "문혜정의 플라워 작품, 월간 플로라 포트폴리오, 프로젝트 모음.",
-  "og_description": "플라워 작품, 월간 플로라 포트폴리오, 프로젝트",
+  "page_title": "플라워 작업 | 문혜정",
+  "meta_description": "문혜정의 플라워 작업, 월간 플로라 매거진 포트폴리오 및 프로젝트",
+  "og_description": "문혜정의 플라워 작업, 월간 플로라 포트폴리오 및 프로젝트",
   
   "hero_title": "Flowers",
-  "hero_subtitle": "삶의 의미있는 순간을 위한 식물적 아름다움",
+  "hero_subtitle": "보태니컬 감성으로 채워가는 일상의 소중한 기록",
   
   "tab_flora": "FLORA",
   "tab_portfolio": "PORTFOLIO",
   "tab_class": "ONLINE CLASS",
   
-  "section_flora_covers": "플로라 커버",
-  "section_eco_flower": "에코플라워 시리즈",
-  "section_eco_flower_desc": "월간 플로라에 연재된 지속가능한 플라워 디자인 시리즈",
-  "section_portfolio": "책과 함께하는 꽃",
-  "section_monthly": "월간 플라워",
-  "section_monthly_desc": "한 해 동안의 꽃 이야기, 달마다 쌓여가는 기록",
+  "section_flora_covers": "매거진 '플로라' 커버 디자인",
+  "section_eco_flower": "에코 플라워 시리즈",
+  "section_eco_flower_desc": "2021년부터 월간 '플로라'에 연재 중인 지속가능한 플라워 디자인 기록",
+  "section_portfolio": "꽃후감 프로젝트",
+  "section_monthly": "일년 열두달, 흔들리는 꽃",
+  "section_monthly_desc": "열두 달의 꽃으로 채워가는 계절의 호흡",
   "section_class": "플라워 온라인 클래스",
   
-  "badge_online_workshop": "온라인 워크숍",
-  "view_curriculum": "커리큘럼 보기",
-  "coming_soon": "출시 예정"
+  "badge_online_workshop": "ONLINE WORKSHOP",
+  "view_curriculum": "커리큘럼 확인하기",
+  "view_details": "상세보기",
+  "view_full_article": "전체 기사 보기",
+  "load_more": "더 보기",
+  "coming_soon": "준비 중입니다",
+  "published_in": "플로라 매거진 연재",
+  "mayaflor_design": "마야플로르 디자인",
+
+  "items": {
+    "flora": {
+      "issue_title": "{{year}}년 {{month}}월호"
+    },
+    "classes": {
+      "1": {
+        "title": "Part 1. 꽃다발 클래스",
+        "subtitle": "나만의 감성을 담은 부케 디자인",
+        "desc": "마야플로르의 디자인 철학을 담은 영상 강의와 핸드북으로 시작하는 플라워 워크숍",
+        "curriculum": ["라이트 부케", "볼드 부케", "비비드 부케", "뉴트럴 부케"]
+      },
+      "2": {
+        "title": "Part 2. 노플로럴폼 어레인지먼트",
+        "subtitle": "지속가능한 디자인을 위한 친환경 기법",
+        "desc": "치킨 와이어와 침봉을 활용해 환경을 생각하고 자연스러운 선을 살리는 고정 기법 마스터",
+        "curriculum": ["치킨 와이어 고정 기법", "침봉 고정 기법", "노플로럴폼 디자인 영감"]
+      }
+    }
+  }
 }

@@ -5,9 +5,12 @@ import Link from 'next/link';
 import Layout from '@/components/Layout/Layout';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 export default function Custom404() {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   
   return (
     <Layout>
@@ -25,7 +28,9 @@ export default function Custom404() {
         >
           {/* 404 Display */}
           <motion.h1 
-            className="text-8xl lg:text-9xl font-display-en text-text-warm/20 mb-4"
+            className={`text-8xl lg:text-9xl text-text-warm/20 mb-4 ${
+              isEnglish ? 'font-display-en font-medium' : 'font-bold'
+            }`}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -35,7 +40,9 @@ export default function Custom404() {
           </motion.h1>
           
           {/* Message */}
-          <h2 className="text-2xl lg:text-3xl font-display-en text-text-warm mb-4">
+          <h2 className={`text-2xl lg:text-3xl text-text-warm mb-4 ${
+            isEnglish ? 'font-display-en font-medium' : 'font-bold'
+          }`}>
             Page Not Found
           </h2>
           <p className="text-text-warm/60 font-sans-en mb-8 max-w-md mx-auto">

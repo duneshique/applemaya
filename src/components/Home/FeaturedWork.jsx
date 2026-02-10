@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 const featuredWorks = [
   {
@@ -28,6 +30,9 @@ const featuredWorks = [
 ];
 
 export default function FeaturedWork() {
+  const { t } = useTranslation('home');
+  const router = useRouter();
+  const isEnglish = router.locale === 'en';
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -62,9 +67,11 @@ export default function FeaturedWork() {
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-[36px] text-center mb-16 font-display-en text-text-warm"
+          className={`text-[36px] text-center mb-16 text-text-warm ${
+            isEnglish ? 'font-display-en font-medium' : 'font-bold'
+          }`}
         >
-          Featured Work
+          {t('featured.title')}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -75,12 +82,12 @@ export default function FeaturedWork() {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group block bg-white rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2"
+              className="group block bg-white rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2 border border-background-beige/20"
             >
               <div className="relative w-full overflow-hidden" style={{ paddingTop: '62.5%' }}>
                 <Image
                   src={work.image}
-                  alt={work.title}
+                  alt={t(`featured.works.${index}.title`)}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -89,20 +96,24 @@ export default function FeaturedWork() {
 
               <div className="p-6">
                 <h3 
-                  className="text-[24px] mb-3 text-text-warm font-display-en"
+                  className={`text-[24px] mb-3 text-text-warm group-hover:text-accent-sage transition-colors ${
+                    isEnglish ? 'font-display-en' : 'font-bold'
+                  }`}
                 >
-                  {work.title}
+                  {t(`featured.works.${index}.title`)}
                 </h3>
                 <p 
-                  className="text-[14px] text-text-muted mb-4 line-clamp-2 font-sans-en"
+                  className={`text-[14px] text-text-muted mb-4 line-clamp-2 ${
+                    isEnglish ? 'font-sans-en' : 'font-sans'
+                  }`}
                   style={{ 
                     lineHeight: '1.6'
                   }}
                 >
-                  {work.description}
+                  {t(`featured.works.${index}.description`)}
                 </p>
-                <div className="flex items-center gap-2 text-accent-rose group-hover:gap-3 transition-all font-sans-en">
-                  <span>View More</span>
+                <div className="flex items-center gap-2 text-accent-sage group-hover:gap-3 transition-all font-sans-en text-[13px] tracking-wider">
+                  <span>VIEW MORE</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
