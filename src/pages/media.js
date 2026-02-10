@@ -20,6 +20,9 @@ export default function MediaPage() {
         <meta property="og:title" content={t('page_title')} />
         <meta property="og:description" content={t('og_description')} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/profile/hyejeong_moon.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/images/profile/hyejeong_moon.webp" />
       </Head>
 
       <motion.div

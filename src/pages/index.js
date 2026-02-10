@@ -22,6 +22,10 @@ export default function Home() {
         <meta property="og:title" content={t('meta.homeTitle')} />
         <meta property="og:description" content={t('meta.homeDesc')} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/profile/hyejeong_moon.webp" />
+        <meta property="og:site_name" content={t('meta.siteName')} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/images/profile/hyejeong_moon.webp" />
       </Head>
 
       <motion.div
